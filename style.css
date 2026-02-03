@@ -1,0 +1,193 @@
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+  color: #333;
+}
+
+/* Hidden helper class */
+.hidden {
+  display: none;
+}
+
+/* Envelope screen styles */
+#envelope-screen {
+  text-align: center;
+}
+
+#envelope {
+  width: 200px;
+  height: 120px;
+  position: relative;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.envelope-body {
+  width: 100%;
+  height: 70%;
+  background: #fff;
+  border: 2px solid #e91e63;
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+}
+
+.envelope-flap {
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-top: 60px solid #fff;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  /* Outline the flap */
+  box-sizing: border-box;
+  border-top: 60px solid #fff;
+  border-left: 2px solid #e91e63;
+  border-right: 2px solid #e91e63;
+  border-bottom: none;
+  border-radius: 0 0 6px 6px;
+}
+
+.prompt {
+  margin-top: 15px;
+  font-size: 1.2em;
+  color: #e91e63;
+  font-weight: bold;
+}
+
+/* Letter screen styles */
+#letter-screen {
+  text-align: center;
+}
+
+.letter-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  border: 2px solid #e91e63;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  width: 320px;
+}
+
+/* Wrapper around the letter and floating photos */
+.letter-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Floating photos around the letter card */
+.floating-photo {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  animation: float 5s ease-in-out infinite;
+  pointer-events: none; /* allow clicks on underlying buttons */
+}
+
+/* Individual photo positions and animation delays */
+.photo1 {
+  top: -70px;
+  left: -90px;
+  animation-delay: 0s;
+}
+
+.photo2 {
+  top: -80px;
+  right: -90px;
+  animation-delay: 0.7s;
+}
+
+.photo3 {
+  bottom: -80px;
+  left: -80px;
+  animation-delay: 1.4s;
+}
+
+.photo4 {
+  bottom: -90px;
+  right: -80px;
+  animation-delay: 2.1s;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.letter-title {
+  font-size: 1.4em;
+  color: #e91e63;
+  margin: 0 0 15px;
+}
+
+.cat-image {
+  width: 160px;
+  height: auto;
+  margin: 0 auto 15px;
+  display: block;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  height: 60px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#yes-btn {
+  background: #e91e63;
+  color: #fff;
+}
+
+#yes-btn:hover {
+  background: #d81b60;
+  transform: translateY(-2px);
+}
+
+#no-btn {
+  background: #f8bbd0;
+  color: #e91e63;
+  position: relative;
+}
+
+#no-btn:hover {
+  background: #f48fb1;
+}
+
+.final-message {
+  margin-top: 20px;
+  color: #e91e63;
+  font-weight: bold;
+  line-height: 1.4;
+}

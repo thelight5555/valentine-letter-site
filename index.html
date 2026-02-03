@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valentine Letter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Envelope screen -->
+  <div id="envelope-screen">
+    <div id="envelope">
+      <div class="envelope-body"></div>
+      <div class="envelope-flap"></div>
+    </div>
+    <p class="prompt">♡ Letter for You ♡</p>
+  </div>
+
+  <!-- Letter screen (initially hidden) -->
+  <div id="letter-screen" class="hidden">
+    <div class="letter-wrapper">
+      <div class="letter-card">
+        <h1 class="letter-title">Golu the Light… will you be my Valentine?</h1>
+        <img src="cat_heart.png" alt="Cute cat holding heart" class="cat-image" />
+        <div class="buttons">
+          <button id="yes-btn">Yes</button>
+          <button id="no-btn">No</button>
+        </div>
+        <p id="final-message" class="final-message hidden">Valentine Date: Meow Restaurant at 7&nbsp;pm. Dress fancy! With love, Golu the Light 💖</p>
+      </div>
+      <!-- Floating photos around the letter -->
+      <img src="photo1.jpg" alt="Photo 1" class="floating-photo photo1" />
+      <img src="photo2.jpg" alt="Photo 2" class="floating-photo photo2" />
+      <img src="photo3.jpg" alt="Photo 3" class="floating-photo photo3" />
+      <img src="photo4.jpg" alt="Photo 4" class="floating-photo photo4" />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
