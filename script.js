@@ -17,9 +17,13 @@ if (envelope) {
 // When "Yes" is clicked, show final message
 if (yesBtn) {
   yesBtn.addEventListener('click', () => {
+    // Hide buttons
     yesBtn.style.display = 'none';
     noBtn.style.display = 'none';
+    // Show final message
     finalMessage.classList.remove('hidden');
+    // Trigger celebration hearts
+    createHearts();
   });
 }
 
@@ -39,4 +43,34 @@ if (noBtn) {
     noBtn.style.left = `${randomX}px`;
     noBtn.style.top = `${randomY}px`;
   });
+}
+
+// Create floating hearts animation when yes is clicked
+function createHearts() {
+  const container = document.getElementById('hearts-container');
+  if (!container) return;
+  container.style.display = 'block';
+  // Generate multiple heart elements with random positions and delays
+  const heartCount = 30;
+  for (let i = 0; i < heartCount; i++) {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    // Set a random horizontal position
+    heart.style.left = Math.random() * 100 + '%';
+    // Stagger the animations with random delays
+    heart.style.animationDelay = (Math.random() * 3).toFixed(2) + 's';
+    container.appendChild(heart);
+    // Remove the heart after its animation completes (randomized extra time)
+    setTimeout(() => {
+      heart.remove();
+    }, 5000 + Math.random() * 2000);
+  }
+  // Hide the container after animations finish
+  setTimeout(() => {
+    container.style.display = 'none';
+    // Clear any remaining hearts
+    while (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
+  }, 7000);
 }
