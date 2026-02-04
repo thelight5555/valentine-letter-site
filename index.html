@@ -39,16 +39,62 @@
           <button id="yes-btn">Yes</button>
           <button id="no-btn">No</button>
         </div>
-      <p id="final-text" class="final-text hidden"><strong>Valentine Date:</strong> I'll pick you up—be ready by 7 pm. With love, Golu the Light ❤️</p>
-<!-- Floating photos around the letter -->
-<img src="photo1.jpg" alt="Photo 1" class="floating-photo photo1" data-message="From our first date to now, your caring smile has always warmed my heart." />
-<img src="photo2.jpg" alt="Photo 2" class="floating-photo photo2" data-message="Our laughter together shows how thoughtful and loving you are." />
-<img src="photo3.jpg" alt="Photo 3" class="floating-photo photo3" data-message="Every adventure we share is a memorable time reminding me of our love." />
-<img src="photo4.jpg" alt="Photo 4" class="floating-photo photo4" data-message="Your thoughtful nature and loving heart make every day brighter for me." />
-<img src="photo5.jpg" alt="Photo 5" class="floating-photo photo5" data-message="In your arms, I find my home and endless happiness." />                  
+        <p id="final-message" class="final-message hidden">Valentine Date: I'll pick you up—be ready by 7 pm. With love, Golu the Light ❤️</p>
+      </div>
+      <!-- Floating photos around the letter -->
+      <!-- Each floating photo now has a data-message attribute containing a unique love note. When clicked,
+           the message will appear in the secret modal. -->
+      <img src="photo1.jpg" alt="Photo 1" class="floating-photo photo1" data-message="From our first date to now, your caring smile has always warmed my heart." />
+      <img src="photo2.jpg" alt="Photo 2" class="floating-photo photo2" data-message="Our laughter together shows how thoughtful and loving you are." />
+      <img src="photo3.jpg" alt="Photo 3" class="floating-photo photo3" data-message="Every adventure we share is a memorable time reminding me of our love." />
+      <img src="photo4.jpg" alt="Photo 4" class="floating-photo photo4" data-message="Your thoughtful nature and loving heart make every day brighter for me." />
+      <img src="photo5.jpg" alt="Photo 5" class="floating-photo photo5" data-message="In your arms, I find my home and endless happiness." />
+      <!-- Memory match game: hidden by default. This interactive game uses tiny heart cards with your own photos. When all pairs are matched, a heartfelt note appears. -->
+      <div id="memory-game" class="memory-game hidden">
+        <h2>Memory Match Game</h2>
+        <p>Match all the heart cards to reveal a special surprise!</p>
+        <div class="memory-grid">
+          <!-- Each memory card has a front (heart icon) and back (photo). Duplicate each photo to create pairs. -->
+          <div class="memory-card" data-image="photo1.jpg">
+            <div class="card-front">❤</div>
+            <div class="card-back"><img src="photo1.jpg" alt="Memory Card 1" /></div>
+          </div>
+          <div class="memory-card" data-image="photo1.jpg">
+            <div class="card-front">❤</div>
+            <div class="card-back"><img src="photo1.jpg" alt="Memory Card 1 match" /></div>
+          </div>
+          <div class="memory-card" data-image="photo2.jpg">
+            <div class="card-front">❤</div>
+            <div class="card-back"><img src="photo2.jpg" alt="Memory Card 2" /></div>
+          </div>
+          <div class="memory-card" data-image="photo2.jpg">
+            <div class="card-front">❤</div>
+            <div class="card-back"><img src="photo2.jpg" alt="Memory Card 2 match" /></div>
+          </div>
+          <div class="memory-card" data-image="photo3.jpg">
+            <div class="card-front">❤</div>
+            <div class="card-back"><img src="photo3.jpg" alt="Memory Card 3" /></div>
+          </div>
+          <div class="memory-card" data-image="photo3.jpg">
+            <div class="card-front">❤</div>
+            <div class="card-back"><img src="photo3.jpg" alt="Memory Card 3 match" /></div>
+          </div>
+          <div class="memory-card" data-image="photo4.jpg">
+            <div class="card-front">❤</div>
+            <div class="card-back"><img src="photo4.jpg" alt="Memory Card 4" /></div>
+          </div>
+          <div class="memory-card" data-image="photo4.jpg">
+            <div class="card-front">❤</div>
+            <div class="card-back"><img src="photo4.jpg" alt="Memory Card 4 match" /></div>
+          </div>
+        </div>
+        <!-- Hidden message revealed when all pairs are matched -->
+        <p id="memory-message" class="final-message hidden">Another heartfelt note: Thank you for being so loving and caring. I cherish all our moments together.</p>
+      </div>
     </div>
   </div>
-<!--  <!-- Hearts container for celebration animation -->
+
+  <!-- Hearts container for celebration animation -->
   <div id="hearts-container"></div>
 
   <!-- Secret heart icon to trigger the hidden message -->
