@@ -75,7 +75,7 @@ if (envelope) {
   });
 }
 
-// When "Yes" is clicked, show final message
+// When "Yes" is clicked, show final message and memory game
 if (yesBtn) {
   yesBtn.addEventListener('click', () => {
     // Hide buttons
@@ -85,6 +85,12 @@ if (yesBtn) {
     finalMessage.classList.remove('hidden');
     // Trigger celebration hearts
     createHearts();
+
+    // Show the memory match game when Yes is clicked
+    const memoryGame = document.getElementById('memory-game');
+    if (memoryGame) {
+      memoryGame.classList.remove('hidden');
+    }
   });
 }
 
@@ -194,3 +200,51 @@ function createHearts() {
     }
   }, 7000);
 }
+
+// Memory match game logic
+(() => {
+  const memoryGame = document.getElementById('memory-game');
+  const memoryCards = document.querySelectorAll('.memory-card');
+  if (!memoryGame || !memoryCards || memoryCards.length === 0) return;
+  // Shuffle cards by assigning random order values
+  memoryCards.forEach((card) => {
+    const randomPos = Math.floor(Math.random() * memoryCards.length);
+    card.style.order = randomPos;
+  });
+  let firstCard = null;
+  let lockBoard = false;
+  let matchedPairs = 0;
+  function flipCard() {
+    if (lockBoard) return;
+    if (this === firstCard) return;
+    this.classList.add('flipped');
+    if (!firstCard) {
+      firstCard = this;
+      return;
+    }
+    const secondCard = this;
+    if (firstCard.dataset.image === secondCard.dataset.image) {
+      matchedPairs++;
+      firstCard.removeEventListener('click', flipCard);
+      secondCard.removeEventListener('click', flipCard);
+      firstCard = null;
+      if (matchedPairs === memoryCards.length / 2) {
+        const memoryMessage = document.getElementById('memory-message');
+        if (memoryMessage) {
+          memoryMessage.classList.remove('hidden');
+        }
+      }
+    } else {
+      lockBoard = true;
+      setTimeout(() => {
+        firstCard.classList.remove('flipped');
+        secondCard.classList.remove('flipped');
+        lockBoard = false;
+        firstCard = null;
+      }, 1000);
+    }
+  }
+  memoryCards.forEach((card) => {
+    card.addEventListener('click', flipCard);
+  });
+})();
