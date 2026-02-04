@@ -442,5 +442,10 @@ button {
 #secret-modal.hidden {
   display: none;
 }
+    /* Also ensure the secret modal is hidden by default */
+.secret-modal.hidden {
+  display: none !important;
+}
+
 }
 }
