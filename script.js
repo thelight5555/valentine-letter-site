@@ -12,6 +12,25 @@ const secretModal = document.getElementById('secret-modal');
 const closeSecret = document.getElementById('close-secret');
 const scavengerHearts = document.querySelectorAll('.scavenger-heart');
 
+// Floating photos around the letter card
+// Each photo has a data-message attribute with a unique love note. When a photo is clicked,
+// the modal text is updated with the corresponding message and the modal is shown.
+const floatingPhotos = document.querySelectorAll('.floating-photo');
+if (floatingPhotos && floatingPhotos.length > 0) {
+  floatingPhotos.forEach((photo) => {
+    photo.addEventListener('click', () => {
+      const message = photo.getAttribute('data-message');
+      if (secretModal) {
+        const contentParagraph = secretModal.querySelector('p');
+        if (message && contentParagraph) {
+          contentParagraph.textContent = message;
+        }
+      }
+      showSecret();
+    });
+  });
+}
+
 // Track found scavenger hearts
 let foundHearts = 0;
 const totalHearts = scavengerHearts ? scavengerHearts.length : 0;
@@ -119,6 +138,16 @@ if (secretHeart) {
 if (closeSecret) {
   closeSecret.addEventListener('click', () => {
     hideSecret();
+  });
+}
+
+// Allow closing the modal by clicking outside the modal content (on the overlay)
+if (secretModal) {
+  secretModal.addEventListener('click', (e) => {
+    // If the user clicks directly on the overlay (not the content), hide the modal
+    if (e.target === secretModal) {
+      hideSecret();
+    }
   });
 }
 
