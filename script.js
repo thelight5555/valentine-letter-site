@@ -6,6 +6,48 @@ const yesBtn = document.getElementById('yes-btn');
 const noBtn = document.getElementById('no-btn');
 const finalMessage = document.getElementById('final-message');
 
+// Secret elements
+const secretHeart = document.getElementById('secret-heart');
+const secretModal = document.getElementById('secret-modal');
+const closeSecret = document.getElementById('close-secret');
+const scavengerHearts = document.querySelectorAll('.scavenger-heart');
+
+// Track found scavenger hearts
+let foundHearts = 0;
+const totalHearts = scavengerHearts ? scavengerHearts.length : 0;
+
+// Messages for the No button when it dodges
+const noMessages = [
+  'Are you sure?',
+  'You might mean Yes!',
+  'Nice try!',
+  'I think you meant "Yes"'
+];
+let noIndex = 0;
+
+// Countdown timer initialization
+const countdownElement = document.getElementById('countdown-timer');
+if (countdownElement) {
+  // Target date for the romantic getaway (start of 13 Feb 2026)
+  const targetDate = new Date('2026-02-13T00:00:00');
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+    if (diff <= 0) {
+      countdownElement.textContent = 'We are on our romantic getaway!';
+      clearInterval(countdownInterval);
+      return;
+    }
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    countdownElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }
+  updateCountdown();
+  const countdownInterval = setInterval(updateCountdown, 1000);
+}
+
 // Open envelope to reveal letter
 if (envelope) {
   envelope.addEventListener('click', () => {
@@ -42,6 +84,55 @@ if (noBtn) {
     noBtn.style.position = 'absolute';
     noBtn.style.left = `${randomX}px`;
     noBtn.style.top = `${randomY}px`;
+
+    // Update the button text with a playful message
+    noBtn.textContent = noMessages[noIndex];
+    noIndex = (noIndex + 1) % noMessages.length;
+  });
+}
+
+// Show the secret modal
+function showSecret() {
+  if (secretModal) {
+    secretModal.classList.remove('hidden');
+    // Use flex to center content if it was hidden
+    secretModal.style.display = 'flex';
+  }
+}
+
+// Hide the secret modal
+function hideSecret() {
+  if (secretModal) {
+    secretModal.classList.add('hidden');
+    secretModal.style.display = 'none';
+  }
+}
+
+// Handle click on secret heart trigger
+if (secretHeart) {
+  secretHeart.addEventListener('click', () => {
+    showSecret();
+  });
+}
+
+// Handle click on close button inside modal
+if (closeSecret) {
+  closeSecret.addEventListener('click', () => {
+    hideSecret();
+  });
+}
+
+// Handle scavenger hearts: hide each when clicked and show secret when all are found
+if (scavengerHearts && scavengerHearts.length > 0) {
+  scavengerHearts.forEach((heart) => {
+    heart.addEventListener('click', () => {
+      // Hide the clicked heart
+      heart.style.display = 'none';
+      foundHearts++;
+      if (foundHearts >= totalHearts) {
+        showSecret();
+      }
+    });
   });
 }
 
