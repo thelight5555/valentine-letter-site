@@ -28,6 +28,11 @@
     <div class="letter-wrapper">
       <div class="letter-card">
         <h1 class="letter-title">Golu the Light… will you be my Valentine?</h1>
+        <!-- Countdown to romantic getaway -->
+        <div id="countdown" class="countdown">
+          <p>Countdown to our romantic getaway:</p>
+          <div id="countdown-timer">--d --h --m --s</div>
+        </div>
         <!-- Replace the cat image with a couple picture -->
         <img src="couple.jpg" alt="Our picture" class="cat-image" />
         <div class="buttons">
@@ -46,6 +51,23 @@
 
   <!-- Hearts container for celebration animation -->
   <div id="hearts-container"></div>
+
+  <!-- Secret heart icon to trigger the hidden message -->
+  <div id="secret-heart" class="secret-heart">❤</div>
+
+  <!-- Modal for the secret message (hidden by default) -->
+  <div id="secret-modal" class="secret-modal hidden">
+    <div class="secret-content">
+      <span id="close-secret" class="close">&times;</span>
+      <h2>Secret Message</h2>
+      <p>You are caring, thoughtful and lovely. I love you so much!</p>
+    </div>
+  </div>
+
+  <!-- Scavenger hunt hearts (click all to reveal secret) -->
+  <div class="scavenger-heart heart1">❤</div>
+  <div class="scavenger-heart heart2">❤</div>
+  <div class="scavenger-heart heart3">❤</div>
 
   <script src="script.js"></script>
 </body>
