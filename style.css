@@ -496,7 +496,85 @@ button {
     }
 
     #memory-message {
-      margin-top: 10px;
+  
+/* Additional floating photo (photo5) */
+.photo5 {
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-delay: 2.8s;
+}
+
+/* Memory match game styles */
+.memory-game {
+  margin-top: 20px;
+  text-align: center;
+  color: #e91e63;
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 70px);
+  grid-gap: 12px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.memory-card {
+  width: 70px;
+  height: 70px;
+  position: relative;
+  perspective: 600px;
+  cursor: pointer;
+}
+
+.memory-card .card-front,
+.memory-card .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s;
+}
+
+/* Front of the card (heart icon) */
+.memory-card .card-front {
+  background: #f8bbd0;
+  color: #e91e63;
+}
+
+/* Back of the card shows the photo */
+.memory-card .card-back {
+  background: #fff;
+  transform: rotateY(180deg);
+}
+
+/* Reveal card when flipped */
+.memory-card.flipped .card-front {
+  transform: rotateY(180deg);
+}
+.memory-card.flipped .card-back {
+  transform: rotateY(0);
+}
+
+/* Memory message styling */
+#memory-message {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #e91e63;
+}
+
+/* Ensure the secret modal remains hidden when also marked hidden */
+.secret-modal.hidden {
+  display: none !important;
+}
+    margin-top: 10px;
       font-weight: bold;
       color: #e91e63;
     }
