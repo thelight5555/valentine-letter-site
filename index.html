@@ -1,119 +1,753 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Valentine Letter</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Golu the Light 💖</title>
+  <style>
+    :root{
+      --pink-1:#ff4fa3;
+      --pink-2:#ff89c7;
+      --pink-3:#ffd1e8;
+      --bg-1:#fff0f8;
+      --bg-2:#ffe6f3;
+      --text:#3a0a22;
+      --card: rgba(255,255,255,.72);
+      --glass: rgba(255, 255, 255, .55);
+      --shadow: 0 20px 60px rgba(255, 50, 140, .22);
+      --shadow-2: 0 10px 35px rgba(70, 0, 35, .12);
+    }
+
+    *{ box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      overflow: hidden;
+      background:
+        radial-gradient(1200px 800px at 20% 10%, var(--bg-2), transparent 60%),
+        radial-gradient(900px 600px at 80% 30%, #ffe0f1, transparent 55%),
+        radial-gradient(800px 700px at 40% 90%, var(--bg-1), transparent 60%),
+        linear-gradient(135deg, #fff7fb, #ffe3f2);
+    }
+
+    /* soft floating background */
+    .bg-blobs::before,
+    .bg-blobs::after{
+      content:"";
+      position: absolute;
+      inset: -200px;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,79,163,.22), transparent 40%),
+        radial-gradient(circle at 70% 20%, rgba(255,137,199,.20), transparent 38%),
+        radial-gradient(circle at 55% 75%, rgba(255,209,232,.28), transparent 42%);
+      filter: blur(2px);
+      animation: drift 18s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    .bg-blobs::after{
+      animation-duration: 24s;
+      animation-direction: alternate-reverse;
+      opacity: .75;
+    }
+    @keyframes drift{
+      from{ transform: translate3d(-1%, -1%, 0) scale(1); }
+      to{ transform: translate3d(2%, 2%, 0) scale(1.05); }
+    }
+
+    /* floating photos */
+    .photos{
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .photo{
+      position: absolute;
+      width: clamp(120px, 16vw, 220px);
+      aspect-ratio: 4/5;
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(255,255,255,.35);
+      box-shadow: var(--shadow-2);
+      border: 1px solid rgba(255,255,255,.55);
+      transform: translateZ(0);
+      animation: floaty 10s ease-in-out infinite;
+      backdrop-filter: blur(6px);
+    }
+    .photo img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      filter: saturate(1.05) contrast(1.05);
+      transform: scale(1.03);
+    }
+    .photo::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(180deg, rgba(255,255,255,.15), rgba(255,79,163,.06));
+      pointer-events:none;
+    }
+    @keyframes floaty{
+      0%,100%{ transform: translate3d(0,0,0) rotate(-1deg); }
+      50%{ transform: translate3d(0,-18px,0) rotate(1deg); }
+    }
+
+    /* place 4 photos */
+    .p1{ top: 6%; left: 6%; animation-duration: 11s; }
+    .p2{ top: 10%; right: 7%; animation-duration: 13s; }
+    .p3{ bottom: 10%; left: 10%; animation-duration: 12s; }
+    .p4{ bottom: 7%; right: 9%; animation-duration: 14s; }
+
+    /* main card */
+    .wrap{
+      position: relative;
+      z-index: 3;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+    }
+    .card{
+      width: min(920px, 96vw);
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.7);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      padding: clamp(18px, 3vw, 34px);
+      position: relative;
+      overflow: hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,79,163,.18), transparent 40%),
+        radial-gradient(circle at 85% 35%, rgba(255,137,199,.14), transparent 45%),
+        radial-gradient(circle at 50% 90%, rgba(255,209,232,.16), transparent 46%);
+      pointer-events:none;
+    }
+
+    .topline{
+      display:flex;
+      gap: 14px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.6);
+      border: 1px solid rgba(255,79,163,.25);
+      box-shadow: 0 8px 25px rgba(255,79,163,.12);
+      font-weight: 650;
+      letter-spacing: .2px;
+    }
+    .dot{
+      width:10px; height:10px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink-1), var(--pink-2));
+      box-shadow: 0 0 0 6px rgba(255,79,163,.14);
+    }
+
+    h1{
+      margin: 16px 0 8px;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.05;
+      letter-spacing: -0.6px;
+      position: relative;
+      z-index: 1;
+    }
+    .sub{
+      margin: 0 0 16px;
+      font-size: clamp(14px, 2vw, 18px);
+      opacity: .9;
+      position: relative;
+      z-index: 1;
+    }
+
+    .question{
+      margin-top: 18px;
+      display:grid;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btnrow{
+      display:flex;
+      gap: 14px;
+      align-items:center;
+      flex-wrap: wrap;
+    }
+    button{
+      border: none;
+      cursor: pointer;
+      font-weight: 750;
+      letter-spacing: .2px;
+      border-radius: 16px;
+      padding: 14px 18px;
+      font-size: 16px;
+      transition: transform .15s ease, filter .15s ease;
+      box-shadow: 0 10px 28px rgba(255,79,163,.18);
+    }
+    button:active{ transform: translateY(1px) scale(.99); }
+
+    .yes{
+      background: linear-gradient(135deg, var(--pink-1), var(--pink-2));
+      color: white;
+    }
+    .yes:hover{ filter: brightness(1.03); transform: translateY(-1px); }
+
+    /* NO button floats + not clickable */
+    .no{
+      background: rgba(255,255,255,.85);
+      color: var(--text);
+      border: 1px solid rgba(255,79,163,.35);
+      cursor: default;
+      position: relative;
+    }
+    .no:hover{ transform: translateY(-1px); }
+
+    /* countdown */
+    .countdown{
+      display:none;
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.55);
+      border: 1px solid rgba(255,79,163,.22);
+      box-shadow: 0 10px 28px rgba(255,79,163,.12);
+      position: relative;
+      z-index: 1;
+    }
+    .countdown h2{
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing: -.2px;
+    }
+    .timer{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .pill{
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.7);
+      border: 1px solid rgba(255,79,163,.18);
+      min-width: 92px;
+      text-align:center;
+    }
+    .pill .num{
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .pill .lbl{
+      font-size: 12px;
+      opacity:.85;
+      margin-top: 4px;
+      display:block;
+    }
+
+    /* hearts layer */
+    .hearts{
+      position:absolute;
+      inset:0;
+      z-index: 2;
+      pointer-events: none; /* hearts won't block clicks unless we re-enable per heart */
+    }
+    .heart{
+      position:absolute;
+      width: 22px;
+      height: 22px;
+      transform: rotate(45deg);
+      opacity: .92;
+      animation: rise linear infinite;
+      filter: drop-shadow(0 10px 12px rgba(255,79,163,.18));
+      pointer-events: auto; /* allow clicking */
+      cursor: pointer;
+    }
+    .heart::before,
+    .heart::after{
+      content:"";
+      position:absolute;
+      width: 22px;
+      height: 22px;
+      background: linear-gradient(135deg, var(--pink-1), var(--pink-2));
+      border-radius: 50%;
+    }
+    .heart::before{ left: -11px; top: 0; }
+    .heart::after{ left: 0; top: -11px; }
+    .heart{
+      background: linear-gradient(135deg, var(--pink-1), var(--pink-2));
+      border-radius: 4px;
+    }
+
+    @keyframes rise{
+      from{ transform: translate3d(0, 110vh, 0) rotate(45deg) scale(var(--s,1)); }
+      to  { transform: translate3d(0, -140px, 0) rotate(45deg) scale(var(--s,1)); }
+    }
+
+    /* modal for heartfelt messages */
+    .modal{
+      position: fixed;
+      inset: 0;
+      display:none;
+      place-items: center;
+      background: rgba(20,0,10,.35);
+      z-index: 10;
+      padding: 18px;
+    }
+    .modal[aria-hidden="false"]{ display:grid; }
+    .modal-card{
+      width: min(520px, 96vw);
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(255,255,255,.8);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      padding: 18px 18px 14px;
+      position: relative;
+      overflow:hidden;
+    }
+    .modal-card::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,79,163,.18), transparent 42%),
+        radial-gradient(circle at 80% 30%, rgba(255,137,199,.12), transparent 44%);
+      pointer-events:none;
+    }
+    .modal-top{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .modal-title{
+      margin: 0;
+      font-size: 16px;
+      font-weight: 850;
+      letter-spacing: .2px;
+    }
+    .close{
+      border: none;
+      background: rgba(255,79,163,.10);
+      color: var(--text);
+      border: 1px solid rgba(255,79,163,.18);
+      padding: 10px 12px;
+      border-radius: 14px;
+      cursor:pointer;
+      font-weight: 800;
+      box-shadow: none;
+    }
+    .msg{
+      margin: 12px 0 0;
+      font-size: 16px;
+      line-height: 1.45;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* tooltip for NO */
+    .tooltip{
+      position: fixed;
+      z-index: 9;
+      display:none;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.9);
+      border: 1px solid rgba(255,79,163,.22);
+      box-shadow: 0 12px 30px rgba(255,79,163,.14);
+      font-weight: 750;
+      pointer-events: none;
+    }
+
+    /* "I KNOW IT" popups */
+    .popup{
+      position: fixed;
+      z-index: 11;
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(255,79,163,.22);
+      box-shadow: 0 12px 30px rgba(255,79,163,.14);
+      font-weight: 900;
+      letter-spacing: .6px;
+      animation: pop 1.4s ease forwards;
+      user-select: none;
+      pointer-events: none;
+    }
+    @keyframes pop{
+      0%{ transform: translateY(10px) scale(.96); opacity:0; }
+      15%{ opacity:1; }
+      70%{ opacity:1; }
+      100%{ transform: translateY(-22px) scale(1); opacity:0; }
+    }
+
+    .footer-note{
+      margin-top: 14px;
+      font-size: 13px;
+      opacity: .8;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
 </head>
+
 <body>
-  <!-- Background images for full-page slideshow with pink filter -->
-  <div id="background-images">
-    <img src="photo1.jpg" alt="Background 1" class="bg-image image1" />
-    <img src="photo2.jpg" alt="Background 2" class="bg-image image2" />
-    <img src="photo4.jpg" alt="Background 3" class="bg-image image3" />
-    <div class="pink-overlay"></div>
-  </div>
-  <!-- Envelope screen -->
-  <div id="envelope-screen">
-    <div id="envelope">
-      <div class="envelope-body"></div>
-      <div class="envelope-flap"></div>
-    </div>
-    <p class="prompt">♡ Letter for You ♡</p>
+  <div class="bg-blobs"></div>
+
+  <!-- Floating photos background -->
+  <div class="photos" aria-hidden="true">
+    <div class="photo p1"><img src="photo1.jpg" alt="Our photo 1"></div>
+    <div class="photo p2"><img src="photo2.jpg" alt="Our photo 2"></div>
+    <div class="photo p3"><img src="photo3.jpg" alt="Our photo 3"></div>
+    <div class="photo p4"><img src="photo4.jpg" alt="Our photo 4"></div>
   </div>
 
-  <!-- Letter screen (initially hidden) -->
-  <div id="letter-screen" class="hidden">
-    <div class="letter-wrapper">
-      <div class="letter-card">
-        <h1 class="letter-title">Golu the Light… will you be my Valentine?</h1>
-        <!-- Countdown to romantic getaway -->
-        <div id="countdown" class="countdown">
-          <p>Countdown to our romantic getaway:</p>
-          <div id="countdown-timer">--d --h --m --s</div>
-        </div>
-        <!-- Replace the cat image with a couple picture -->
-        <img src="couple.jpg" alt="Our picture" class="cat-image" />
-        <div class="buttons">
-          <button id="yes-btn">Yes</button>
-          <button id="no-btn">No</button>
-        </div>
-        <p id="final-message" class="final-message hidden">Valentine Date: I'll pick you up—be ready by 7 pm. With love, Golu the Light ❤️</p>
+  <!-- Floating hearts -->
+  <div class="hearts" id="hearts"></div>
+
+  <div class="wrap">
+    <div class="card">
+      <div class="topline">
+        <div class="badge"><span class="dot"></span> Pink mode: ON</div>
+        <div class="badge">For: <strong>Golu the Light</strong></div>
       </div>
-      <!-- Floating photos around the letter -->
-      <!-- Each floating photo now has a data-message attribute containing a unique love note. When clicked,
-           the message will appear in the secret modal. -->
-      <img src="photo1.jpg" alt="Photo 1" class="floating-photo photo1" data-message="From our first date to now, your caring smile has always warmed my heart." />
-      <img src="photo2.jpg" alt="Photo 2" class="floating-photo photo2" data-message="Our laughter together shows how thoughtful and loving you are." />
-      <img src="photo3.jpg" alt="Photo 3" class="floating-photo photo3" data-message="Every adventure we share is a memorable time reminding me of our love." />
-      <img src="photo4.jpg" alt="Photo 4" class="floating-photo photo4" data-message="Your thoughtful nature and loving heart make every day brighter for me." />
-      <img src="photo5.jpg" alt="Photo 5" class="floating-photo photo5" data-message="In your arms, I find my home and endless happiness." />
-      <!-- Memory match game: hidden by default. This interactive game uses tiny heart cards with your own photos. When all pairs are matched, a heartfelt note appears. -->
-      <div id="memory-game" class="memory-game hidden">
-        <h2>Memory Match Game</h2>
-        <p>Match all the heart cards to reveal a special surprise!</p>
-        <div class="memory-grid">
-          <!-- Each memory card has a front (heart icon) and back (photo). Duplicate each photo to create pairs. -->
-          <div class="memory-card" data-image="photo1.jpg">
-            <div class="card-front">❤</div>
-            <div class="card-back"><img src="photo1.jpg" alt="Memory Card 1" /></div>
+
+      <h1>Golu the Light… will you be my Valentine?</h1>
+      <p class="sub">
+        Tap the floating hearts. Some of them are hiding messages — only for you.
+      </p>
+
+      <div class="question">
+        <div class="btnrow">
+          <button class="yes" id="yesBtn">Yes 💗</button>
+          <button class="no" id="noBtn" type="button" aria-disabled="true">No</button>
+        </div>
+
+        <div class="countdown" id="countdownBox" aria-live="polite">
+          <h2>Countdown to our Romantic Getaway</h2>
+          <div class="timer" id="timer">
+            <div class="pill"><div class="num" id="d">--</div><span class="lbl">Days</span></div>
+            <div class="pill"><div class="num" id="h">--</div><span class="lbl">Hours</span></div>
+            <div class="pill"><div class="num" id="m">--</div><span class="lbl">Minutes</span></div>
+            <div class="pill"><div class="num" id="s">--</div><span class="lbl">Seconds</span></div>
           </div>
-          <div class="memory-card" data-image="photo1.jpg">
-            <div class="card-front">❤</div>
-            <div class="card-back"><img src="photo1.jpg" alt="Memory Card 1 match" /></div>
-          </div>
-          <div class="memory-card" data-image="photo2.jpg">
-            <div class="card-front">❤</div>
-            <div class="card-back"><img src="photo2.jpg" alt="Memory Card 2" /></div>
-          </div>
-          <div class="memory-card" data-image="photo2.jpg">
-            <div class="card-front">❤</div>
-            <div class="card-back"><img src="photo2.jpg" alt="Memory Card 2 match" /></div>
-          </div>
-          <div class="memory-card" data-image="photo3.jpg">
-            <div class="card-front">❤</div>
-            <div class="card-back"><img src="photo3.jpg" alt="Memory Card 3" /></div>
-          </div>
-          <div class="memory-card" data-image="photo3.jpg">
-            <div class="card-front">❤</div>
-            <div class="card-back"><img src="photo3.jpg" alt="Memory Card 3 match" /></div>
-          </div>
-          <div class="memory-card" data-image="photo4.jpg">
-            <div class="card-front">❤</div>
-            <div class="card-back"><img src="photo4.jpg" alt="Memory Card 4" /></div>
-          </div>
-          <div class="memory-card" data-image="photo4.jpg">
-            <div class="card-front">❤</div>
-            <div class="card-back"><img src="photo4.jpg" alt="Memory Card 4 match" /></div>
+          <div class="footer-note">
+            Pickup time: <strong>7:00 PM, 13 Feb 2026</strong> (London time). Be ready 💗
           </div>
         </div>
-        <!-- Hidden message revealed when all pairs are matched -->
-        <p id="memory-message" class="final-message hidden">Another heartfelt note: Thank you for being so loving and caring. I cherish all our moments together.</p>
       </div>
     </div>
   </div>
 
-  <!-- Hearts container for celebration animation -->
-  <div id="hearts-container"></div>
-
-  <!-- Secret heart icon to trigger the hidden message -->
-  <div id="secret-heart" class="secret-heart">❤</div>
-
-  <!-- Modal for the secret message (hidden by default) -->
-  <div id="secret-modal" class="secret-modal hidden">
-    <div class="secret-content">
-      <span id="close-secret" class="close">&times;</span>
-      <h2>Secret Message</h2>
-      <p>You are caring, thoughtful and lovely. I love you so much!</p>
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-top">
+        <p class="modal-title" id="modalTitle">A message for you 💖</p>
+        <button class="close" id="closeModal">Close</button>
+      </div>
+      <p class="msg" id="modalMsg"></p>
     </div>
   </div>
 
-  <!-- Scavenger hunt hearts (click all to reveal secret) -->
-  <div class="scavenger-heart heart1">❤</div>
-  <div class="scavenger-heart heart2">❤</div>
-  <div class="scavenger-heart heart3">❤</div>
+  <div class="tooltip" id="tooltip"></div>
 
-  <script src="script.js"></script>
+  <script>
+    // -----------------------------
+    // 25 unique heartfelt messages (one per special heart)
+    // -----------------------------
+    const heartfelt = [
+      "You make my world feel lighter just by existing.",
+      "If peace had a face, it would look like you smiling at me.",
+      "You’re my favourite thought — the one that never gets old.",
+      "I don’t need perfect days. I just need days with you in them.",
+      "Your love feels like home, even when everything else is loud.",
+      "You’re the reason I believe in soft love and real effort.",
+      "Every little thing you do stays with me — in the best way.",
+      "I’m proud of you. Not for one thing — for everything you are.",
+      "You’re my calm, my fun, and my safe place all at once.",
+      "I’d choose you in every timeline, every version of life.",
+      "You have the kind of heart that makes people feel cared for.",
+      "Your presence is my favourite kind of comfort.",
+      "I love how you turn ordinary moments into memories.",
+      "You’re not just beautiful — you’re rare.",
+      "I feel lucky that I get to love you out loud.",
+      "Thank you for being you — that’s already more than enough.",
+      "You inspire me to be softer, better, and more present.",
+      "I love your laugh. It fixes my mood instantly.",
+      "You’re my favourite reason to look forward to tomorrow.",
+      "With you, even silence feels sweet and safe.",
+      "I notice you. I appreciate you. I adore you.",
+      "You’re the best part of my day — consistently.",
+      "I’m grateful for your care, your patience, your love.",
+      "You and I? That’s my favourite story.",
+      "I don’t just like you. I’m genuinely proud to call you mine."
+    ];
+
+    // 25 fun “No” hover messages
+    const noMsgs = [
+      "Nice try 😌",
+      "You mean YES.",
+      "Wrong button, queen.",
+      "No is under maintenance.",
+      "Be serious 😭",
+      "That’s a typo, right?",
+      "We both know it’s YES.",
+      "Your finger slipped 😂",
+      "Try again (but lovingly).",
+      "I’ll pretend I didn’t see that.",
+      "Not accepted. Try YES.",
+      "Cute. Now click YES.",
+      "Golu… come on 😌",
+      "That option is decorative.",
+      "Plot twist: it’s still YES.",
+      "The universe says YES.",
+      "Okay comedian 😭",
+      "That button is shy.",
+      "Be honest… YES?",
+      "I know you’re smiling 😂",
+      "Nope. You’re mine.",
+      "Stop playing 😌",
+      "Nice. Now the real answer.",
+      "Try YES, it’s prettier.",
+      "Yes is the only correct answer."
+    ];
+
+    // -----------------------------
+    // Create 50 hearts; 25 are "special" with messages
+    // -----------------------------
+    const heartsEl = document.getElementById("hearts");
+    const modal = document.getElementById("modal");
+    const modalMsg = document.getElementById("modalMsg");
+    const closeModal = document.getElementById("closeModal");
+
+    // pick 25 unique indices out of 50
+    const specialSet = new Set();
+    while (specialSet.size < 25) {
+      specialSet.add(Math.floor(Math.random() * 50));
+    }
+
+    // shuffle heartfelt messages so each special heart gets a different one
+    const shuffledHeartfelt = [...heartfelt].sort(() => Math.random() - 0.5);
+    let msgPtr = 0;
+
+    function rand(min, max){ return Math.random() * (max - min) + min; }
+
+    for (let i = 0; i < 50; i++) {
+      const h = document.createElement("div");
+      h.className = "heart";
+
+      const left = rand(0, 98);
+      const delay = rand(0, 10);
+      const dur = rand(8, 18);
+      const scale = rand(0.75, 1.35);
+
+      h.style.left = left + "vw";
+      h.style.animationDelay = (-delay) + "s";
+      h.style.animationDuration = dur + "s";
+      h.style.setProperty("--s", scale.toFixed(2));
+
+      // only special hearts show messages when clicked
+      if (specialSet.has(i)) {
+        const msg = shuffledHeartfelt[msgPtr++];
+        h.dataset.msg = msg;
+
+        h.addEventListener("click", (e) => {
+          e.stopPropagation();
+          openModal(msg);
+        });
+      } else {
+        // non-special hearts do a tiny "pulse" feedback on click
+        h.addEventListener("click", (e) => {
+          e.stopPropagation();
+          h.animate(
+            [{ transform: "rotate(45deg) scale(1)" }, { transform: "rotate(45deg) scale(1.25)" }, { transform: "rotate(45deg) scale(1)" }],
+            { duration: 280, easing: "ease-out" }
+          );
+        });
+      }
+
+      heartsEl.appendChild(h);
+    }
+
+    function openModal(text){
+      modalMsg.textContent = text;
+      modal.setAttribute("aria-hidden", "false");
+    }
+    function hideModal(){
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    closeModal.addEventListener("click", hideModal);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) hideModal();
+    });
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") hideModal();
+    });
+
+    // -----------------------------
+    // NO button: floats away + shows funny messages (not clickable)
+    // -----------------------------
+    const noBtnEl = document.getElementById("noBtn");
+    const tooltip = document.getElementById("tooltip");
+    let noMsgIndex = 0;
+
+    function placeNoRandom(){
+      const pad = 16;
+      const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+      const rect = noBtnEl.getBoundingClientRect();
+      const maxX = vw - rect.width - pad;
+      const maxY = vh - rect.height - pad;
+
+      const x = rand(pad, Math.max(pad, maxX));
+      const y = rand(pad, Math.max(pad, maxY));
+
+      noBtnEl.style.position = "fixed";
+      noBtnEl.style.left = x + "px";
+      noBtnEl.style.top = y + "px";
+      noBtnEl.style.zIndex = 12;
+    }
+
+    function showTooltip(text, x, y){
+      tooltip.textContent = text;
+      tooltip.style.display = "block";
+      tooltip.style.left = (x + 14) + "px";
+      tooltip.style.top = (y + 14) + "px";
+      clearTimeout(showTooltip._t);
+      showTooltip._t = setTimeout(() => tooltip.style.display = "none", 900);
+    }
+
+    // Make "No" impossible to click
+    noBtnEl.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+    });
+
+    // On hover / move near it, it jumps away
+    function evade(e){
+      const msg = noMsgs[noMsgIndex++ % noMsgs.length];
+      showTooltip(msg, e.clientX, e.clientY);
+      placeNoRandom();
+    }
+
+    noBtnEl.addEventListener("mouseenter", evade);
+    noBtnEl.addEventListener("mousemove", (e) => {
+      // tiny chance to evade even if they try to chase it
+      if (Math.random() < 0.12) evade(e);
+      else showTooltip(noMsgs[noMsgIndex % noMsgs.length], e.clientX, e.clientY);
+    });
+
+    // -----------------------------
+    // YES button: 100 popups "I KNOW IT" + start countdown
+    // -----------------------------
+    const yesBtnEl = document.getElementById("yesBtn");
+    const countdownBox = document.getElementById("countdownBox");
+    const dEl = document.getElementById("d");
+    const hEl = document.getElementById("h");
+    const mEl = document.getElementById("m");
+    const sEl = document.getElementById("s");
+
+    let countdownTimer = null;
+
+    // Target: 7:00 PM 13 Feb 2026 (Europe/London)
+    // Using ISO with explicit offset is tricky due to BST; Feb is GMT, so +00:00 is correct.
+    const target = new Date("2026-02-13T19:00:00+00:00");
+
+    function startCountdown(){
+      countdownBox.style.display = "block";
+
+      function tick(){
+        const now = new Date();
+        const diff = target - now;
+
+        if (diff <= 0){
+          dEl.textContent = "0";
+          hEl.textContent = "0";
+          mEl.textContent = "0";
+          sEl.textContent = "0";
+          return;
+        }
+
+        const totalSeconds = Math.floor(diff / 1000);
+        const days = Math.floor(totalSeconds / (3600 * 24));
+        const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+        const mins = Math.floor((totalSeconds % 3600) / 60);
+        const secs = totalSeconds % 60;
+
+        dEl.textContent = String(days);
+        hEl.textContent = String(hours).padStart(2, "0");
+        mEl.textContent = String(mins).padStart(2, "0");
+        sEl.textContent = String(secs).padStart(2, "0");
+      }
+
+      tick();
+      clearInterval(countdownTimer);
+      countdownTimer = setInterval(tick, 1000);
+    }
+
+    function spawnIKnowItPopups(){
+      const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+      for (let i = 0; i < 100; i++){
+        setTimeout(() => {
+          const p = document.createElement("div");
+          p.className = "popup";
+          p.textContent = "I KNOW IT";
+
+          const x = rand(12, vw - 160);
+          const y = rand(12, vh - 60);
+
+          p.style.left = x + "px";
+          p.style.top = y + "px";
+
+          document.body.appendChild(p);
+          setTimeout(() => p.remove(), 1600);
+        }, i * 18);
+      }
+    }
+
+    yesBtnEl.addEventListener("click", () => {
+      spawnIKnowItPopups();
+      startCountdown();
+
+      // Make the page feel more "celebration"
+      yesBtnEl.textContent = "YES!! 💗";
+      yesBtnEl.disabled = true;
+      yesBtnEl.style.opacity = "0.9";
+      yesBtnEl.style.cursor = "default";
+    });
+
+    // initial placement safety (if NO overlaps)
+    window.addEventListener("load", () => {
+      // optional: place NO in a fun spot after load
+      setTimeout(() => placeNoRandom(), 300);
+    });
+    window.addEventListener("resize", () => {
+      // keep NO inside screen after resize
+      placeNoRandom();
+    });
+  </script>
 </body>
 </html>
