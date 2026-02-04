@@ -414,5 +414,33 @@ button {
   }
   100% {
     transform: scale(1);
-  }
+  
+  /* Ensure floating photos are clickable */
+.floating-photo {
+  pointer-events: auto;
+}
+
+/* Improved countdown widget styling */
+.countdown {
+  margin-bottom: 15px;
+  color: #e91e63;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #e91e63;
+  border-radius: 10px;
+  padding: 10px;
+  display: inline-block;
+}
+#countdown-timer {
+  font-size: 1.6em;
+  font-weight: bold;
+  margin-top: 4px;
+  color: #e91e63;
+}
+
+/* Hide the secret modal when hidden class is present */
+#secret-modal.hidden {
+  display: none;
+}
+}
 }
