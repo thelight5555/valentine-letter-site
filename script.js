@@ -97,19 +97,18 @@ if (yesBtn) {
 // Make the "No" button evade the cursor on hover
 if (noBtn) {
   noBtn.addEventListener('mouseover', () => {
-    const parent = noBtn.parentElement;
-    // Ensure the parent has a bounding rectangle to calculate maximum offsets
-    const parentRect = parent.getBoundingClientRect();
-    const btnRect = noBtn.getBoundingClientRect();
-    const maxX = parentRect.width - btnRect.width;
-    const maxY = parentRect.height - btnRect.height;
-    // Generate random offsets within the parent's bounds
-    const randomX = Math.random() * maxX;
-    const randomY = Math.random() * maxY;
-    noBtn.style.position = 'absolute';
-    noBtn.style.left = `${randomX}px`;
-    noBtn.style.top = `${randomY}px`;
-
+        //// Move the button relative to the whole viewport
+      const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+      const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+      const btnRect = noBtn.getBoundingClientRect();
+      const maxX = vw - btnRect.width;
+      const maxY = vh - btnRect.height;
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+      noBtn.style.position = 'fixed';
+      noBtn.style.left = `${randomX}px`;
+      noBtn.style.top = `${randomY}px`;
+      noBtn.style.zIndex = '1000';
     // Update the button text with a playful message
     noBtn.textContent = noMessages[noIndex];
     noIndex = (noIndex + 1) % noMessages.length;
