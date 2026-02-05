@@ -29,6 +29,7 @@
         radial-gradient(1200px 800px at 20% 10%, var(--bg-2), transparent 60%),
         radial-gradient(900px 600px at 80% 30%, #ffe0f1, transparent 55%),
         radial-gradient(800px 700px at 40% 90%, var(--bg-1), transparent 60%),
+                        url('photo2.jpg') center/cover no-repeat,
         linear-gradient(135deg, #fff7fb, #ffe3f2);
     }
 
@@ -714,7 +715,7 @@
         setTimeout(() => {
           const p = document.createElement("div");
           p.className = "popup";
-          p.textContent = "I KNOW IT";
+                  p.textContent = "I knew it";
 
           const x = rand(12, vw - 160);
           const y = rand(12, vh - 60);
