@@ -1,889 +1,779 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>One Year With You 💖</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --rose:    #e8456a;
-      --rose-lt: #f28fa6;
-      --rose-pk: #fce8ed;
-      --gold:    #c8a96e;
-      --gold-lt: #f0ddb8;
-      --cream:   #fdf6f0;
-      --ink:     #2a1520;
-      --muted:   #7a5060;
-      --card:    rgba(253,246,240,.88);
-      --glass:   rgba(255,255,255,.55);
-      --sh:      0 24px 64px rgba(232,69,106,.18);
-      --sh2:     0 8px 28px rgba(42,21,32,.10);
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      font-family:'DM Sans',sans-serif;
-      color:var(--ink);
-      background:
-        radial-gradient(ellipse 120% 80% at 15% 10%,#fce0e8,transparent 60%),
-        radial-gradient(ellipse 100% 70% at 85% 20%,#fdf0d8,transparent 55%),
-        radial-gradient(ellipse 90%  80% at 50% 95%,#fce8ed,transparent 55%),
-        linear-gradient(160deg,#fff8f2 0%,#fde8ef 100%);
-      min-height:100vh;
-      overflow-x:hidden;
-    }
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>One Year, Golu 💗</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --rose:#d94f6e;--rose-lt:#f0a0b5;--rose-pk:#fce8ed;
+  --gold:#b8912a;--gold-lt:#e8c97a;--gold-pk:#fdf3dc;
+  --cream:#fdf8f4;--ink:#1e0f16;--muted:#7a4d5e;
+  --card:rgba(255,252,250,.85);--sh:0 32px 80px rgba(180,40,80,.15);
+  --sh2:0 8px 32px rgba(42,15,25,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%}
+body{
+  font-family:'DM Sans',sans-serif;color:var(--ink);
+  background:linear-gradient(160deg,#fff5f7 0%,#fdf0f5 30%,#fff8f0 60%,#fdf5ff 100%);
+  overflow-x:hidden;
+}
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 5%,rgba(220,80,100,.12),transparent 55%),
+    radial-gradient(ellipse 70% 50% at 90% 15%,rgba(200,150,80,.10),transparent 50%),
+    radial-gradient(ellipse 90% 60% at 50% 100%,rgba(200,60,100,.09),transparent 55%);
+}
 
-    /* ── NOISE GRAIN OVERLAY ── */
-    body::after{
-      content:'';position:fixed;inset:0;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
-      pointer-events:none;z-index:0;opacity:.5;
-    }
+/* ── FLOATING HEARTS ── */
+#hlayer{position:fixed;inset:0;pointer-events:none;z-index:1}
+.fh{position:absolute;pointer-events:auto;cursor:pointer;animation:frise linear infinite;}
+.fh svg{filter:drop-shadow(0 3px 6px rgba(210,70,100,.25))}
+@keyframes frise{from{transform:translateY(105vh) rotate(-8deg) scale(var(--s,1))}to{transform:translateY(-100px) rotate(8deg) scale(var(--s,1))}}
 
-    /* ── FLOATING HEARTS ── */
-    #hearts-layer{position:fixed;inset:0;pointer-events:none;z-index:1}
-    .fheart{
-      position:absolute;pointer-events:auto;cursor:pointer;
-      width:20px;height:20px;
-      animation:frise linear infinite;
-      transform-origin:center;
-    }
-    .fheart svg{width:100%;height:100%;filter:drop-shadow(0 4px 8px rgba(232,69,106,.3))}
-    @keyframes frise{
-      from{transform:translateY(105vh) rotate(-10deg) scale(var(--s,1));}
-      to  {transform:translateY(-120px) rotate(10deg) scale(var(--s,1));}
-    }
+/* ── LAYOUT ── */
+.page{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:36px 18px 80px;display:flex;flex-direction:column;gap:28px}
 
-    /* ── LAYOUT ── */
-    .page{
-      position:relative;z-index:2;
-      max-width:820px;margin:0 auto;
-      padding:40px 20px 80px;
-      display:flex;flex-direction:column;gap:32px;
-    }
+/* ── HERO ── */
+.hero{
+  text-align:center;padding:56px 36px 44px;
+  background:var(--card);border:1px solid rgba(255,255,255,.8);
+  border-radius:32px;box-shadow:var(--sh);backdrop-filter:blur(12px);
+  position:relative;overflow:hidden;
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(215,80,100,.08),transparent 50%),radial-gradient(circle at 80% 80%,rgba(184,145,42,.08),transparent 50%);pointer-events:none}
+.anni-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:9px 20px;border-radius:999px;
+  background:linear-gradient(135deg,var(--rose),var(--gold));
+  color:#fff;font-size:12px;font-weight:600;letter-spacing:.7px;
+  margin-bottom:26px;cursor:pointer;user-select:none;
+  box-shadow:0 6px 22px rgba(210,70,100,.3);
+  transition:transform .15s;
+}
+.anni-badge:active{transform:scale(.97)}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(34px,6vw,62px);font-weight:400;
+  line-height:1.08;letter-spacing:-.5px;margin-bottom:14px;
+}
+.hero h1 em{font-style:italic;color:var(--rose);}
+.hero .tagline{font-size:clamp(14px,2vw,17px);color:var(--muted);max-width:440px;margin:0 auto 30px;line-height:1.6}
+.counter{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+.cpill{text-align:center;padding:12px 18px;background:rgba(255,255,255,.7);border:1px solid rgba(210,70,100,.18);border-radius:14px;min-width:76px;box-shadow:var(--sh2)}
+.cpill .num{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--rose);line-height:1}
+.cpill .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-top:4px;display:block}
+.anni-note{margin-top:16px;font-size:13px;color:var(--muted);font-style:italic}
+/* secret click counter on badge */
+.badge-click-hint{font-size:11px;color:rgba(210,70,100,.4);margin-top:8px;transition:opacity .3s}
 
-    /* ── HERO ── */
-    .hero{
-      text-align:center;
-      padding:52px 32px 40px;
-      background:var(--card);
-      border-radius:28px;
-      border:1px solid rgba(255,255,255,.75);
-      box-shadow:var(--sh);
-      backdrop-filter:blur(10px);
-      position:relative;overflow:hidden;
-    }
-    .hero::before{
-      content:'';position:absolute;inset:-2px;
-      background:
-        radial-gradient(circle at 20% 20%,rgba(232,69,106,.12),transparent 40%),
-        radial-gradient(circle at 80% 80%,rgba(200,169,110,.12),transparent 40%);
-      pointer-events:none;
-    }
-    .hero-badge{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:8px 18px;border-radius:999px;
-      background:linear-gradient(135deg,var(--rose),var(--gold));
-      color:#fff;font-size:13px;font-weight:600;letter-spacing:.5px;
-      margin-bottom:24px;
-      box-shadow:0 6px 20px rgba(232,69,106,.28);
-    }
-    .hero h1{
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(36px,6vw,62px);
-      font-weight:300;
-      line-height:1.08;
-      letter-spacing:-0.5px;
-      margin-bottom:12px;
-    }
-    .hero h1 em{font-style:italic;color:var(--rose);}
-    .hero p{
-      font-size:clamp(14px,2vw,17px);
-      color:var(--muted);
-      max-width:480px;margin:0 auto 28px;
-      line-height:1.6;
-    }
+/* ── CARDS ── */
+.card{
+  background:var(--card);border:1px solid rgba(255,255,255,.8);
+  border-radius:26px;box-shadow:var(--sh2);backdrop-filter:blur(8px);
+  padding:30px 26px;position:relative;overflow:hidden;
+}
+.card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 10% 15%,rgba(210,70,100,.06),transparent 45%);pointer-events:none}
+.card-label{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.card h2{font-family:'Playfair Display',serif;font-size:clamp(20px,3vw,30px);font-weight:400;line-height:1.2;margin-bottom:8px}
+.card h2 em{font-style:italic;color:var(--rose);}
+.card .sub{font-size:14px;color:var(--muted);margin-bottom:22px;line-height:1.55}
 
-    /* ── ANNIVERSARY COUNTER ── */
-    .counter{
-      display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
-      margin-top:4px;
-    }
-    .counter-pill{
-      text-align:center;
-      padding:14px 20px;
-      background:rgba(255,255,255,.7);
-      border:1px solid rgba(232,69,106,.18);
-      border-radius:16px;
-      min-width:80px;
-      box-shadow:var(--sh2);
-    }
-    .counter-pill .num{
-      font-family:'Cormorant Garamond',serif;
-      font-size:30px;font-weight:600;
-      color:var(--rose);line-height:1;
-    }
-    .counter-pill .lbl{
-      font-size:11px;color:var(--muted);
-      text-transform:uppercase;letter-spacing:.8px;
-      margin-top:4px;display:block;
-    }
-    .anni-note{
-      margin-top:16px;
-      font-size:14px;color:var(--muted);
-      font-style:italic;
-    }
+/* ── BUTTONS ── */
+.btn{font-family:'DM Sans',sans-serif;font-weight:600;font-size:15px;border:none;cursor:pointer;border-radius:14px;padding:13px 26px;transition:transform .15s,filter .15s}
+.btn:active{transform:scale(.97)}
+.btn-yes{background:linear-gradient(135deg,var(--rose),#c03055);color:#fff;box-shadow:0 10px 28px rgba(210,70,100,.28)}
+.btn-yes:hover{filter:brightness(1.06);transform:translateY(-2px)}
+.btn-yes.done{background:linear-gradient(135deg,#27ae60,#1e8449);pointer-events:none;box-shadow:0 10px 28px rgba(39,174,96,.28)}
+.btn-no{background:rgba(255,255,255,.8);color:var(--muted);border:1px solid rgba(210,70,100,.22);cursor:default}
+.choice-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.quiz-result{margin-top:16px;padding:14px 18px;border-radius:14px;background:rgba(255,255,255,.65);border:1px solid rgba(39,174,96,.22);font-size:15px;color:#1a7a3a;font-weight:500;display:none;animation:fin .4s ease}
+@keyframes fin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
-    /* ── CARDS ── */
-    .card{
-      background:var(--card);
-      border:1px solid rgba(255,255,255,.75);
-      border-radius:24px;
-      box-shadow:var(--sh2);
-      backdrop-filter:blur(8px);
-      padding:32px 28px;
-      position:relative;overflow:hidden;
-    }
-    .card::before{
-      content:'';position:absolute;inset:-2px;
-      background:radial-gradient(circle at 15% 20%,rgba(232,69,106,.08),transparent 42%);
-      pointer-events:none;
-    }
-    .card-label{
-      display:inline-flex;align-items:center;gap:6px;
-      font-size:11px;font-weight:600;letter-spacing:1px;
-      text-transform:uppercase;color:var(--gold);
-      margin-bottom:14px;
-    }
-    .card-label svg{width:14px;height:14px;}
-    .card h2{
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(22px,3.5vw,32px);
-      font-weight:400;
-      line-height:1.2;
-      margin-bottom:8px;
-    }
-    .card h2 em{font-style:italic;color:var(--rose);}
-    .card .sub{
-      font-size:14px;color:var(--muted);
-      margin-bottom:24px;line-height:1.55;
-    }
+/* ── FLY TIP ── */
+.ftip{position:fixed;z-index:999;pointer-events:none;padding:8px 14px;border-radius:12px;background:rgba(255,255,255,.95);border:1px solid rgba(210,70,100,.2);box-shadow:0 10px 28px rgba(210,70,100,.12);font-size:13px;font-weight:600;color:var(--ink);display:none}
 
-    /* ── YES / NO QUIZ ── */
-    .choice-row{
-      display:flex;gap:14px;align-items:center;flex-wrap:wrap;
-      position:relative;
-    }
-    .btn{
-      font-family:'DM Sans',sans-serif;
-      font-weight:600;font-size:15px;
-      border:none;cursor:pointer;
-      border-radius:14px;padding:14px 28px;
-      transition:transform .15s ease,filter .15s ease;
-      position:relative;
-    }
-    .btn:active{transform:scale(.97)}
-    .btn-yes{
-      background:linear-gradient(135deg,var(--rose),#d4365c);
-      color:#fff;
-      box-shadow:0 10px 28px rgba(232,69,106,.3);
-    }
-    .btn-yes:hover{filter:brightness(1.06);transform:translateY(-2px);}
-    .btn-yes.clicked{
-      background:linear-gradient(135deg,#27ae60,#1e8449);
-      box-shadow:0 10px 28px rgba(39,174,96,.3);
-      pointer-events:none;
-    }
-    .btn-no{
-      background:rgba(255,255,255,.8);
-      color:var(--muted);
-      border:1px solid rgba(232,69,106,.25);
-      cursor:default;
-    }
-    .quiz-result{
-      margin-top:16px;
-      padding:14px 18px;
-      border-radius:14px;
-      background:rgba(255,255,255,.6);
-      border:1px solid rgba(39,174,96,.25);
-      font-size:15px;color:#1e7e34;
-      font-weight:500;
-      display:none;
-      animation:fadein .4s ease;
-    }
-    @keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+/* ── STARS ── */
+.stars-wrap{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.star-btn{background:none;border:none;cursor:pointer;font-size:clamp(26px,4vw,36px);line-height:1;transition:transform .2s,filter .2s;filter:grayscale(1) opacity(.35)}
+.star-btn:hover{transform:scale(1.18)}
+.star-btn.locked{filter:none;cursor:default;animation:sshine .5s ease}
+.star-btn.glow{filter:drop-shadow(0 0 8px gold)}
+@keyframes sshine{0%{transform:scale(1)}40%{transform:scale(1.4) rotate(10deg)}70%{transform:scale(1.15) rotate(-5deg)}100%{transform:scale(1)}}
+.star-result{margin-top:16px;padding:16px 20px;border-radius:16px;background:linear-gradient(135deg,rgba(184,145,42,.12),rgba(210,70,100,.07));border:1px solid rgba(184,145,42,.28);font-size:15px;line-height:1.55;display:none;animation:fin .4s ease}
+.star-result strong{color:var(--rose)}
 
-    /* tooltip for flying buttons */
-    .fly-tip{
-      position:fixed;z-index:999;pointer-events:none;
-      padding:8px 14px;border-radius:12px;
-      background:rgba(255,255,255,.92);
-      border:1px solid rgba(232,69,106,.2);
-      box-shadow:0 10px 28px rgba(232,69,106,.12);
-      font-size:13px;font-weight:600;color:var(--ink);
-      display:none;
-    }
+/* ── TOGGLES ── */
+.toggle-list{display:flex;flex-direction:column;gap:14px}
+.toggle-item{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:15px 18px;background:rgba(255,255,255,.6);border:1px solid rgba(210,70,100,.13);border-radius:14px;box-shadow:0 3px 12px rgba(42,15,25,.05);transition:border-color .3s}
+.toggle-item.on{border-color:rgba(210,70,100,.35);background:rgba(255,240,244,.5)}
+.toggle-label{font-size:14px;font-weight:500;line-height:1.4;flex:1}
+.toggle-label .sub{font-size:12px;color:var(--muted);font-weight:400;margin-top:2px}
+.toggle{position:relative;display:inline-block;width:50px;height:26px;flex-shrink:0}
+.toggle input{opacity:0;width:0;height:0}
+.slider{position:absolute;inset:0;border-radius:999px;background:rgba(210,70,100,.15);cursor:pointer;transition:.3s;border:1px solid rgba(210,70,100,.18)}
+.slider::before{content:'';position:absolute;height:18px;width:18px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.3s;box-shadow:0 2px 5px rgba(42,15,25,.16)}
+input:checked+.slider{background:linear-gradient(135deg,var(--rose),#c03055);border-color:transparent}
+input:checked+.slider::before{transform:translateX(24px)}
+.toggle.disabled .slider{cursor:not-allowed}
 
-    /* ── STAR RATING ── */
-    .stars-wrap{
-      display:flex;gap:10px;align-items:center;flex-wrap:wrap;
-    }
-    .star-btn{
-      background:none;border:none;cursor:pointer;
-      font-size:clamp(28px,5vw,38px);
-      line-height:1;
-      transition:transform .2s ease,filter .2s ease;
-      filter:grayscale(1) opacity(.4);
-      position:relative;
-    }
-    .star-btn:hover{transform:scale(1.15);}
-    .star-btn.locked{
-      filter:none !important;
-      cursor:default;
-      animation:starshine .6s ease;
-    }
-    .star-btn.glow{
-      filter:drop-shadow(0 0 10px gold) !important;
-    }
-    @keyframes starshine{
-      0%{transform:scale(1)}
-      40%{transform:scale(1.35) rotate(8deg)}
-      70%{transform:scale(1.15) rotate(-4deg)}
-      100%{transform:scale(1) rotate(0)}
-    }
-    .star-result{
-      margin-top:18px;
-      padding:16px 20px;
-      border-radius:16px;
-      background:linear-gradient(135deg,rgba(200,169,110,.15),rgba(232,69,106,.08));
-      border:1px solid rgba(200,169,110,.3);
-      font-size:15px;line-height:1.5;
-      display:none;
-      animation:fadein .4s ease;
-    }
-    .star-result strong{color:var(--rose);}
+/* ── POLAROID FLIP ── */
+.polaroid-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.polaroid{perspective:1000px;cursor:pointer;aspect-ratio:3/4}
+.polaroid-inner{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d}
+.polaroid.flipped .polaroid-inner{transform:rotateY(180deg)}
+.polaroid-front,.polaroid-back{position:absolute;inset:0;border-radius:16px;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.polaroid-front{background:#fff;box-shadow:var(--sh2);overflow:hidden;display:flex;flex-direction:column}
+.polaroid-front img{flex:1;width:100%;object-fit:cover;filter:saturate(1.05)}
+.polaroid-caption{padding:10px;text-align:center;font-size:12px;color:var(--muted);font-style:italic}
+.polaroid-back{background:linear-gradient(135deg,var(--rose),#c03055);transform:rotateY(180deg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px;gap:10px;border-radius:16px}
+.polaroid-back .ily{font-family:'Playfair Display',serif;font-size:clamp(18px,3vw,26px);font-style:italic;color:#fff;text-align:center;line-height:1.3}
+.polaroid-back .ily-note{font-size:12px;color:rgba(255,255,255,.8);text-align:center;line-height:1.45}
+.polaroid-hint{text-align:center;font-size:12px;color:var(--muted);margin-top:10px;font-style:italic}
 
-    /* ── TOGGLE SLIDERS ── */
-    .toggle-list{display:flex;flex-direction:column;gap:18px;}
-    .toggle-item{
-      display:flex;align-items:center;justify-content:space-between;
-      gap:16px;padding:16px 20px;
-      background:rgba(255,255,255,.6);
-      border:1px solid rgba(232,69,106,.14);
-      border-radius:16px;
-      box-shadow:0 4px 14px rgba(42,21,32,.06);
-    }
-    .toggle-label{
-      font-size:15px;font-weight:500;line-height:1.4;
-      flex:1;
-    }
-    .toggle-label .sub{
-      font-size:12px;color:var(--muted);
-      font-weight:400;margin-top:2px;
-    }
-    /* custom toggle switch */
-    .toggle{position:relative;display:inline-block;width:52px;height:28px;flex-shrink:0;}
-    .toggle input{opacity:0;width:0;height:0;}
-    .slider{
-      position:absolute;inset:0;border-radius:999px;
-      background:rgba(232,69,106,.18);
-      cursor:pointer;transition:.3s;
-      border:1px solid rgba(232,69,106,.2);
-    }
-    .slider::before{
-      content:'';
-      position:absolute;height:20px;width:20px;
-      left:3px;bottom:3px;
-      background:#fff;border-radius:50%;
-      transition:.3s;
-      box-shadow:0 2px 6px rgba(42,21,32,.18);
-    }
-    input:checked + .slider{
-      background:linear-gradient(135deg,var(--rose),#d4365c);
-      border-color:transparent;
-    }
-    input:checked + .slider::before{transform:translateX(24px);}
-    /* disabled slider that flies */
-    .toggle.disabled .slider{cursor:not-allowed;}
+/* ── EMOJI QUIZ ── */
+.emoji-grid{display:flex;gap:10px;flex-wrap:wrap}
+.emoji-btn{background:rgba(255,255,255,.7);border:2px solid rgba(210,70,100,.15);border-radius:14px;padding:12px 16px;font-size:24px;cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s}
+.emoji-btn:hover{transform:scale(1.15);border-color:rgba(210,70,100,.35)}
+.emoji-btn.correct{border-color:var(--rose);background:rgba(210,70,100,.08);box-shadow:0 0 0 3px rgba(210,70,100,.2);animation:sshine .5s ease;pointer-events:none}
 
-    /* ── MEMORY STRIP ── */
-    .memory-strip{
-      display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;
-      scrollbar-width:thin;scrollbar-color:var(--rose-pk) transparent;
-    }
-    .mem-card{
-      flex-shrink:0;
-      width:160px;
-      border-radius:16px;
-      background:rgba(255,255,255,.7);
-      border:1px solid rgba(232,69,106,.18);
-      padding:16px 14px;
-      box-shadow:var(--sh2);
-      position:relative;
-      overflow:hidden;
-    }
-    .mem-card::before{
-      content:'';position:absolute;top:0;left:0;right:0;height:3px;
-      background:linear-gradient(90deg,var(--rose),var(--gold));
-    }
-    .mem-icon{font-size:22px;margin-bottom:8px;display:block;}
-    .mem-date{font-size:11px;color:var(--gold);font-weight:600;letter-spacing:.4px;margin-bottom:4px;}
-    .mem-text{font-size:13px;color:var(--ink);line-height:1.4;}
+/* ── FOREVER SLIDER ── */
+.slider-wrap{position:relative;padding:10px 0}
+.forever-slider{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:3px;background:linear-gradient(90deg,var(--rose) 0%,var(--rose-lt) 60%,rgba(210,70,100,.15) 100%);outline:none;cursor:pointer}
+.forever-slider::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--rose),#c03055);box-shadow:0 4px 12px rgba(210,70,100,.35);cursor:pointer;transition:transform .15s}
+.forever-slider::-webkit-slider-thumb:active{transform:scale(1.2)}
+.slider-labels{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px}
+.forever-label{text-align:center;font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--rose);margin-top:12px;min-height:28px;transition:all .3s}
 
-    /* ── LOVE LETTER ── */
-    .letter{
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(16px,2.5vw,20px);
-      font-weight:300;
-      line-height:1.75;
-      color:var(--ink);
-    }
-    .letter .greeting{font-style:italic;color:var(--rose);font-size:1.1em;}
-    .letter .sign{
-      margin-top:24px;
-      font-style:italic;color:var(--muted);font-size:.95em;
-    }
+/* ── WORD SCRAMBLE ── */
+.scramble-letters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.letter-tile{
+  width:44px;height:52px;display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.8);border:2px solid rgba(210,70,100,.22);
+  border-radius:10px;font-family:'Playfair Display',serif;font-size:20px;font-weight:700;
+  cursor:pointer;transition:transform .2s,border-color .2s,background .2s;
+  user-select:none;
+}
+.letter-tile:hover{transform:translateY(-4px);border-color:var(--rose)}
+.letter-tile.selected{background:var(--rose);color:#fff;border-color:var(--rose);transform:translateY(-4px)}
+.letter-tile.correct{background:linear-gradient(135deg,#27ae60,#1e8449);border-color:#27ae60;color:#fff;animation:fin .3s ease}
+.scramble-answer{display:flex;gap:8px;flex-wrap:wrap;min-height:56px;padding:10px;border-radius:12px;border:2px dashed rgba(210,70,100,.22);background:rgba(255,255,255,.4)}
+.scramble-answer .letter-tile{cursor:pointer}
+.scramble-result{margin-top:14px;font-family:'Playfair Display',serif;font-size:22px;font-style:italic;color:var(--rose);display:none;animation:fin .5s ease;text-align:center}
 
-    /* ── PHOTO GRID ── */
-    .photo-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:12px;
-    }
-    .photo-slot{
-      aspect-ratio:4/5;
-      border-radius:16px;
-      background:rgba(255,255,255,.5);
-      border:1px solid rgba(232,69,106,.18);
-      overflow:hidden;
-      box-shadow:var(--sh2);
-      position:relative;
-    }
-    .photo-slot img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05);}
-    .photo-slot .photo-overlay{
-      position:absolute;inset:0;
-      background:linear-gradient(0deg,rgba(42,21,32,.35) 0%,transparent 50%);
-      display:flex;align-items:flex-end;padding:10px;
-      opacity:0;transition:.3s;
-    }
-    .photo-slot:hover .photo-overlay{opacity:1;}
-    .photo-overlay span{color:#fff;font-size:12px;font-weight:500;}
+/* ── MEMORY GAME ── */
+.mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.mem-card{aspect-ratio:3/4;cursor:pointer;perspective:600px}
+.mem-inner{width:100%;height:100%;transition:transform .5s ease;transform-style:preserve-3d;position:relative}
+.mem-card.flipped .mem-inner{transform:rotateY(180deg)}
+.mem-card.matched .mem-inner{transform:rotateY(180deg)}
+.mem-front,.mem-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:12px;display:flex;align-items:center;justify-content:center}
+.mem-front{background:linear-gradient(135deg,var(--rose),#c03055);font-size:22px;box-shadow:var(--sh2)}
+.mem-back{background:rgba(255,255,255,.9);transform:rotateY(180deg);font-size:clamp(10px,2vw,13px);color:var(--ink);text-align:center;padding:8px;flex-direction:column;gap:4px;border:1px solid rgba(210,70,100,.2)}
+.mem-back .mem-emoji{font-size:20px}
+.mem-card.matched .mem-back{background:linear-gradient(135deg,rgba(210,70,100,.1),rgba(184,145,42,.1));border-color:rgba(210,70,100,.35)}
+.mem-result{margin-top:16px;text-align:center;font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--rose);display:none;animation:fin .5s ease}
 
-    /* ── SECTION DIVIDER ── */
-    .divider{
-      display:flex;align-items:center;gap:12px;
-      color:var(--rose-lt);font-size:20px;
-    }
-    .divider::before,.divider::after{
-      content:'';flex:1;height:1px;
-      background:linear-gradient(90deg,transparent,rgba(232,69,106,.25),transparent);
-    }
+/* ── SEALED LETTER ── */
+.sealed-wrap{text-align:center}
+.envelope{
+  display:inline-flex;flex-direction:column;align-items:center;
+  width:220px;padding:28px 24px;margin:10px auto;
+  background:linear-gradient(135deg,#fff5f0,#fff0f5);
+  border:2px solid rgba(210,70,100,.25);border-radius:20px;
+  cursor:pointer;box-shadow:var(--sh2);
+  transition:transform .2s,box-shadow .2s;user-select:none;
+}
+.envelope:hover{transform:translateY(-4px);box-shadow:var(--sh)}
+.envelope-icon{font-size:52px;margin-bottom:8px;transition:transform .3s}
+.envelope:hover .envelope-icon{transform:scale(1.1) rotate(5deg)}
+.envelope-label{font-size:13px;color:var(--muted);font-style:italic}
+.letter-scroll{
+  display:none;margin-top:18px;padding:26px 24px;
+  background:linear-gradient(160deg,#fffaf5,#fff8fc);
+  border-radius:20px;border:1px solid rgba(210,70,100,.18);
+  font-family:'Playfair Display',serif;font-size:clamp(15px,2vw,18px);
+  font-weight:400;line-height:1.75;color:var(--ink);
+  animation:fin .6s ease;
+}
+.letter-scroll .greeting{font-style:italic;color:var(--rose);font-size:1.1em}
+.letter-scroll .sign{margin-top:20px;font-style:italic;color:var(--muted)}
 
-    /* ── POPUP BURST ── */
-    .popup-burst{
-      position:fixed;z-index:999;
-      padding:10px 16px;border-radius:14px;
-      background:rgba(255,255,255,.95);
-      border:1px solid rgba(232,69,106,.2);
-      box-shadow:0 12px 32px rgba(232,69,106,.18);
-      font-weight:700;font-size:14px;color:var(--rose);
-      pointer-events:none;user-select:none;
-      animation:burstpop 1.4s ease forwards;
-    }
-    @keyframes burstpop{
-      0%{opacity:0;transform:scale(.9) translateY(8px)}
-      15%{opacity:1}
-      70%{opacity:1}
-      100%{opacity:0;transform:scale(1.02) translateY(-20px)}
-    }
+/* ── DIVIDER ── */
+.divider{display:flex;align-items:center;gap:10px;color:var(--rose-lt);font-size:22px}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(210,70,100,.22),transparent)}
+.divider span{cursor:pointer;transition:transform .2s;user-select:none}
+.divider span:hover{transform:scale(1.3)}
 
-    /* ── MODAL ── */
-    .modal{
-      position:fixed;inset:0;z-index:50;
-      background:rgba(42,21,32,.4);
-      display:none;place-items:center;padding:20px;
-      backdrop-filter:blur(4px);
-    }
-    .modal.open{display:grid;}
-    .modal-inner{
-      width:min(480px,96vw);
-      background:var(--card);
-      border:1px solid rgba(255,255,255,.8);
-      border-radius:22px;
-      box-shadow:var(--sh);
-      padding:28px 24px 20px;
-      position:relative;
-    }
-    .modal-title{
-      font-family:'Cormorant Garamond',serif;
-      font-size:22px;font-weight:400;
-      color:var(--rose);margin-bottom:12px;
-    }
-    .modal-msg{font-size:16px;line-height:1.6;color:var(--ink);}
-    .modal-close{
-      position:absolute;top:14px;right:14px;
-      background:rgba(232,69,106,.1);
-      border:1px solid rgba(232,69,106,.2);
-      border-radius:10px;padding:6px 12px;
-      cursor:pointer;font-weight:700;font-size:14px;
-      font-family:'DM Sans',sans-serif;color:var(--muted);
-    }
+/* ── MEMORY STRIP ── */
+.mem-strip{display:flex;gap:12px;overflow-x:auto;padding-bottom:8px;scrollbar-width:thin;scrollbar-color:var(--rose-pk) transparent}
+.mcard{flex-shrink:0;width:154px;border-radius:14px;background:rgba(255,255,255,.7);border:1px solid rgba(210,70,100,.16);padding:14px 12px;box-shadow:var(--sh2);position:relative;overflow:hidden}
+.mcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--rose),var(--gold))}
+.mcard-icon{font-size:20px;margin-bottom:6px;display:block}
+.mcard-date{font-size:11px;color:var(--gold);font-weight:600;letter-spacing:.4px;margin-bottom:4px}
+.mcard-text{font-size:12px;color:var(--ink);line-height:1.4}
 
-    /* ── FOOTER ── */
-    .footer{text-align:center;padding:16px;font-size:13px;color:var(--muted);font-style:italic;}
+/* ── BURST ── */
+.burst{position:fixed;z-index:9999;padding:10px 18px;border-radius:14px;background:rgba(255,255,255,.96);border:1px solid rgba(210,70,100,.2);box-shadow:0 14px 36px rgba(210,70,100,.18);font-weight:700;font-size:14px;color:var(--rose);pointer-events:none;user-select:none;animation:bpop 1.5s ease forwards}
+@keyframes bpop{0%{opacity:0;transform:scale(.85) translateY(10px)}12%{opacity:1}72%{opacity:1}100%{opacity:0;transform:scale(1.03) translateY(-24px)}}
 
-    @media(max-width:480px){
-      .photo-grid{grid-template-columns:1fr 1fr;}
-      .toggle-item{flex-direction:column;align-items:flex-start;gap:10px;}
-    }
-  </style>
+/* ── ILY OVERLAY ── */
+.ily-overlay{position:fixed;inset:0;z-index:9998;background:rgba(180,30,70,.92);display:none;flex-direction:column;align-items:center;justify-content:center;gap:16px;cursor:pointer;backdrop-filter:blur(8px)}
+.ily-overlay.show{display:flex;animation:fin .5s ease}
+.ily-big{font-family:'Playfair Display',serif;font-size:clamp(44px,10vw,96px);font-style:italic;color:#fff;text-shadow:0 4px 40px rgba(255,255,255,.3);text-align:center;animation:ily-pulse 2s ease-in-out infinite}
+@keyframes ily-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+.ily-sub{font-size:clamp(14px,2.5vw,20px);color:rgba(255,255,255,.8);font-style:italic;text-align:center}
+.ily-close{font-size:13px;color:rgba(255,255,255,.5);margin-top:10px}
+
+/* ── MODAL ── */
+.modal{position:fixed;inset:0;z-index:50;background:rgba(30,10,20,.45);display:none;place-items:center;padding:18px;backdrop-filter:blur(5px)}
+.modal.open{display:grid}
+.modal-inner{width:min(460px,96vw);background:var(--card);border:1px solid rgba(255,255,255,.85);border-radius:22px;box-shadow:var(--sh);padding:28px 24px 22px;position:relative}
+.modal-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:400;color:var(--rose);margin-bottom:12px}
+.modal-msg{font-size:15px;line-height:1.65;color:var(--ink)}
+.modal-close{position:absolute;top:12px;right:12px;background:rgba(210,70,100,.1);border:1px solid rgba(210,70,100,.2);border-radius:9px;padding:5px 11px;cursor:pointer;font-weight:700;font-size:13px;font-family:'DM Sans',sans-serif;color:var(--muted)}
+
+/* ── KONAMI HINT ── */
+.secret-hint{font-size:11px;color:rgba(210,70,100,.3);text-align:center;margin-top:4px;letter-spacing:.3px}
+
+.footer{text-align:center;padding:14px;font-size:13px;color:var(--muted);font-style:italic}
+
+@media(max-width:480px){
+  .polaroid-grid{grid-template-columns:1fr 1fr}
+  .mem-grid{grid-template-columns:repeat(4,1fr)}
+  .toggle-item{flex-direction:row}
+}
+</style>
 </head>
 <body>
 
-<!-- Floating hearts layer -->
-<div id="hearts-layer"></div>
+<!-- Floating hearts -->
+<div id="hlayer"></div>
+<!-- Fly tip -->
+<div class="ftip" id="ftip"></div>
 
-<!-- Tooltip for flying buttons -->
-<div class="fly-tip" id="flyTip"></div>
+<!-- ILY full-screen overlay -->
+<div class="ily-overlay" id="ilyOverlay" onclick="document.getElementById('ilyOverlay').classList.remove('show')">
+  <div class="ily-big" id="ilyBig">I love you</div>
+  <div class="ily-sub" id="ilySub">…more than words can say.</div>
+  <div class="ily-close">tap anywhere to close</div>
+</div>
 
 <!-- Heart message modal -->
-<div class="modal" id="heartModal">
+<div class="modal" id="hModal">
   <div class="modal-inner">
-    <button class="modal-close" id="closeHeartModal">✕ Close</button>
-    <p class="modal-title">A little note for you 💖</p>
-    <p class="modal-msg" id="heartMsg"></p>
+    <button class="modal-close" id="closeHModal">✕</button>
+    <p class="modal-title">A little note 💗</p>
+    <p class="modal-msg" id="hModalMsg"></p>
   </div>
 </div>
 
 <div class="page">
 
-  <!-- ── HERO ── -->
-  <div class="hero">
-    <div class="hero-badge">✦ 12 March 2025 → 12 March 2026 ✦</div>
-    <h1>One whole year with<br/><em>you, my light.</em></h1>
-    <p>365 days of choosing each other — and counting. Happy first anniversary, Golu.</p>
-    <div class="counter" id="counter">
-      <div class="counter-pill"><div class="num" id="cd">--</div><span class="lbl">Days</span></div>
-      <div class="counter-pill"><div class="num" id="ch">--</div><span class="lbl">Hours</span></div>
-      <div class="counter-pill"><div class="num" id="cm">--</div><span class="lbl">Minutes</span></div>
-      <div class="counter-pill"><div class="num" id="cs">--</div><span class="lbl">Seconds</span></div>
-    </div>
-    <p class="anni-note">since you became mine on 12 March 2025 🌹</p>
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="anni-badge" id="anniBadge" title="click me...">✦ 12 March 2025 → 12 March 2026 ✦</div>
+  <h1>One whole year<br/>with <em>you, my Golu.</em></h1>
+  <p class="tagline">365 days of laughing together, choosing each other, and building something real. Happy first anniversary.</p>
+  <div class="counter">
+    <div class="cpill"><div class="num" id="cd">--</div><span class="lbl">Days</span></div>
+    <div class="cpill"><div class="num" id="ch">--</div><span class="lbl">Hours</span></div>
+    <div class="cpill"><div class="num" id="cm">--</div><span class="lbl">Minutes</span></div>
+    <div class="cpill"><div class="num" id="cs">--</div><span class="lbl">Seconds</span></div>
   </div>
-
-  <!-- ── PHOTO GRID (placeholders, swap src with real photos) ── -->
-  <div class="card">
-    <div class="card-label">📷 A Year in Frames</div>
-    <h2>Our <em>best</em> moments</h2>
-    <p class="sub">Tap a photo to feel it again.</p>
-    <div class="photo-grid">
-      <div class="photo-slot"><img src="photo1.jpg" alt="Us"/><div class="photo-overlay"><span>💗 Always</span></div></div>
-      <div class="photo-slot"><img src="photo2.jpg" alt="Us"/><div class="photo-overlay"><span>✨ My fav day</span></div></div>
-      <div class="photo-slot"><img src="photo3.jpg" alt="Us"/><div class="photo-overlay"><span>🌹 Pure joy</span></div></div>
-      <div class="photo-slot"><img src="photo4.jpg" alt="Us"/><div class="photo-overlay"><span>💫 Forever this</span></div></div>
-    </div>
-  </div>
-
-  <div class="divider">♥</div>
-
-  <!-- ── QUIZ 1: Continue being my girlfriend ── -->
-  <div class="card" id="quiz1">
-    <div class="card-label">💬 Important Question</div>
-    <h2>Do you want to continue<br/><em>being my girlfriend?</em></h2>
-    <p class="sub">Think very carefully. (There is only one correct answer.)</p>
-    <div class="choice-row" id="q1row">
-      <button class="btn btn-yes" id="q1yes">Yes, always 💗</button>
-      <button class="btn btn-no" id="q1no" type="button">No</button>
-    </div>
-    <div class="quiz-result" id="q1result">
-      I knew it. 💗 You're mine — officially, forever. Thank you for saying yes, again.
-    </div>
-  </div>
-
-  <!-- ── QUIZ 2: How happy are you with us? ── -->
-  <div class="card" id="quiz2">
-    <div class="card-label">💫 Relationship Check-In</div>
-    <h2><em>How happy</em> are you with us?</h2>
-    <p class="sub">Rate us honestly. (Spoiler: only 5 stars is the right answer.)</p>
-    <div class="stars-wrap" id="starsRow">
-      <button class="star-btn" data-val="1" title="1 star">⭐</button>
-      <button class="star-btn" data-val="2" title="2 stars">⭐</button>
-      <button class="star-btn" data-val="3" title="3 stars">⭐</button>
-      <button class="star-btn" data-val="4" title="4 stars">⭐</button>
-      <button class="star-btn" data-val="5" title="5 stars — perfect">⭐</button>
-    </div>
-    <div class="star-result" id="starResult">
-      <strong>5 stars. Perfection.</strong> That's exactly what this is — and exactly what you are to me. 💖
-    </div>
-  </div>
-
-  <!-- ── QUIZ 3: Relationship Feedback Toggles ── -->
-  <div class="card" id="quiz3">
-    <div class="card-label">✅ Relationship Feedback</div>
-    <h2>A little <em>feedback</em> on us</h2>
-    <p class="sub">Toggle the ones that apply. (The negative ones are a bit broken, sorry.)</p>
-    <div class="toggle-list" id="toggleList">
-
-      <div class="toggle-item">
-        <div class="toggle-label">
-          We make each other happy
-          <div class="sub">Every single day 💛</div>
-        </div>
-        <label class="toggle"><input type="checkbox" data-positive="true" /><span class="slider"></span></label>
-      </div>
-
-      <div class="toggle-item">
-        <div class="toggle-label">
-          We communicate well
-          <div class="sub">Open, honest, kind ✉️</div>
-        </div>
-        <label class="toggle"><input type="checkbox" data-positive="true" /><span class="slider"></span></label>
-      </div>
-
-      <div class="toggle-item">
-        <div class="toggle-label">
-          We trust each other completely
-          <div class="sub">No doubts, no fears 🔒</div>
-        </div>
-        <label class="toggle"><input type="checkbox" data-positive="true" /><span class="slider"></span></label>
-      </div>
-
-      <div class="toggle-item">
-        <div class="toggle-label">
-          We have a boring relationship
-          <div class="sub">(This one's broken — it won't turn on 🙃)</div>
-        </div>
-        <label class="toggle disabled"><input type="checkbox" data-positive="false" /><span class="slider"></span></label>
-      </div>
-
-      <div class="toggle-item">
-        <div class="toggle-label">
-          I regret saying yes to him
-          <div class="sub">(Also broken. Very broken.)</div>
-        </div>
-        <label class="toggle disabled"><input type="checkbox" data-positive="false" /><span class="slider"></span></label>
-      </div>
-
-      <div class="toggle-item">
-        <div class="toggle-label">
-          We are meant for each other
-          <div class="sub">Written in the stars 🌙</div>
-        </div>
-        <label class="toggle"><input type="checkbox" data-positive="true" /><span class="slider"></span></label>
-      </div>
-
-      <div class="toggle-item">
-        <div class="toggle-label">
-          This relationship is a mistake
-          <div class="sub">(System error: not applicable.)</div>
-        </div>
-        <label class="toggle disabled"><input type="checkbox" data-positive="false" /><span class="slider"></span></label>
-      </div>
-
-      <div class="toggle-item">
-        <div class="toggle-label">
-          Year two is going to be even better
-          <div class="sub">I believe it with everything 🌹</div>
-        </div>
-        <label class="toggle"><input type="checkbox" data-positive="true" /><span class="slider"></span></label>
-      </div>
-
-    </div>
-    <div class="quiz-result" id="toggleResult" style="display:none;margin-top:18px;border-color:rgba(232,69,106,.25);color:var(--rose);">
-      ✨ All the right ones — turned on. That's us.
-    </div>
-  </div>
-
-  <!-- ── LOVE LETTER ── -->
-  <div class="card">
-    <div class="card-label">📝 From Me</div>
-    <div class="letter">
-      <p class="greeting">My dearest Golu,</p>
-      <br/>
-      <p>One year ago today, you said yes — and my whole world got softer, warmer, and better.</p>
-      <br/>
-      <p>I'm not the most poetic person in the world. But I know this: every ordinary day with you feels like something worth remembering. Every message, every moment, every quiet evening — I wouldn't trade any of it.</p>
-      <br/>
-      <p>You're the reason I feel settled. You're the reason I try harder. You make space for me to just be myself, and that's rarer than you know.</p>
-      <br/>
-      <p>Here's to year two. And three. And every one after that.</p>
-      <p class="sign">— Yours, always. 💗</p>
-    </div>
-  </div>
-
-  <!-- ── MEMORY STRIP ── -->
-  <div class="card">
-    <div class="card-label">🗓️ One Year of Memories</div>
-    <h2>The moments that <em>matter</em></h2>
-    <p class="sub" style="margin-bottom:18px;">Scroll through our year — just the highlights.</p>
-    <div class="memory-strip">
-      <div class="mem-card">
-        <span class="mem-icon">💗</span>
-        <div class="mem-date">12 Mar 2025</div>
-        <div class="mem-text">She said yes. The beginning of everything.</div>
-      </div>
-      <div class="mem-card">
-        <span class="mem-icon">🌹</span>
-        <div class="mem-date">Feb 2026</div>
-        <div class="mem-text">Our first Valentine's — the romantic getaway.</div>
-      </div>
-      <div class="mem-card">
-        <span class="mem-icon">📞</span>
-        <div class="mem-date">Every day</div>
-        <div class="mem-text">Every call, every text. Ordinary magic.</div>
-      </div>
-      <div class="mem-card">
-        <span class="mem-icon">🌙</span>
-        <div class="mem-date">Late nights</div>
-        <div class="mem-text">Talking until 2am like it was nothing.</div>
-      </div>
-      <div class="mem-card">
-        <span class="mem-icon">✨</span>
-        <div class="mem-date">12 Mar 2026</div>
-        <div class="mem-text">One full year. And I'd do it all again.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer">Made with love. For Golu — always. 💗</div>
+  <p class="anni-note">since 12 March 2025 — the day everything got better 🌹</p>
+  <p class="badge-click-hint" id="badgeHint">( the badge holds a secret )</p>
+  <p class="secret-hint">psst — try typing something on your keyboard…</p>
 </div>
 
+<!-- ── POLAROID PHOTOS ── -->
+<div class="card">
+  <div class="card-label">📷 A Year in Polaroids</div>
+  <h2>Flip each photo to find a <em>hidden message</em></h2>
+  <p class="sub">Tap any photo. Go on.</p>
+  <div class="polaroid-grid">
+    <div class="polaroid" onclick="this.classList.toggle('flipped')">
+      <div class="polaroid-inner">
+        <div class="polaroid-front">
+          <img src="photo1.jpg" alt="Us"/>
+          <div class="polaroid-caption">us 🌹</div>
+        </div>
+        <div class="polaroid-back">
+          <div class="ily">I love you.</div>
+          <div class="ily-note">I loved you the moment I met you — and I love you more every day since.</div>
+        </div>
+      </div>
+    </div>
+    <div class="polaroid" onclick="this.classList.toggle('flipped')">
+      <div class="polaroid-inner">
+        <div class="polaroid-front">
+          <img src="photo2.jpg" alt="Us"/>
+          <div class="polaroid-caption">always 💗</div>
+        </div>
+        <div class="polaroid-back">
+          <div class="ily">I love you.</div>
+          <div class="ily-note">You make ordinary days feel like they matter. That's a rare, beautiful thing.</div>
+        </div>
+      </div>
+    </div>
+    <div class="polaroid" onclick="this.classList.toggle('flipped')">
+      <div class="polaroid-inner">
+        <div class="polaroid-front">
+          <img src="photo3.jpg" alt="Us"/>
+          <div class="polaroid-caption">my favourite 🌙</div>
+        </div>
+        <div class="polaroid-back">
+          <div class="ily">I love you.</div>
+          <div class="ily-note">In every version of this life, I'd find you and choose you. Every time.</div>
+        </div>
+      </div>
+    </div>
+    <div class="polaroid" onclick="this.classList.toggle('flipped')">
+      <div class="polaroid-inner">
+        <div class="polaroid-front">
+          <img src="photo4.jpg" alt="Us"/>
+          <div class="polaroid-caption">forever this ✨</div>
+        </div>
+        <div class="polaroid-back">
+          <div class="ily">I love you.</div>
+          <div class="ily-note">You are my calm, my safe place, and my greatest adventure — all at once.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="polaroid-hint">( four photos. four love notes. find them all. )</p>
+</div>
+
+<div class="divider"><span id="divHeart" title="click me...">♥</span></div>
+
+<!-- ── QUIZ 1: Girlfriend ── -->
+<div class="card">
+  <div class="card-label">💬 The Big Question</div>
+  <h2>Do you want to continue<br/><em>being my girlfriend?</em></h2>
+  <p class="sub">One year in. Choose wisely. (There is only one correct answer.)</p>
+  <div class="choice-row">
+    <button class="btn btn-yes" id="q1yes">Yes, always 💗</button>
+    <button class="btn btn-no" id="q1no">No</button>
+  </div>
+  <div class="quiz-result" id="q1res">I knew it. You're mine — officially, forever. 💗 Thank you for saying yes, again.</div>
+</div>
+
+<!-- ── QUIZ 2: Stars ── -->
+<div class="card">
+  <div class="card-label">⭐ Relationship Rating</div>
+  <h2>Rate us. <em>Honestly.</em></h2>
+  <p class="sub">How would you score this relationship? (Hint: only the correct answer actually works.)</p>
+  <div class="stars-wrap" id="starsRow">
+    <button class="star-btn" data-v="1">⭐</button>
+    <button class="star-btn" data-v="2">⭐</button>
+    <button class="star-btn" data-v="3">⭐</button>
+    <button class="star-btn" data-v="4">⭐</button>
+    <button class="star-btn" data-v="5">⭐</button>
+  </div>
+  <div class="star-result" id="starRes"><strong>5 stars — perfect.</strong> That's exactly what this is. And exactly what you are to me. 💖</div>
+</div>
+
+<!-- ── QUIZ 3: Emoji ── -->
+<div class="card">
+  <div class="card-label">🎯 Pick One</div>
+  <h2>Which emoji <em>describes us?</em></h2>
+  <p class="sub">Be honest. Pick the one that feels right. (The wrong ones are a bit broken.)</p>
+  <div class="emoji-grid" id="emojiGrid">
+    <button class="emoji-btn" data-right="false">🙄</button>
+    <button class="emoji-btn" data-right="false">😐</button>
+    <button class="emoji-btn" data-right="true">💗</button>
+    <button class="emoji-btn" data-right="false">😭</button>
+    <button class="emoji-btn" data-right="false">🤔</button>
+    <button class="emoji-btn" data-right="false">😴</button>
+  </div>
+  <div class="quiz-result" id="emojiRes">💗 — Yes. That's us. Soft, warm, real love. Exactly right.</div>
+</div>
+
+<!-- ── QUIZ 4: Forever Slider ── -->
+<div class="card">
+  <div class="card-label">🔮 The Future</div>
+  <h2>How long will <em>we last?</em></h2>
+  <p class="sub">Drag the slider to where you think we end up.</p>
+  <div class="slider-wrap">
+    <input type="range" class="forever-slider" id="foreverSlider" min="0" max="100" value="100"/>
+    <div class="slider-labels"><span>Just friends</span><span>A while</span><span>Forever ∞</span></div>
+  </div>
+  <div class="forever-label" id="foreverLabel">Forever ∞</div>
+  <div class="quiz-result" id="sliderRes" style="display:block;margin-top:12px;border-color:rgba(210,70,100,.25);color:var(--rose);">See? The slider already knows. ✨</div>
+</div>
+
+<div class="divider"><span id="divHeart2" title="...">♥</span></div>
+
+<!-- ── QUIZ 5: Toggles ── -->
+<div class="card">
+  <div class="card-label">✅ Relationship Check</div>
+  <h2>A little <em>feedback</em>, please</h2>
+  <p class="sub">Toggle all that apply. (The negative ones are permanently broken — sorry.)</p>
+  <div class="toggle-list" id="toggleList">
+    <div class="toggle-item">
+      <div class="toggle-label">We make each other genuinely happy<div class="sub">Every single day 💛</div></div>
+      <label class="toggle"><input type="checkbox" data-pos="true"/><span class="slider"></span></label>
+    </div>
+    <div class="toggle-item">
+      <div class="toggle-label">We communicate openly and kindly<div class="sub">No games, just honesty ✉️</div></div>
+      <label class="toggle"><input type="checkbox" data-pos="true"/><span class="slider"></span></label>
+    </div>
+    <div class="toggle-item">
+      <div class="toggle-label">We trust each other completely<div class="sub">100%, no doubts 🔒</div></div>
+      <label class="toggle"><input type="checkbox" data-pos="true"/><span class="slider"></span></label>
+    </div>
+    <div class="toggle-item">
+      <div class="toggle-label">We are boring together<div class="sub">(This one is broken — it won't turn on 🙃)</div></div>
+      <label class="toggle disabled"><input type="checkbox" data-pos="false"/><span class="slider"></span></label>
+    </div>
+    <div class="toggle-item">
+      <div class="toggle-label">I regret saying yes to him<div class="sub">(Also broken. Permanently.)</div></div>
+      <label class="toggle disabled"><input type="checkbox" data-pos="false"/><span class="slider"></span></label>
+    </div>
+    <div class="toggle-item">
+      <div class="toggle-label">We bring out the best in each other<div class="sub">Better together than apart 🌱</div></div>
+      <label class="toggle"><input type="checkbox" data-pos="true"/><span class="slider"></span></label>
+    </div>
+    <div class="toggle-item">
+      <div class="toggle-label">This relationship is a mistake<div class="sub">(System error: not applicable.)</div></div>
+      <label class="toggle disabled"><input type="checkbox" data-pos="false"/><span class="slider"></span></label>
+    </div>
+    <div class="toggle-item">
+      <div class="toggle-label">Year two is going to be even better<div class="sub">I believe it with everything 🌹</div></div>
+      <label class="toggle"><input type="checkbox" data-pos="true"/><span class="slider"></span></label>
+    </div>
+    <div class="toggle-item">
+      <div class="toggle-label">We are meant for each other<div class="sub">Written in the stars 🌙</div></div>
+      <label class="toggle"><input type="checkbox" data-pos="true"/><span class="slider"></span></label>
+    </div>
+  </div>
+  <div class="quiz-result" id="toggleRes" style="border-color:rgba(210,70,100,.25);color:var(--rose)">✨ All the right ones on. That's us — only the good things. 💗</div>
+</div>
+
+<!-- ── WORD SCRAMBLE ── -->
+<div class="card">
+  <div class="card-label">🔤 Solve This</div>
+  <h2>Unscramble the <em>hidden message</em></h2>
+  <p class="sub">Tap the letters in the right order to reveal what I've been saying all along.</p>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:14px">Tap letters below to build your answer, tap answer to undo:</p>
+  <div class="scramble-letters" id="scPool"></div>
+  <div style="font-size:12px;color:var(--muted);margin-bottom:8px">Your answer:</div>
+  <div class="scramble-answer" id="scAnswer"></div>
+  <div class="scramble-result" id="scResult">💗 "I love you" — three words I mean every single day.</div>
+  <div style="margin-top:12px;display:flex;gap:10px">
+    <button class="btn btn-no" id="scReset" style="font-size:13px;padding:8px 16px;cursor:pointer">Reset</button>
+  </div>
+</div>
+
+<!-- ── MEMORY GAME ── -->
+<div class="card">
+  <div class="card-label">🃏 Memory Game</div>
+  <h2>Find every <em>matching pair</em></h2>
+  <p class="sub">Flip the cards. Match all 4 pairs to unlock a hidden message.</p>
+  <div class="mem-grid" id="memGrid"></div>
+  <div class="mem-result" id="memResult">💗 You found every pair — just like we found each other. I love you, Golu.</div>
+</div>
+
+<div class="divider"><span>♥</span></div>
+
+<!-- ── SEALED LETTER ── -->
+<div class="card">
+  <div class="card-label">✉️ Secret Letter</div>
+  <h2>A sealed letter — <em>just for you</em></h2>
+  <p class="sub">I wrote this only for you. Open it when you're ready.</p>
+  <div class="sealed-wrap">
+    <div class="envelope" id="envelope" onclick="openEnvelope()">
+      <div class="envelope-icon">💌</div>
+      <div class="envelope-label">tap to open</div>
+    </div>
+    <div class="letter-scroll" id="letterScroll">
+      <p class="greeting">My Golu,</p><br/>
+      <p>I love you.</p><br/>
+      <p>Not the easy kind — the real kind. The "I still chose you on a hard day" kind. The "I'd do this year all over again" kind.</p><br/>
+      <p>You walked into my life and quietly made everything better. You didn't announce it. You just… were there. And suddenly the ordinary things felt worth noticing.</p><br/>
+      <p>I love your softness. I love how you care. I love the way you make me feel like I'm enough — exactly as I am, without pretending.</p><br/>
+      <p>One year ago, you said yes. And today I want to say it back:</p><br/>
+      <p><em style="color:var(--rose);font-size:1.15em">Yes — to all of it. Every year, every version, every ordinary day with you.</em></p>
+      <p class="sign">— Yours. Always. 💗</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── MEMORY STRIP ── -->
+<div class="card">
+  <div class="card-label">🗓️ Our Year</div>
+  <h2>The moments that <em>made us</em></h2>
+  <div class="mem-strip">
+    <div class="mcard"><span class="mcard-icon">💗</span><div class="mcard-date">12 Mar 2025</div><div class="mcard-text">She said yes. The beginning of everything.</div></div>
+    <div class="mcard"><span class="mcard-icon">💌</span><div class="mcard-date">Every morning</div><div class="mcard-text">Good morning texts that made the day start right.</div></div>
+    <div class="mcard"><span class="mcard-icon">🌹</span><div class="mcard-date">Feb 2026</div><div class="mcard-text">Our first Valentine's — the romantic getaway.</div></div>
+    <div class="mcard"><span class="mcard-icon">📞</span><div class="mcard-date">Every late night</div><div class="mcard-text">Talking until 2am like it was nothing.</div></div>
+    <div class="mcard"><span class="mcard-icon">😂</span><div class="mcard-date">Always</div><div class="mcard-text">Laughing at nothing. The best kind of nothing.</div></div>
+    <div class="mcard"><span class="mcard-icon">✨</span><div class="mcard-date">12 Mar 2026</div><div class="mcard-text">One full year. And I'd do it all again.</div></div>
+  </div>
+</div>
+
+<div class="footer">Made with love — for Golu. 💗 <br/><span style="font-size:11px;opacity:.5">( there are 7 hidden "I love you" messages — did you find them all? )</span></div>
+
+</div><!-- /page -->
+
 <script>
-  // ── ANNIVERSARY COUNTER (counts UP from 12 March 2025 00:00 GMT) ──
-  const start = new Date("2025-03-12T00:00:00+00:00");
-  function tickCounter(){
-    const now = new Date();
-    const diff = now - start;
-    if(diff < 0) return;
-    const ts = Math.floor(diff/1000);
-    const d = Math.floor(ts/86400);
-    const h = Math.floor((ts%86400)/3600);
-    const m = Math.floor((ts%3600)/60);
-    const s = ts%60;
-    document.getElementById('cd').textContent = d;
-    document.getElementById('ch').textContent = String(h).padStart(2,'0');
-    document.getElementById('cm').textContent = String(m).padStart(2,'0');
-    document.getElementById('cs').textContent = String(s).padStart(2,'0');
+// ── ANNIVERSARY COUNTER ──
+const start=new Date("2025-03-12T00:00:00+00:00");
+function tick(){
+  const diff=new Date()-start,ts=Math.floor(diff/1000);
+  if(diff<0)return;
+  document.getElementById('cd').textContent=Math.floor(ts/86400);
+  document.getElementById('ch').textContent=String(Math.floor((ts%86400)/3600)).padStart(2,'0');
+  document.getElementById('cm').textContent=String(Math.floor((ts%3600)/60)).padStart(2,'0');
+  document.getElementById('cs').textContent=String(ts%60).padStart(2,'0');
+}
+tick();setInterval(tick,1000);
+
+// ── HELPERS ──
+const ftip=document.getElementById('ftip');
+const noMsgs=["Nice try 😌","Wrong answer, Golu.","Not an option 💗","That one's broken.","Be serious 😭","Only YES is allowed.","We both know it's YES.","Try the other one.","That button is on holiday.","System error: No unavailable.","I think you meant YES.","Nope. Still nope.","Cute. Now pick YES.","That choice doesn't exist.","Golu… come on 😌"];
+let noIdx=0;
+function r(a,b){return Math.random()*(b-a)+a}
+function showTip(txt,x,y){ftip.textContent=txt;ftip.style.display='block';ftip.style.left=(x+14)+'px';ftip.style.top=(y+14)+'px';clearTimeout(showTip._t);showTip._t=setTimeout(()=>ftip.style.display='none',950)}
+function flyEl(el,e){
+  const vw=window.innerWidth,vh=window.innerHeight,rc=el.getBoundingClientRect();
+  el.style.position='fixed';el.style.zIndex='100';
+  el.style.left=r(16,Math.max(16,vw-rc.width-16))+'px';
+  el.style.top=r(16,Math.max(16,vh-rc.height-16))+'px';
+  if(e)showTip(noMsgs[noIdx++%noMsgs.length],e.clientX,e.clientY);
+}
+function burst(txt,count=40,col='var(--rose)'){
+  for(let i=0;i<count;i++){
+    setTimeout(()=>{
+      const p=document.createElement('div');p.className='burst';p.style.color=col;
+      p.textContent=txt;p.style.left=r(12,window.innerWidth-180)+'px';p.style.top=r(12,window.innerHeight-60)+'px';
+      document.body.appendChild(p);setTimeout(()=>p.remove(),1600);
+    },i*18);
   }
-  tickCounter();
-  setInterval(tickCounter,1000);
+}
+function showILY(big,sub){
+  const o=document.getElementById('ilyOverlay');
+  document.getElementById('ilyBig').textContent=big||'I love you';
+  document.getElementById('ilySub').textContent=sub||'…more than words can say.';
+  o.classList.add('show');
+}
 
-  // ── FLOATING HEARTS ──
-  const heartMsgs = [
-    "You make my world feel lighter just by existing.",
-    "If peace had a face, it would look like you smiling.",
-    "You're my favourite thought — the one that never gets old.",
-    "I don't need perfect days. I just need days with you.",
-    "Your love feels like home, even when everything else is loud.",
-    "You're the reason I believe in soft love and real effort.",
-    "Every little thing you do stays with me — in the best way.",
-    "I'm proud of you. Not for one thing — for everything you are.",
-    "You're my calm, my fun, and my safe place all at once.",
-    "I'd choose you in every timeline, every version of life.",
-    "You have the kind of heart that makes people feel cared for.",
-    "Your presence is my favourite kind of comfort.",
-    "I love how you turn ordinary moments into memories.",
-    "You're not just beautiful — you're rare.",
-    "I feel lucky that I get to love you out loud.",
-    "Thank you for being you — that's already more than enough.",
-    "You inspire me to be softer, better, and more present.",
-    "I love your laugh. It fixes my mood instantly.",
-    "You're my favourite reason to look forward to tomorrow.",
-    "With you, even silence feels sweet and safe.",
-    "I notice you. I appreciate you. I adore you.",
-    "You're the best part of my day — consistently.",
-    "I'm grateful for your care, your patience, your love.",
-    "You and I? That's my favourite story.",
-    "I don't just like you. I'm genuinely proud to call you mine."
-  ];
+// ── FLOATING HEARTS ──
+const heartMsgs=["You make my world feel lighter just by existing.","If peace had a face, it would look like you smiling at me.","You're my favourite thought — the one that never gets old.","I don't need perfect days. I just need days with you in them.","Your love feels like home, even when everything else is loud.","You're the reason I believe in soft love and real effort.","Every little thing you do stays with me — in the best way.","I'm proud of you. Not for one thing — for everything you are.","You're my calm, my fun, and my safe place all at once.","I'd choose you in every timeline, every version of life.","You have the kind of heart that makes people feel cared for.","Your presence is my favourite kind of comfort.","I love how you turn ordinary moments into memories.","You're not just beautiful — you're rare.","I feel lucky that I get to love you out loud.","Thank you for being you — that's already more than enough.","You inspire me to be softer, better, and more present.","I love your laugh. It fixes my mood instantly.","You're my favourite reason to look forward to tomorrow.","With you, even silence feels sweet and safe.","I notice you. I appreciate you. I adore you.","You're the best part of my day — consistently.","I'm grateful for your care, your patience, your love.","You and I? That's my favourite story.","I don't just like you. I'm genuinely proud to call you mine."];
+const modal=document.getElementById('hModal');document.getElementById('closeHModal').onclick=()=>modal.classList.remove('open');
+modal.onclick=e=>{if(e.target===modal)modal.classList.remove('open')};
+const specials=new Set();while(specials.size<20)specials.add(Math.floor(Math.random()*50));
+const shuffled=[...heartMsgs].sort(()=>Math.random()-.5);let mPtr=0;
+const hlayer=document.getElementById('hlayer');
+const cols=['#d94f6e','#f28fa6','#b8912a','#c87a9a','#d46a6a'];
+for(let i=0;i<50;i++){
+  const h=document.createElement('div');h.className='fh';
+  h.style.left=r(0,97)+'vw';h.style.animationDelay=(-r(0,14))+'s';h.style.animationDuration=r(9,22)+'s';h.style.setProperty('--s',r(0.65,1.45).toFixed(2));
+  const c=cols[Math.floor(Math.random()*cols.length)];
+  h.innerHTML=`<svg width="18" height="16" viewBox="0 0 32 29" fill="${c}"><path d="M16 28.3C15.4 27.8 1 17.3 1 9.5 1 5.4 4.4 2 8.5 2c2.4 0 4.6 1.1 6.1 2.8.4.5.9.7 1.4.7s1-.2 1.4-.7C19 3.1 21.1 2 23.5 2 27.6 2 31 5.4 31 9.5c0 7.8-14.4 18.3-15 18.8z"/></svg>`;
+  if(specials.has(i)){
+    const msg=shuffled[mPtr++];
+    h.addEventListener('click',e=>{e.stopPropagation();document.getElementById('hModalMsg').textContent=msg;modal.classList.add('open')});
+  } else {
+    h.addEventListener('click',e=>{e.stopPropagation();h.animate([{transform:'scale(1) translateY(0)'},{transform:'scale(1.4) translateY(-8px)'},{transform:'scale(1) translateY(0)'}],{duration:300,easing:'ease-out'})});
+  }
+  hlayer.appendChild(h);
+}
 
-  const modal = document.getElementById('heartModal');
-  const heartMsgEl = document.getElementById('heartMsg');
-  const closeHeartModal = document.getElementById('closeHeartModal');
+// ── BADGE SECRET (click 5 times) ──
+const badge=document.getElementById('anniBadge');
+const hint=document.getElementById('badgeHint');
+let badgeClicks=0;
+badge.addEventListener('click',()=>{
+  badgeClicks++;
+  if(badgeClicks<5){hint.textContent=`( ${5-badgeClicks} more… )`; hint.style.color='rgba(210,70,100,.6)'}
+  else{badgeClicks=0;hint.textContent='( the badge holds a secret )';hint.style.color='rgba(210,70,100,.4)';showILY('I love you, Golu.','You found the first secret. 💗')}
+});
 
-  closeHeartModal.onclick = () => modal.classList.remove('open');
-  modal.onclick = (e) => { if(e.target===modal) modal.classList.remove('open'); };
-  window.addEventListener('keydown', e => { if(e.key==='Escape') modal.classList.remove('open'); });
+// ── HEART DIVIDER (click 5 times) ──
+let dClicks=0;
+document.getElementById('divHeart').addEventListener('click',()=>{
+  dClicks++;burst('💗',8);
+  if(dClicks>=5){dClicks=0;showILY('I love you.','Even the little heart knew. 💗')}
+});
 
-  const layer = document.getElementById('hearts-layer');
-  const specialIdxs = new Set();
-  while(specialIdxs.size < 25) specialIdxs.add(Math.floor(Math.random()*50));
-  const shuffled = [...heartMsgs].sort(()=>Math.random()-.5);
-  let msgPtr = 0;
+// ── QUIZ 1 ──
+const q1yes=document.getElementById('q1yes'),q1no=document.getElementById('q1no'),q1res=document.getElementById('q1res');
+q1no.addEventListener('mouseenter',e=>flyEl(q1no,e));
+q1no.addEventListener('click',e=>{e.preventDefault();flyEl(q1no,e)});
+q1yes.addEventListener('click',()=>{
+  if(q1yes.classList.contains('done'))return;
+  q1yes.classList.add('done');q1yes.textContent='Always and forever 💗';
+  q1res.style.display='block';burst('I knew it! 💗',60);
+  setTimeout(()=>q1no.style.display='none',400);
+});
+window.addEventListener('load',()=>setTimeout(()=>flyEl(q1no,null),500));
+window.addEventListener('resize',()=>flyEl(q1no,null));
 
-  function rand(a,b){return Math.random()*(b-a)+a;}
+// ── QUIZ 2: Stars ──
+const starBtns=document.querySelectorAll('.star-btn'),starRes=document.getElementById('starRes');
+const sNoMsgs=["Excuse me 😭","Stars have feelings!","Only 5 works here.","Wrong star!","That one's decorative.","5 is the only answer.","Almost… try 5 ⭐","Try again, queen."];let sNoIdx=0;
+starBtns.forEach(b=>{
+  const v=parseInt(b.dataset.v);
+  b.addEventListener('mouseenter',()=>{if(v<5)starBtns.forEach(x=>{if(parseInt(x.dataset.v)<=v)x.style.filter='grayscale(1) opacity(.35)'});else starBtns.forEach(x=>x.style.filter='none')});
+  b.addEventListener('mouseleave',()=>{starBtns.forEach(x=>{if(!x.classList.contains('locked'))x.style.filter='grayscale(1) opacity(.35)'})});
+  b.addEventListener('click',e=>{
+    if(v<5){showTip(sNoMsgs[sNoIdx++%sNoMsgs.length],e.clientX,e.clientY);flyEl(b,null);return}
+    starBtns.forEach(x=>{x.classList.add('locked','glow');x.style.filter='none';x.disabled=true});
+    starRes.style.display='block';burst('5 stars! ⭐',45,'var(--gold)');
+    setTimeout(()=>showILY('5 stars ⭐⭐⭐⭐⭐','Because that's what you are to me — perfect.'),600);
+  });
+});
 
-  for(let i=0;i<50;i++){
-    const h = document.createElement('div');
-    h.className = 'fheart';
-    h.style.left = rand(0,97)+'vw';
-    h.style.animationDelay = (-rand(0,12))+'s';
-    h.style.animationDuration = rand(9,20)+'s';
-    h.style.setProperty('--s', rand(0.7,1.4).toFixed(2));
+// ── QUIZ 3: Emoji ──
+const emojiRes=document.getElementById('emojiRes');
+const eNoMsgs=["Hmm… try again.","That's not us 😌","Look harder.","Wrong one!","Are you sure?","Not quite…"];let eNoIdx=0;
+document.querySelectorAll('.emoji-btn').forEach(b=>{
+  b.addEventListener('click',e=>{
+    if(b.dataset.right==='true'){b.classList.add('correct');emojiRes.style.display='block';burst('💗',35)}
+    else{showTip(eNoMsgs[eNoIdx++%eNoMsgs.length],e.clientX,e.clientY);flyEl(b,null)}
+  });
+});
 
-    const isSpecial = specialIdxs.has(i);
-    const colors = ['#e8456a','#f28fa6','#c8a96e','#e87070','#c87aad'];
-    const col = colors[Math.floor(Math.random()*colors.length)];
+// ── QUIZ 4: Forever Slider ──
+const forSlider=document.getElementById('foreverSlider'),forLabel=document.getElementById('foreverLabel');
+const labels={0:'Just friends 😬',25:'A few months…',50:'A couple of years?',75:'A long time',90:'Almost forever',100:'Forever ∞ 💗'};
+forSlider.addEventListener('input',function(){
+  const v=parseInt(this.value);
+  const keys=Object.keys(labels).map(Number).sort((a,b)=>a-b);
+  let closest=keys[0];
+  keys.forEach(k=>{if(Math.abs(k-v)<Math.abs(closest-v))closest=k});
+  forLabel.textContent=labels[closest];
+  if(v<100){
+    clearTimeout(forSlider._t);
+    forSlider._t=setTimeout(()=>{
+      let cur=parseInt(forSlider.value);
+      const snap=()=>{cur=Math.min(100,cur+4);forSlider.value=cur;forLabel.textContent=cur>=100?labels[100]:labels[Object.keys(labels).map(Number).sort((a,b)=>a-b).reduce((p,k)=>Math.abs(k-cur)<Math.abs(p-cur)?k:p)];if(cur<100)requestAnimationFrame(snap)};
+      requestAnimationFrame(snap);
+    },1200);
+  }
+});
 
-    h.innerHTML = `<svg viewBox="0 0 32 29" fill="${col}" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 28.3C15.4 27.8 1 17.3 1 9.5 1 5.4 4.4 2 8.5 2c2.4 0 4.6 1.1 6.1 2.8.4.5.9.7 1.4.7s1-.2 1.4-.7C19 3.1 21.1 2 23.5 2 27.6 2 31 5.4 31 9.5c0 7.8-14.4 18.3-15 18.8z"/>
-    </svg>`;
+// ── QUIZ 5: Toggles ──
+const toggleRes=document.getElementById('toggleRes');
+const tInputs=document.querySelectorAll('#toggleList .toggle input');
+const tNoMsgs=["System says no.","Not applicable 💗","Error 404.","Toggle unavailable.","That one's offline.","Does not compute.","Try the positive ones!","Permanently broken."];let tNoIdx=0;
+let posChecked=0,totalPos=[...tInputs].filter(i=>i.dataset.pos==='true').length;
+tInputs.forEach(inp=>{
+  const isPos=inp.dataset.pos==='true';
+  if(!isPos){
+    inp.addEventListener('change',e=>{
+      e.preventDefault();inp.checked=false;
+      const wrap=inp.closest('.toggle');
+      const rc=wrap.getBoundingClientRect();
+      showTip(tNoMsgs[tNoIdx++%tNoMsgs.length],rc.right,rc.top);
+      wrap.animate([{transform:'translateX(0) rotate(0)'},{transform:'translateX(30px) rotate(6deg)'},{transform:'translateX(-300px) rotate(-10deg)',opacity:0}],{duration:500,easing:'ease-in'}).onfinish=()=>{
+        const item=wrap.closest('.toggle-item');
+        if(item){item.style.transition='opacity .2s';item.style.opacity='0';setTimeout(()=>item.style.display='none',220)}
+      };
+    });
+  } else {
+    inp.addEventListener('change',()=>{
+      inp.closest('.toggle-item').classList.toggle('on',inp.checked);
+      posChecked+=inp.checked?1:-1;
+      if(posChecked>=totalPos){toggleRes.style.display='block';burst('All the right things! ✨',30);setTimeout(()=>showILY('I love you.','All the good things — that's us. 💗'),700)}
+    });
+  }
+});
 
-    if(isSpecial){
-      const msg = shuffled[msgPtr++];
-      h.title = 'Tap me 💗';
-      h.addEventListener('click', e => {
-        e.stopPropagation();
-        heartMsgEl.textContent = msg;
-        modal.classList.add('open');
+// ── WORD SCRAMBLE ──
+const TARGET="I LOVE YOU";
+const pool=document.getElementById('scPool'),ans=document.getElementById('scAnswer'),scRes=document.getElementById('scResult');
+const scLetters=[...'ILOVEYOU'].sort(()=>Math.random()-.5);
+const spaces=[2,7]; // positions in TARGET where spaces are (0-indexed excluding spaces = I=0,L=1,O=2,V=3,E=4,Y=5,O=6,U=7)
+let selected=[];
+function buildScramble(){
+  pool.innerHTML='';ans.innerHTML='';selected=[];
+  scLetters.forEach((l,i)=>{
+    const t=document.createElement('div');t.className='letter-tile';t.textContent=l;t.dataset.idx=i;
+    t.addEventListener('click',()=>{
+      if(selected.includes(i))return;
+      selected.push(i);t.classList.add('selected');
+      const at=document.createElement('div');at.className='letter-tile';at.textContent=l;at.dataset.srcIdx=i;
+      at.addEventListener('click',()=>{
+        selected.splice(selected.indexOf(i),1);at.remove();
+        pool.querySelector(`[data-idx="${i}"]`).classList.remove('selected');
+        checkScramble();
       });
+      ans.appendChild(at);
+      checkScramble();
+    });
+    pool.appendChild(t);
+  });
+}
+function checkScramble(){
+  const word=selected.map(i=>scLetters[i]).join('');
+  if(word==='ILOVEYOU'){
+    pool.querySelectorAll('.letter-tile').forEach(t=>t.classList.add('correct'));
+    ans.querySelectorAll('.letter-tile').forEach(t=>t.classList.add('correct'));
+    scRes.style.display='block';
+    burst('I LOVE YOU 💗',60);
+    setTimeout(()=>showILY('I love you.','You unscrambled it — but I never needed to hide it. 💗'),800);
+  }
+}
+document.getElementById('scReset').addEventListener('click',buildScramble);
+buildScramble();
+
+// ── MEMORY GAME ──
+const pairs=[
+  {emoji:'💗',text:'You make me\nhappy every day'},
+  {emoji:'🌙',text:'Late nights\nwith you'},
+  {emoji:'🌹',text:'Our first\nanniversary'},
+  {emoji:'✨',text:'I love\nyou, Golu'}
+];
+const memGrid=document.getElementById('memGrid'),memRes=document.getElementById('memResult');
+let cards=[],first=null,lock=false,matched=0;
+const cardData=[...pairs,...pairs].sort(()=>Math.random()-.5);
+cardData.forEach((d,i)=>{
+  const c=document.createElement('div');c.className='mem-card';c.innerHTML=`<div class="mem-inner"><div class="mem-front">💌</div><div class="mem-back"><div class="mem-emoji">${d.emoji}</div><div>${d.text}</div></div></div>`;
+  c.addEventListener('click',()=>{
+    if(lock||c.classList.contains('flipped')||c.classList.contains('matched'))return;
+    c.classList.add('flipped');
+    if(!first){first=c;return}
+    lock=true;
+    const match=first.querySelector('.mem-emoji').textContent===c.querySelector('.mem-emoji').textContent;
+    if(match){
+      first.classList.add('matched');c.classList.add('matched');
+      matched++;first=null;lock=false;
+      if(matched>=pairs.length){memRes.style.display='block';burst('💗 Matched!',50);setTimeout(()=>showILY('I love you.','You found every pair — just like we found each other. 💗'),700)}
     } else {
-      h.addEventListener('click', e => {
-        e.stopPropagation();
-        h.animate([
-          {transform:`translateY(0) rotate(45deg) scale(1)`},
-          {transform:`translateY(-10px) rotate(45deg) scale(1.3)`},
-          {transform:`translateY(0) rotate(45deg) scale(1)`}
-        ],{duration:300,easing:'ease-out'});
-      });
-    }
-    layer.appendChild(h);
-  }
-
-  // ── FLY TIP ──
-  const flyTip = document.getElementById('flyTip');
-  const noMsgs = ["Nice try 😌","You mean YES.","Wrong choice, queen.","No is out of order.","Be serious 😭","We both know the answer.","Try YES — it's prettier.","Not an option 💗","Golu… come on.","The answer is always YES.","Cute. Now click YES.","System error: No unavailable.","That button is on vacation.","Plot twist: still YES.","I know you're smiling 😂"];
-  let noMsgIdx = 0;
-
-  function showTip(text, x, y){
-    flyTip.textContent = text;
-    flyTip.style.display = 'block';
-    flyTip.style.left = (x+14)+'px';
-    flyTip.style.top  = (y+14)+'px';
-    clearTimeout(showTip._t);
-    showTip._t = setTimeout(()=> flyTip.style.display='none', 950);
-  }
-
-  function flyAway(el, e){
-    const vw = window.innerWidth, vh = window.innerHeight;
-    const r = el.getBoundingClientRect();
-    el.style.position = 'fixed';
-    el.style.left = rand(16, Math.max(16, vw - r.width - 16))+'px';
-    el.style.top  = rand(16, Math.max(16, vh - r.height - 16))+'px';
-    el.style.zIndex = '100';
-    if(e) showTip(noMsgs[noMsgIdx++ % noMsgs.length], e.clientX, e.clientY);
-  }
-
-  // ── QUIZ 1: Girlfriend Yes/No ──
-  const q1yes = document.getElementById('q1yes');
-  const q1no  = document.getElementById('q1no');
-  const q1result = document.getElementById('q1result');
-
-  q1no.addEventListener('mouseenter', e => flyAway(q1no, e));
-  q1no.addEventListener('click', e => { e.preventDefault(); flyAway(q1no, e); });
-
-  q1yes.addEventListener('click', () => {
-    if(q1yes.classList.contains('clicked')) return;
-    q1yes.classList.add('clicked');
-    q1yes.textContent = 'Always and forever 💗';
-    q1result.style.display = 'block';
-    spawnBursts('I knew it! 💗', 60);
-    try{ q1no.style.display='none'; }catch(e){}
-  });
-
-  // ── QUIZ 2: Star Rating ──
-  const starBtns = document.querySelectorAll('.star-btn');
-  const starResult = document.getElementById('starResult');
-  const starNoMsgs = ["Excuse me 😭","Stars have feelings!","Only 5 works, queen.","Wrong star, try again.","That one's decorative.","5 is the only answer.","Nope. Keep trying 😌","Almost… try 5 🌟"];
-  let starNoIdx = 0;
-
-  starBtns.forEach(btn => {
-    const val = parseInt(btn.dataset.val);
-    btn.addEventListener('mouseenter', e => {
-      if(val < 5){
-        starBtns.forEach(b => { if(parseInt(b.dataset.val)<=val) b.style.filter='grayscale(1) opacity(.4)'; });
-      } else {
-        starBtns.forEach(b => b.style.filter='none');
-      }
-    });
-    btn.addEventListener('mouseleave', () => {
-      starBtns.forEach(b => { if(!b.classList.contains('locked')) b.style.filter='grayscale(1) opacity(.4)'; });
-    });
-    btn.addEventListener('click', e => {
-      if(val < 5){
-        showTip(starNoMsgs[starNoIdx++ % starNoMsgs.length], e.clientX, e.clientY);
-        flyAway(btn, null);
-        return;
-      }
-      // val === 5 — lock it in
-      starBtns.forEach(b => { b.classList.add('locked','glow'); b.style.filter='none'; b.disabled=true; });
-      starResult.style.display = 'block';
-      spawnBursts('5 stars! ⭐', 40);
-    });
-  });
-
-  // ── QUIZ 3: Toggles ──
-  const toggleInputs = document.querySelectorAll('.toggle input');
-  const toggleResult = document.getElementById('toggleResult');
-  let positiveChecked = 0;
-  const totalPositive = [...toggleInputs].filter(i=>i.dataset.positive==='true').length;
-
-  const toggleNoMsgs = ["That's not true 😌","System says no.","Toggle broken, sorry.","Not applicable 💗","Does not compute.","This one's offline.","Try the positive ones!","Error 404: negativity not found."];
-  let tNoIdx = 0;
-
-  toggleInputs.forEach(inp => {
-    const isPositive = inp.dataset.positive === 'true';
-    if(!isPositive){
-      // Block negative toggles — they fly on attempt
-      inp.addEventListener('change', e => {
-        e.preventDefault();
-        inp.checked = false;
-        const wrapper = inp.closest('.toggle');
-        // animate the wrapper flying
-        const rect = wrapper.getBoundingClientRect();
-        showTip(toggleNoMsgs[tNoIdx++ % toggleNoMsgs.length], rect.right, rect.top);
-        wrapper.animate([
-          {transform:'translateX(0)'},
-          {transform:'translateX(20px) rotate(5deg)'},
-          {transform:'translateX(-200px) rotate(-8deg) scale(.8)',opacity:0},
-        ],{duration:450,easing:'ease-in'}).onfinish = () => {
-          const item = wrapper.closest('.toggle-item');
-          if(item){ item.style.opacity='0'; setTimeout(()=>item.style.display='none',200); }
-        };
-      });
-    } else {
-      inp.addEventListener('change', () => {
-        if(inp.checked) positiveChecked++;
-        else positiveChecked = Math.max(0, positiveChecked-1);
-        if(positiveChecked >= totalPositive){
-          toggleResult.style.display = 'block';
-          spawnBursts('All good things! ✨', 30);
-        }
-      });
+      setTimeout(()=>{first.classList.remove('flipped');c.classList.remove('flipped');first=null;lock=false},1000);
     }
   });
+  cards.push(c);memGrid.appendChild(c);
+});
 
-  // ── BURST POPUPS ──
-  function spawnBursts(text, count){
-    for(let i=0;i<count;i++){
-      setTimeout(()=>{
-        const p = document.createElement('div');
-        p.className = 'popup-burst';
-        p.textContent = text;
-        p.style.left = rand(10, window.innerWidth-160)+'px';
-        p.style.top  = rand(10, window.innerHeight-50)+'px';
-        document.body.appendChild(p);
-        setTimeout(()=>p.remove(), 1600);
-      }, i*20);
-    }
-  }
+// ── SEALED LETTER ──
+function openEnvelope(){
+  const env=document.getElementById('envelope'),scroll=document.getElementById('letterScroll');
+  env.querySelector('.envelope-icon').textContent='💗';
+  env.querySelector('.envelope-label').textContent='💗';
+  scroll.style.display='block';
+  env.style.display='none';
+  burst('💗',30);
+  setTimeout(()=>showILY('I love you.','Every word in that letter — I mean it. 💗'),800);
+}
 
-  // ── INITIAL NO BUTTON PLACEMENT ──
-  window.addEventListener('load', ()=> setTimeout(()=>flyAway(q1no, null), 400));
-  window.addEventListener('resize', ()=> flyAway(q1no, null));
+// ── KONAMI / SECRET WORD (type GOLU) ──
+let kSeq='',kTarget='GOLU';
+document.addEventListener('keydown',e=>{
+  kSeq=(kSeq+e.key.toUpperCase()).slice(-kTarget.length);
+  if(kSeq===kTarget){kSeq='';burst('💗 I LOVE YOU GOLU 💗',80);setTimeout(()=>showILY('I love you, Golu. 💗','You found the secret. You always do.'),300)}
+});
+
+// ── ILY overlay close on escape ──
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('ilyOverlay').classList.remove('show')});
 </script>
 </body>
 </html>
