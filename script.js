@@ -84,6 +84,101 @@ const letters = {
       "If you’re smiling even a little, this page has done its job. If not, please imagine me looking very pleased with this terrible attempt at being charming.",
     ],
   },
+  sleep: {
+    title: "Stay here a little.",
+    label: "OPEN WHEN YOU CAN’T SLEEP",
+    paragraphs: [
+      "My Golu, I wish I could say this quietly beside you, with the lights off and the whole day finally behind us.",
+      "We wouldn’t have to talk about anything important. I’d ask what you were thinking, and probably find a completely unnecessary reason to keep holding your hand.",
+      "Whatever is still going round in your head can have a little less of you tonight. You don’t need to work everything out before morning.",
+      "Imagine a blanket tucked around you and a kiss on your forehead. That’s what I’d leave here if a website could manage it.",
+      "Goodnight, my Biscof. I hope tomorrow begins gently for you.",
+    ],
+  },
+  doubt: {
+    title: "Borrow my eyes for a minute.",
+    label: "OPEN WHEN YOU DOUBT YOURSELF",
+    paragraphs: [
+      "My Golu, I know a letter won’t silence every unkind thought. But I want my voice in the room too.",
+      "I see someone who cares. Someone whose kindness reaches further than she probably realises. You have given me so many reasons to feel glad you’re in my life.",
+      "A mistake doesn’t take those things away. Neither does a day when you feel a bit lost, or a plan that didn’t work out.",
+      "You don’t need to impress me today. Take the next small step when you’re ready. I’ll still be cheering for the person taking it.",
+    ],
+  },
+  proud: {
+    title: "Tell me everything.",
+    label: "OPEN WHEN YOU’RE PROUD OF YOURSELF",
+    paragraphs: [
+      "My Biscof, I hope you’re opening this with that smile I like so much.",
+      "Tell me what happened. The long version, please. I want the tiny details, the bit you nearly gave up on, and the moment you realised you’d done it.",
+      "Please don’t make it smaller before you tell me. If it matters to you, I want to celebrate it with you.",
+      "I’m already picturing a very pleased hug, something sweet to eat, and me finding at least three excuses to say I’m proud of you.",
+      "Enjoy this one, Golu. You’re allowed to be delighted with yourself.",
+    ],
+  },
+  hug: {
+    title: "Come a little closer.",
+    label: "OPEN WHEN YOU NEED A HUG",
+    paragraphs: [
+      "My Golu, this is a very poor substitute for having you in my arms. I’m sending it anyway.",
+      "If we were together, I’d open my arms and let you decide whether you wanted to talk. No questions you had to answer first.",
+      "Some days call for advice. Other days call for someone to sit beside you while you find your words. I want to learn which kind of day you’re having.",
+      "Until I can give you the real thing, take this little reminder: you can ask me for comfort. You never have to dress it up as something more sensible.",
+    ],
+  },
+  future: {
+    title: "There’s room for us there.",
+    label: "OPEN WHEN YOU THINK ABOUT OUR FUTURE",
+    paragraphs: [
+      "My Golu, of course I think about the big things. Lake Como. A question by the water. The possibility of standing beside you on our wedding day.",
+      "But I think about the smaller things too. Two mugs in the kitchen. Deciding what to have for dinner. Looking up from an ordinary day and finding you there.",
+      "I’d like a camping trip where we bring far too many snacks and discover which one of us is actually capable of putting up a tent. My confidence may exceed my ability.",
+      "Those are hopes I love having with you. We can talk about them, change them, and make room for whatever matters to both of us.",
+      "There is so much I still want to find out about you. That might be my favourite part of thinking about tomorrow.",
+    ],
+  },
+  disagree: {
+    title: "Let’s find our way back.",
+    label: "OPEN WHEN WE’VE HAD A DISAGREEMENT",
+    paragraphs: [
+      "My Golu, if you’ve opened this because we’re a bit out of step, I don’t want a pretty letter to do the job of a proper conversation.",
+      "I want to hear what upset you, even if it’s something I find difficult to hear. Your feelings deserve more than me rushing to explain myself.",
+      "If I’ve hurt you, I want to understand it and take responsibility for my part. You don’t owe me an instant smile or a quick return to normal.",
+      "We can take a little space if we need it, then come back and talk with care. I love you, and I want that to show in how I listen too.",
+    ],
+  },
+  butterflies: {
+    title: "You are very distracting.",
+    label: "OPEN WHEN YOU WANT A LITTLE FLIRTING",
+    paragraphs: [
+      "My Biscof, I had every intention of writing something sensible here. Then I thought about your smile.",
+      "There is a particular version of you looking at me that makes it quite difficult to remember what I was about to say. I suspect you know exactly what you’re doing.",
+      "If you were here, I’d ask for one slow dance. Yes, even without an occasion. Especially without an occasion.",
+      "Then I’d probably ask if I could kiss you, which was almost certainly my plan before I mentioned the dancing.",
+      "Consider this a little warning: I’m looking forward to our next date an unreasonable amount.",
+    ],
+  },
+  morning: {
+    title: "Hello, my favourite person.",
+    label: "OPEN WHEN YOU’VE JUST WOKEN UP",
+    paragraphs: [
+      "Good morning, Golu. Before your day fills up with everyone else’s messages, here’s a small one from me: I’m glad you’re in my life.",
+      "I wish I could bring you something warm to drink and ask what you’re looking forward to today. Sleepy answers would be perfectly acceptable.",
+      "I hope there’s a little moment today that belongs just to you. A song you love, something delicious, a reason to laugh when you weren’t expecting one.",
+      "And if the day turns out to be ordinary, tell me about it anyway. I like knowing the little things that happened in your world.",
+    ],
+  },
+  loved: {
+    title: "Yes, you. Exactly you.",
+    label: "OPEN WHEN YOU NEED TO HEAR I LOVE YOU",
+    paragraphs: [
+      "I love you, my Golu. There. No waiting until the last line.",
+      "I love getting to know you beyond the lovely photographs and the dressed-up moments. Your opinions, your little expressions, the things you get excited enough to talk about for ages.",
+      "You don’t have to be in a romantic mood to be loved. You can be tired, distracted, wearing your most comfortable clothes and wondering what’s for dinner.",
+      "My Golu. My Biscof. I gave you those names because ordinary words didn’t quite feel like ours.",
+      "Come back to this letter whenever you fancy hearing it again. I love you.",
+    ],
+  },
   forever: {
     title: "Still you. Always you.",
     label: "ONE LAST THING",

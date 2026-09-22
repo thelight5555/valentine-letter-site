@@ -15,6 +15,7 @@ Run `python3 -m http.server 4173 --bind 127.0.0.1` from this folder, then open h
 - The two supplied candlelit images are in `images/candlelit-wide.jpg` and `images/candlelit-portrait.jpg`. Originals are copied without editing.
 - The four original album pictures open at full size with their captions. The fifth original photograph remains in the repository. The standalone cat illustration remains in the repository but is unused.
 - All letters open as an envelope with a G & S wax seal. Activating the seal reveals the letter inside the same native dialog. Escape, the close button and an outside click close them. The previous focus is restored.
+- The Open when collection contains 12 letters. Nine extra envelopes sit inside a keyboard-accessible expandable collection, covering sleep, self-doubt, celebrations, hugs, the future, disagreements, flirting, mornings and reassurance.
 - A saved date idea stays in that browser on that device. It is not sent to another person or synchronised between devices. Storage errors are handled without breaking the rest of the page.
 - Reduced-motion preferences disable letter and hover animations. Interactive elements support keyboards and touch.
 - Search engines are asked not to index the page. That is not access control: the existing public repository and website remain public.
