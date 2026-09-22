@@ -1498,6 +1498,410 @@ body.letter-open {
     font-size: 49px;
   }
 }
+.games-section {
+  padding: 100px 0;
+  background: #eee5d7;
+}
+.games-section > .section {
+  padding-block: 0;
+}
+.games-shell {
+  max-width: 940px;
+  margin: auto;
+  padding: 34px 48px 22px;
+  background: var(--paper);
+  border: 1px solid #cfc0a7;
+  box-shadow: 0 16px 50px #49372108;
+}
+.game-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.game-monogram {
+  font: 40px var(--hand);
+  color: var(--wine);
+}
+.mood-picker,
+.game-picker {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+.mood-picker {
+  display: flex;
+  gap: 6px;
+}
+.mood-picker legend {
+  text-align: right;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 7px;
+}
+.mood-picker label,
+.game-picker label {
+  position: relative;
+  cursor: pointer;
+}
+.mood-picker input,
+.game-picker input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.mood-picker span {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid var(--line);
+  font-size: 11px;
+}
+.mood-picker input:checked + span {
+  background: var(--wine);
+  border-color: var(--wine);
+  color: #fff8ed;
+}
+.game-mood-description {
+  font-size: 12px;
+  color: var(--muted);
+  text-align: right;
+  margin: 12px 0 26px;
+}
+.game-picker {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.game-picker span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-height: 80px;
+  border: 1px solid var(--line);
+  font-size: 13px;
+}
+.game-picker small {
+  font: italic 17px var(--serif);
+  color: var(--gold);
+}
+.game-picker input:checked + span {
+  border-color: var(--wine);
+  background: #f0e4df;
+  color: var(--wine);
+}
+.game-panel {
+  text-align: center;
+  padding-top: 35px;
+}
+.game-intro h3 {
+  font-size: 32px;
+  line-height: 1.15;
+  margin-bottom: 9px;
+}
+.game-intro p {
+  font-size: 12px;
+  color: var(--muted);
+}
+.prompt-card {
+  margin: 26px auto 24px;
+  padding: 30px 36px;
+  min-height: 240px;
+  border: 1px solid var(--line);
+  background: #fffbf4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#truth-prompt {
+  font: 32px/1.2 var(--serif);
+  max-width: 580px;
+  margin: 18px auto;
+}
+.card-ornament {
+  font: 28px var(--hand);
+  color: var(--gold);
+}
+.game-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+.game-actions .button {
+  min-width: 155px;
+  justify-content: center;
+}
+.button.secondary {
+  background: transparent;
+  border: 1px solid var(--wine);
+  color: var(--wine);
+}
+.game-panel .text-button {
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  padding: 10px 3px;
+  min-height: 44px;
+  font-size: 11px;
+}
+#skip-truth {
+  margin-top: 10px;
+}
+.game-smallprint {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 12px;
+}
+.game-boundary {
+  margin-top: 30px;
+  padding-top: 19px;
+  border-top: 1px solid var(--line);
+  text-align: center;
+  font: italic 18px/1.3 var(--serif);
+  color: var(--muted);
+}
+.match-progress {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 10px;
+  color: var(--muted);
+  margin: 26px 0 12px;
+}
+.match-board {
+  padding: 28px 34px;
+  min-height: 290px;
+  background: #fffbf4;
+  border: 1px solid var(--line);
+}
+#match-question {
+  font: 30px/1.15 var(--serif);
+  margin: 18px 0 24px;
+}
+.match-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.option-button {
+  min-height: 65px;
+  padding: 15px;
+  background: var(--paper);
+  border: 1px solid #bda789;
+  font-size: 13px;
+}
+.option-button:hover {
+  background: #f0e4df;
+  border-color: var(--wine);
+}
+#match-handover p,
+#match-summary {
+  font-size: 13px;
+  margin: 10px auto 22px;
+  max-width: 430px;
+}
+#match-handover .icon {
+  color: var(--wine);
+  width: 30px;
+  height: 30px;
+}
+.match-answer-row {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  gap: 24px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+}
+.match-answer-row span {
+  flex-shrink: 0;
+  color: var(--muted);
+}
+.match-answer-row strong {
+  text-align: right;
+  font-weight: 500;
+}
+#match-verdict {
+  font: italic 23px/1.2 var(--serif);
+  margin: 20px 0;
+  color: var(--wine);
+}
+.match-footer {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 10px;
+}
+.roulette-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  align-items: center;
+  gap: 36px;
+  margin: 35px 0 15px;
+}
+.wheel-stage {
+  width: 270px;
+  height: 270px;
+  position: relative;
+}
+.romance-wheel {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 7px solid #dbc7a9;
+  box-shadow: 0 0 0 1px #b49a73;
+  background: conic-gradient(
+    #eee1cd 0deg 60deg,
+    #f9f1e5 60deg 120deg,
+    #e2cbaa 120deg 180deg,
+    #f9f1e5 180deg 240deg,
+    #eee1cd 240deg 300deg,
+    #e2cbaa 300deg 360deg
+  );
+  position: relative;
+}
+.romance-wheel span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 83px;
+  font: italic 17px/1.1 var(--serif);
+  transform: translate(-50%, -50%) rotate(calc(var(--sector) * 60deg + 30deg))
+    translateY(-87px) rotate(calc(var(--sector) * -60deg - 30deg));
+}
+.wheel-centre {
+  position: absolute;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  background: var(--wine);
+  color: #fff4e2;
+  font: 40px var(--hand);
+  box-shadow: 0 0 0 5px #f7f2e990;
+}
+.wheel-pointer {
+  position: absolute;
+  z-index: 1;
+  top: -9px;
+  left: calc(50% - 10px);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 26px solid var(--wine);
+}
+.roulette-prompt {
+  text-align: left;
+}
+#roulette-result {
+  font: 29px/1.2 var(--serif);
+  margin: 15px 0 22px;
+  min-height: 105px;
+}
+#spin-wheel:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+@media (max-width: 700px) {
+  .games-section {
+    padding: 65px 0;
+  }
+  .games-shell {
+    padding: 22px 18px;
+  }
+  .game-toolbar {
+    gap: 10px;
+  }
+  .game-monogram {
+    font-size: 30px;
+  }
+  .mood-picker span {
+    padding: 8px 12px;
+  }
+  .game-mood-description {
+    text-align: center;
+    margin-top: 20px;
+    min-height: 42px;
+  }
+  .game-picker {
+    gap: 6px;
+  }
+  .game-picker span {
+    padding: 8px 3px;
+    font-size: 10px;
+    line-height: 1.4;
+    text-align: center;
+  }
+  .game-intro h3 {
+    font-size: 29px;
+  }
+  .prompt-card {
+    padding: 26px 18px;
+    min-height: 250px;
+  }
+  #truth-prompt {
+    font-size: 28px;
+  }
+  .game-actions {
+    gap: 8px;
+  }
+  .game-actions .button {
+    min-width: 0;
+    padding: 12px 13px;
+    font-size: 11px;
+    flex: 1;
+  }
+  .match-board {
+    padding: 22px 16px;
+  }
+  .match-options {
+    grid-template-columns: 1fr;
+  }
+  #match-question {
+    font-size: 27px;
+  }
+  .match-answer-row {
+    flex-direction: column;
+    gap: 3px;
+  }
+  .match-answer-row strong {
+    text-align: left;
+  }
+  .roulette-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .wheel-stage {
+    margin: auto;
+    width: 238px;
+    height: 238px;
+  }
+  .romance-wheel span {
+    width: 73px;
+    font-size: 15px;
+    transform: translate(-50%, -50%) rotate(calc(var(--sector) * 60deg + 30deg))
+      translateY(-76px) rotate(calc(var(--sector) * -60deg - 30deg));
+  }
+  .roulette-prompt {
+    text-align: center;
+  }
+  #roulette-result {
+    font-size: 27px;
+    min-height: 0;
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

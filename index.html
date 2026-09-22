@@ -25,6 +25,7 @@
     />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
+    <script type="module" src="games.mjs"></script>
   </head>
   <body>
     <svg
@@ -59,7 +60,7 @@
         ><svg class="icon" aria-hidden="true"><use href="#heart" /></svg
       ></a>
       <nav aria-label="Main navigation">
-        <a href="#moments">Our moments</a><a href="#open-when">Open when</a
+        <a href="#moments">Our moments</a><a href="#games">Play together</a
         ><a href="#dreams">Our daydreams</a>
       </nav>
       <a class="header-note" href="#open-when"
@@ -373,6 +374,231 @@
           </p>
         </div>
       </section>
+      <section id="games" class="games-section" aria-labelledby="games-title">
+        <div class="wrap section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">
+                05 / PUT YOUR PHONES DOWN. WELL, EXCEPT THIS ONE.
+              </p>
+              <h2 id="games-title">
+                A little love.<br /><em>A little trouble.</em>
+              </h2>
+            </div>
+            <p>
+              One screen. Two favourite people.<br />A few very good excuses to
+              get closer.
+            </p>
+          </div>
+          <div class="games-shell">
+            <div class="game-toolbar">
+              <span class="game-monogram" aria-hidden="true"
+                >G <i>&amp;</i> S</span
+              >
+              <fieldset class="mood-picker">
+                <legend>Set the mood</legend>
+                <label
+                  ><input
+                    type="radio"
+                    name="game-mood"
+                    value="sweet"
+                    checked
+                  /><span>Sweet</span></label
+                ><label
+                  ><input type="radio" name="game-mood" value="flirty" /><span
+                    >A little naughty</span
+                  ></label
+                >
+              </fieldset>
+            </div>
+            <p
+              class="game-mood-description"
+              id="game-mood-description"
+              role="status"
+            >
+              Soft questions, little gestures, and a bit of butterflies.
+            </p>
+            <fieldset class="game-picker">
+              <legend class="sr-only">Choose a game</legend>
+              <label
+                ><input
+                  type="radio"
+                  name="couple-game"
+                  value="truth"
+                  checked
+                /><span><small>01</small>Truth or dare</span></label
+              ><label
+                ><input type="radio" name="couple-game" value="match" /><span
+                  ><small>02</small>Same wavelength</span
+                ></label
+              ><label
+                ><input type="radio" name="couple-game" value="roulette" /><span
+                  ><small>03</small>Date roulette</span
+                ></label
+              >
+            </fieldset>
+            <div
+              class="game-panel"
+              id="truth-panel"
+              aria-labelledby="truth-heading"
+            >
+              <div class="game-intro">
+                <h3 id="truth-heading">
+                  Something honest.<br /><em>Or a little brave.</em>
+                </h3>
+                <p>
+                  Take turns choosing. Keep it sweet, or turn up the flirting.
+                </p>
+              </div>
+              <div class="prompt-card">
+                <span class="eyebrow" id="truth-kind">JUST BETWEEN US</span>
+                <p id="truth-prompt" aria-live="polite" aria-atomic="true">
+                  A truth to tell, or a dare to try?
+                </p>
+                <span class="card-ornament" aria-hidden="true">G &amp; S</span>
+              </div>
+              <div class="game-actions">
+                <button class="button primary" id="choose-truth">
+                  Tell a truth</button
+                ><button class="button secondary" id="choose-dare">
+                  Take a dare
+                </button>
+              </div>
+              <button class="text-button" id="skip-truth" hidden>
+                Skip this one
+              </button>
+              <p class="game-smallprint" id="truth-count">
+                No scores. Just us.
+              </p>
+            </div>
+            <div
+              class="game-panel"
+              id="match-panel"
+              aria-labelledby="match-heading"
+              hidden
+            >
+              <div class="game-intro">
+                <h3 id="match-heading">
+                  Thinking what<br /><em>I’m thinking?</em>
+                </h3>
+                <p>
+                  Pick separately, then see if your answers match. Five little
+                  questions.
+                </p>
+              </div>
+              <div class="match-progress">
+                <span id="match-round">QUESTION 1 OF 5</span
+                ><span id="match-score">0 matches / 0 answered</span>
+              </div>
+              <div
+                class="match-board"
+                id="match-board"
+                aria-live="polite"
+                aria-atomic="true"
+              >
+                <p class="eyebrow" id="match-turn">SAJJAD, YOU FIRST</p>
+                <h4 id="match-question"></h4>
+                <div class="match-options" id="match-options">
+                  <button class="option-button" id="match-option-a"></button
+                  ><button class="option-button" id="match-option-b"></button>
+                </div>
+                <div id="match-handover" hidden>
+                  <svg class="icon" aria-hidden="true">
+                    <use href="#heart" />
+                  </svg>
+                  <p>
+                    Pass the phone to Golu.<br />Your answer is tucked away for
+                    now.
+                  </p>
+                  <button class="button primary" id="match-ready">
+                    Golu, ready?
+                  </button>
+                </div>
+                <div id="match-reveal" hidden>
+                  <div class="match-answer-row">
+                    <span>Sajjad chose</span><strong id="match-first"></strong>
+                  </div>
+                  <div class="match-answer-row">
+                    <span>Golu chose</span><strong id="match-second"></strong>
+                  </div>
+                  <p id="match-verdict"></p>
+                  <button class="button primary" id="match-next">
+                    Next question
+                  </button>
+                </div>
+                <div id="match-finish" hidden>
+                  <p id="match-summary"></p>
+                  <button class="button primary" id="match-replay">
+                    Play again
+                  </button>
+                </div>
+              </div>
+              <div class="match-footer">
+                <button class="text-button" id="match-skip">
+                  Skip this question</button
+                ><button class="text-button" id="match-reset">
+                  Start again
+                </button>
+              </div>
+            </div>
+            <div
+              class="game-panel"
+              id="roulette-panel"
+              aria-labelledby="roulette-heading"
+              hidden
+            >
+              <div class="game-intro">
+                <h3 id="roulette-heading">
+                  Leave a little<br /><em>to chance.</em>
+                </h3>
+                <p>
+                  Spin for a tiny challenge. You can always ask for another.
+                </p>
+              </div>
+              <div class="roulette-layout">
+                <div class="wheel-stage" aria-hidden="true">
+                  <span class="wheel-pointer"></span>
+                  <div class="romance-wheel" id="romance-wheel">
+                    <span style="--sector: 0">A compliment</span
+                    ><span style="--sector: 1">A kiss</span
+                    ><span style="--sector: 2">A dance</span
+                    ><span style="--sector: 3">A whisper</span
+                    ><span style="--sector: 4">A moment</span
+                    ><span style="--sector: 5">A surprise</span>
+                  </div>
+                  <span class="wheel-centre">us.</span>
+                </div>
+                <div class="roulette-prompt">
+                  <span class="eyebrow" id="roulette-category"
+                    >YOUR NEXT LITTLE MOMENT</span
+                  >
+                  <p id="roulette-result" aria-live="polite" aria-atomic="true">
+                    A small spin.<br />A very good excuse.
+                  </p>
+                  <button class="button primary" id="spin-wheel">
+                    Spin for us
+                    <svg class="icon" aria-hidden="true">
+                      <use href="#arrow" />
+                    </svg>
+                  </button>
+                  <p class="game-smallprint" id="roulette-status" role="status">
+                    Six ways to make an ordinary evening better.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <p class="game-boundary">
+              Only what you both fancy. Skipping is always part of the game.
+            </p>
+          </div>
+          <noscript
+            ><p class="game-smallprint">
+              Enable JavaScript to play. Or try this together: name one little
+              thing the other person does that makes your day better.
+            </p></noscript
+          >
+        </div>
+      </section>
       <section
         id="dreams"
         class="dreams-section"
@@ -380,7 +606,7 @@
       >
         <div class="wrap section">
           <div class="dreams-heading">
-            <p class="eyebrow">05 / OUR SOMEDAY</p>
+            <p class="eyebrow">06 / OUR SOMEDAY</p>
             <h2 id="dreams-title">
               A few things<br /><em>I dream of with you.</em>
             </h2>
