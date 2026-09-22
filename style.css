@@ -452,6 +452,30 @@ h3.memory-title {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px #72533213;
 }
+.more-letters {
+  margin-top: 30px;
+}
+.more-letters summary {
+  cursor: pointer;
+  padding: 18px 0;
+  min-height: 48px;
+  border-block: 1px solid #d7c6a8;
+  color: var(--wine);
+  font: italic 25px/1.4 var(--serif);
+}
+.more-letters summary:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 5px;
+}
+.more-letters-hint {
+  display: block;
+  margin-top: 4px;
+  font: 11px/1.6 var(--sans);
+  color: var(--muted);
+}
+.more-letters[open] .letters-grid {
+  margin-top: 24px;
+}
 .letter-number {
   font-size: 8px;
   letter-spacing: 1.7px;
