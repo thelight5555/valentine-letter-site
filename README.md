@@ -19,6 +19,12 @@ Run `python3 -m http.server 4173 --bind 127.0.0.1` from this folder, then open h
 - Reduced-motion preferences disable letter and hover animations. Interactive elements support keyboards and touch.
 - Search engines are asked not to index the page. That is not access control: the existing public repository and website remain public.
 
+## Games
+
+Truth or Dare, Same Wavelength and Date Roulette each have Sweet and A little naughty modes. Prompts live in `game-data.mjs`; the interface is handled by `games.mjs`. Switching moods starts a fresh round. Answers stay in memory for the current visit and are never saved or sent anywhere. Each game supports skipping without a penalty.
+
+Run `node --test tests/games.test.mjs` to check deck cycling, turn-taking, scoring and roulette selection.
+
 ## Deploy
 
 Merge the reviewed branch into the branch connected to Vercel. No environment variables, paid services or external APIs are needed. Google Fonts is optional; local serif and sans-serif fallbacks are provided.
