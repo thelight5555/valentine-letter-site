@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#f6f3eb" />
+    <meta name="theme-color" content="#f7f2e9" />
     <meta
       name="description"
       content="A little corner of the world for Golu. Our moments, little love notes, and all the ordinary days still to come."
@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600;700&family=Italianno&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
@@ -62,53 +62,47 @@
         <a href="#moments">Our moments</a><a href="#open-when">Open when</a
         ><a href="#dreams">Our daydreams</a>
       </nav>
-      <span class="header-note">a little something, just for you</span>
+      <a class="header-note" href="#open-when"
+        >A letter for every feeling <span aria-hidden="true">↗</span></a
+      >
     </header>
     <main id="main">
-      <section class="hero wrap" aria-labelledby="hero-title">
+      <section class="hero" aria-labelledby="hero-title">
+        <picture class="hero-background">
+          <source
+            media="(max-width: 700px)"
+            srcset="images/candlelit-portrait.jpg"
+            width="1024"
+            height="1536"
+          />
+          <img
+            src="images/candlelit-wide.jpg"
+            width="1536"
+            height="864"
+            alt="The two of us surrounded by warm candlelight and white flowers"
+            fetchpriority="high"
+          />
+        </picture>
+        <div class="hero-shade" aria-hidden="true"></div>
         <div class="hero-copy">
-          <p class="eyebrow">
-            <span class="tiny-line"></span> FOR MY GOLU. TODAY &amp; ALWAYS.
-          </p>
-          <h1 id="hero-title">
-            My favourite<br />place is<br /><em>with you.</em>
-          </h1>
+          <p class="eyebrow">FOR MY GOLU. MY BISCOF. MY EVERYTHING.</p>
+          <h1 id="hero-title">Always, <em>you.</em></h1>
           <p class="hero-description">
-            The big moments. The late-night conversations.<br
-              class="desktop-break"
-            />
-            The doing absolutely nothing together.<br class="desktop-break" />
-            I want all of it, as long as it’s with you.
+            In the big moments. In the quiet ones.<br />In every tomorrow I can
+            imagine.
           </p>
-          <button class="button primary" data-letter="main">
-            I wrote you a letter
+          <button class="button hero-button" data-letter="main">
+            Open my letter
             <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg>
           </button>
-          <p class="under-button">My Golu. My Biscof. My favourite person.</p>
         </div>
-        <div class="hero-art">
-          <div class="orbit" aria-hidden="true"></div>
-          <span class="art-label">MY FAVOURITE CHAPTER</span>
-          <figure class="hero-photo">
-            <span class="tape" aria-hidden="true"></span
-            ><img
-              src="couple.jpg"
-              width="1200"
-              height="1600"
-              alt="The two of us standing together under a lit arch"
-              fetchpriority="high"
-            />
-            <figcaption>you + me. my favourite everything.</figcaption>
-          </figure>
-          <div class="small-note">
-            <svg class="icon" aria-hidden="true"><use href="#heart" /></svg
-            ><span>Still you.<br />Always you.</span>
-          </div>
-          <svg class="hero-spark" aria-hidden="true"><use href="#spark" /></svg>
-          <p class="handwritten">how did I get this lucky?</p>
-        </div>
+        <a class="hero-scroll" href="#moments"
+          >OUR STORY, STILL BEING WRITTEN <span aria-hidden="true">↓</span></a
+        >
+        <span class="hero-edition" aria-hidden="true"
+          >S &amp; G · SINCE 2025</span
+        >
       </section>
-
       <section class="time-strip" aria-label="Our time together">
         <div class="wrap time-inner">
           <div class="time-intro">
@@ -138,130 +132,119 @@
       >
         <div class="section-heading">
           <div>
-            <p class="eyebrow">01 / THE LITTLE THINGS, KEPT FOREVER</p>
+            <p class="eyebrow">01 / OUR LITTLE WORLD</p>
             <h2 id="moments-title">
-              Some moments.<br /><em>All my heart.</em>
+              The moments I’d<br /><em>keep forever.</em>
             </h2>
           </div>
           <p>
-            Four photos. Four things I want you to know.<br />Tap one to turn it
-            over.
+            A few favourite pages from our story.<br />Touch a photograph to
+            stay a little longer.
           </p>
         </div>
         <div class="photo-grid">
-          <button
-            class="photo-card"
-            aria-pressed="false"
-            aria-label="Turn over photo 1: us"
-            data-photo
-          >
-            <span class="photo-inner"
-              ><span class="photo-front"
-                ><img
-                  src="photo1.jpg"
-                  width="1200"
-                  height="1600"
-                  alt="A photo of us together"
-                  loading="lazy"
-                /><span class="photo-caption"
-                  >us, being us <span>01</span></span
-                ></span
-              ><span class="photo-back" aria-hidden="true"
-                ><svg class="icon" aria-hidden="true"><use href="#heart" /></svg
-                ><span class="photo-note"
-                  >You make ordinary days feel like they matter.</span
-                ><span class="photo-footnote"
-                  >That is a rare thing.<br />Tap to turn back.</span
-                ></span
-              ></span
+          <figure class="memory">
+            <button
+              class="memory-photo"
+              data-memory
+              aria-label="Enlarge photo 1: Us, being us."
             >
-          </button>
-          <button
-            class="photo-card"
-            aria-pressed="false"
-            aria-label="Turn over photo 2: my favourite"
-            data-photo
-          >
-            <span class="photo-inner"
-              ><span class="photo-front"
-                ><img
-                  src="photo2.jpg"
-                  width="1200"
-                  height="1600"
-                  alt="Another favourite photo of us"
-                  loading="lazy"
-                /><span class="photo-caption"
-                  >my favourite person <span>02</span></span
-                ></span
-              ><span class="photo-back" aria-hidden="true"
-                ><svg class="icon" aria-hidden="true"><use href="#heart" /></svg
-                ><span class="photo-note"
-                  >In every version of this life, I would choose you.</span
-                ><span class="photo-footnote"
-                  >Every single time.<br />Tap to turn back.</span
-                ></span
-              ></span
+              <img
+                src="photo1.jpg"
+                width="1200"
+                height="1600"
+                loading="lazy"
+                alt="Us, being us."
+              /><span class="image-open" aria-hidden="true">↗</span>
+            </button>
+            <figcaption>
+              <span class="memory-number">01</span>
+              <div>
+                <h3 class="memory-title">Us, being us.</h3>
+                <p class="memory-note">
+                  You make ordinary days feel like they matter. That is a rare
+                  thing.
+                </p>
+              </div>
+            </figcaption>
+          </figure>
+          <figure class="memory">
+            <button
+              class="memory-photo"
+              data-memory
+              aria-label="Enlarge photo 2: My favourite person."
             >
-          </button>
-          <button
-            class="photo-card"
-            aria-pressed="false"
-            aria-label="Turn over photo 3: close to you"
-            data-photo
-          >
-            <span class="photo-inner"
-              ><span class="photo-front"
-                ><img
-                  src="photo3.jpg"
-                  width="900"
-                  height="1600"
-                  alt="A moment of ours to keep"
-                  loading="lazy"
-                /><span class="photo-caption"
-                  >right here, with you <span>03</span></span
-                ></span
-              ><span class="photo-back" aria-hidden="true"
-                ><svg class="icon" aria-hidden="true"><use href="#heart" /></svg
-                ><span class="photo-note"
-                  >You are my calm, my safe place, and my favourite
-                  adventure.</span
-                ><span class="photo-footnote"
-                  >All at once.<br />Tap to turn back.</span
-                ></span
-              ></span
+              <img
+                src="photo2.jpg"
+                width="1200"
+                height="1600"
+                loading="lazy"
+                alt="My favourite person."
+              /><span class="image-open" aria-hidden="true">↗</span>
+            </button>
+            <figcaption>
+              <span class="memory-number">02</span>
+              <div>
+                <h3 class="memory-title">My favourite person.</h3>
+                <p class="memory-note">
+                  In every version of this life, I would choose you.
+                </p>
+              </div>
+            </figcaption>
+          </figure>
+          <figure class="memory">
+            <button
+              class="memory-photo"
+              data-memory
+              aria-label="Enlarge photo 3: All the little things."
             >
-          </button>
-          <button
-            class="photo-card"
-            aria-pressed="false"
-            aria-label="Turn over photo 4: more of this"
-            data-photo
-          >
-            <span class="photo-inner"
-              ><span class="photo-front"
-                ><img
-                  src="photo4.jpg"
-                  width="1200"
-                  height="1600"
-                  alt="One more photograph from our story"
-                  loading="lazy"
-                /><span class="photo-caption"
-                  >more days like this <span>04</span></span
-                ></span
-              ><span class="photo-back" aria-hidden="true"
-                ><svg class="icon" aria-hidden="true"><use href="#heart" /></svg
-                ><span class="photo-note"
-                  >I love you a little more in all the small, ordinary
-                  moments.</span
-                ><span class="photo-footnote"
-                  >There is so much more to come.<br />Tap to turn back.</span
-                ></span
-              ></span
+              <img
+                src="photo3.jpg"
+                width="900"
+                height="1600"
+                loading="lazy"
+                alt="All the little things."
+              /><span class="image-open" aria-hidden="true">↗</span>
+            </button>
+            <figcaption>
+              <span class="memory-number">03</span>
+              <div>
+                <h3 class="memory-title">All the little things.</h3>
+                <p class="memory-note">
+                  I love your softness, your laugh, and the way you care.
+                </p>
+              </div>
+            </figcaption>
+          </figure>
+          <figure class="memory">
+            <button
+              class="memory-photo"
+              data-memory
+              aria-label="Enlarge photo 4: Right here, with you."
             >
-          </button>
+              <img
+                src="photo4.jpg"
+                width="1200"
+                height="1600"
+                loading="lazy"
+                alt="Right here, with you."
+              /><span class="image-open" aria-hidden="true">↗</span>
+            </button>
+            <figcaption>
+              <span class="memory-number">04</span>
+              <div>
+                <h3 class="memory-title">Right here, with you.</h3>
+                <p class="memory-note">
+                  You are my calm, my safe place, and my favourite adventure.
+                </p>
+              </div>
+            </figcaption>
+          </figure>
         </div>
+        <p class="album-end">
+          The little things were the big things all along.
+        </p>
       </section>
-
       <section
         id="open-when"
         class="letters-section"
@@ -396,102 +379,145 @@
         aria-labelledby="dreams-title"
       >
         <div class="wrap section">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">05 / A FEW THINGS I DAYDREAM ABOUT</p>
-              <h2 id="dreams-title">
-                Somewhere, someday.<br /><em>Always with you.</em>
-              </h2>
-            </div>
-            <p>
-              A proposal by the lake. A day that’s ours.<br />A thousand little
-              adventures in between.
-            </p>
+          <div class="dreams-heading">
+            <p class="eyebrow">05 / OUR SOMEDAY</p>
+            <h2 id="dreams-title">
+              A few things<br /><em>I dream of with you.</em>
+            </h2>
+            <p>Little daydreams of a life with my favourite person.</p>
           </div>
           <div class="dreams-grid">
-            <button
-              class="dream-card"
-              data-dream="proposal"
-              aria-label="View our imagined Lake Como proposal"
-            >
-              <span class="dream-image"
-                ><img
-                  src="images/lake-como-proposal.png"
-                  width="1024"
-                  height="1365"
-                  loading="lazy"
-                  alt="AI imagined scene of us getting engaged beside Lake Como"
-                /><span class="dream-open" aria-hidden="true">↗</span></span
-              ><span class="dream-location">LAKE COMO, ITALY</span
-              ><span class="dream-title">One very big question.</span
-              ><span class="dream-caption"
-                >Your hand. A little courage. A lifetime of yes.</span
+            <article class="dream-chapter">
+              <button
+                class="dream-card"
+                data-dream="proposal"
+                aria-label="View our imagined Lake Como proposal"
               >
-            </button>
-            <button
-              class="dream-card"
-              data-dream="wedding"
-              aria-label="View our imagined wedding portrait"
-            >
-              <span class="dream-image"
-                ><img
-                  src="images/our-wedding.png"
-                  width="1024"
-                  height="1365"
-                  loading="lazy"
-                  alt="AI imagined wedding portrait of us in an Italian lakeside garden"
-                /><span class="dream-open" aria-hidden="true">↗</span></span
-              ><span class="dream-location">A DAY JUST FOR US</span
-              ><span class="dream-title">The beginning of always.</span
-              ><span class="dream-caption"
-                >My favourite person, in every tomorrow.</span
+                <span class="dream-image"
+                  ><img
+                    src="images/lake-como-proposal.png"
+                    width="1086"
+                    height="1448"
+                    loading="lazy"
+                    alt="AI imagined scene: our imagined Lake Como proposal"
+                  /><span class="image-open" aria-hidden="true">↗</span></span
+                >
+              </button>
+              <div class="dream-copy">
+                <span class="chapter-number" aria-hidden="true">01</span>
+                <p class="eyebrow">LAKE COMO, ITALY</p>
+                <h3 class="dream-title">One very<br />big question.</h3>
+                <p class="dream-caption">
+                  Your hand. A little courage.<br />A lifetime of yes.
+                </p>
+                <p class="dream-story">
+                  I picture the lake catching the last of the light. You beside
+                  me. And one question I already know I want to ask.
+                </p>
+                <span class="dream-detail">A DAYDREAM, PICTURED WITH AI</span>
+              </div>
+            </article>
+            <article class="dream-chapter">
+              <button
+                class="dream-card"
+                data-dream="wedding"
+                aria-label="View our imagined wedding portrait"
               >
-            </button>
-            <button
-              class="dream-card"
-              data-dream="camping"
-              aria-label="View our imagined camping adventure"
-            >
-              <span class="dream-image"
-                ><img
-                  src="images/camping-together.png"
-                  width="1024"
-                  height="1365"
-                  loading="lazy"
-                  alt="AI imagined scene of us camping together beside an alpine lake"
-                /><span class="dream-open" aria-hidden="true">↗</span></span
-              ><span class="dream-location">SOMEWHERE UNDER THE STARS</span
-              ><span class="dream-title">A little world of our own.</span
-              ><span class="dream-caption"
-                >Two mugs. One blanket. Nowhere else to be.</span
+                <span class="dream-image"
+                  ><img
+                    src="images/our-wedding.png"
+                    width="1086"
+                    height="1448"
+                    loading="lazy"
+                    alt="AI imagined scene: our imagined wedding portrait"
+                  /><span class="image-open" aria-hidden="true">↗</span></span
+                >
+              </button>
+              <div class="dream-copy">
+                <span class="chapter-number" aria-hidden="true">02</span>
+                <p class="eyebrow">A DAY JUST FOR US</p>
+                <h3 class="dream-title">
+                  The beginning<br />of <em>always.</em>
+                </h3>
+                <p class="dream-caption">
+                  My favourite person,<br />in every tomorrow.
+                </p>
+                <p class="dream-story">
+                  A room full of people, and still you’re the only one I’m
+                  looking for. Here’s to a day that feels like the start of
+                  everything.
+                </p>
+                <span class="dream-detail">A DAYDREAM, PICTURED WITH AI</span>
+              </div>
+            </article>
+            <article class="dream-chapter">
+              <button
+                class="dream-card"
+                data-dream="camping"
+                aria-label="View our imagined camping adventure"
               >
-            </button>
+                <span class="dream-image"
+                  ><img
+                    src="images/camping-together.png"
+                    width="1086"
+                    height="1448"
+                    loading="lazy"
+                    alt="AI imagined scene: our imagined camping adventure"
+                  /><span class="image-open" aria-hidden="true">↗</span></span
+                >
+              </button>
+              <div class="dream-copy">
+                <span class="chapter-number" aria-hidden="true">03</span>
+                <p class="eyebrow">SOMEWHERE UNDER THE STARS</p>
+                <h3 class="dream-title">
+                  A little world<br />of <em>our own.</em>
+                </h3>
+                <p class="dream-caption">
+                  Two mugs. One blanket.<br />Nowhere else to be.
+                </p>
+                <p class="dream-story">
+                  No rush, no noise, no reason to check the time. Just a warm
+                  drink, the evening sky, and you close enough to lean on.
+                </p>
+                <span class="dream-detail">A DAYDREAM, PICTURED WITH AI</span>
+              </div>
+            </article>
           </div>
           <p class="dreams-note">
-            A few dreams, pictured with AI using our photos. Not memories yet.
-            Just lovely possibilities.
+            Imagined with AI using our photographs. Lovely possibilities, still
+            waiting to become memories.
           </p>
         </div>
       </section>
-      <section class="closing wrap">
-        <svg class="closing-flower" aria-hidden="true" viewBox="0 0 100 100">
-          <g fill="none" stroke="currentColor" stroke-width="1.2">
-            <path
-              d="M50 87V42m0 28c-20 0-26-11-26-11 16-4 26 11 26 11Zm0-13s4-14 20-14c0 0-3 15-20 14Z"
+      <section class="closing" aria-labelledby="closing-title">
+        <div class="closing-inner wrap">
+          <figure class="closing-portrait">
+            <img
+              src="images/candlelit-portrait.jpg"
+              width="1024"
+              height="1536"
+              alt="A candlelit portrait of the two of us"
+              loading="lazy"
             />
-            <path
-              d="M50 42c-30 3-32-22-13-19-10-24 18-29 17-8 20-18 36 5 15 15 22 16 0 35-12 16-2 12-17 10-7-4Z"
-            />
-          </g>
-        </svg>
-        <p>
-          Of all the things I could have made,<br />I’m glad we made
-          <em>us.</em>
-        </p>
-        <button class="text-button" data-letter="forever">
-          One last thing, Golu
-          <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg>
-        </button>
+          </figure>
+          <div class="closing-copy">
+            <p class="eyebrow">NO SPECIAL OCCASION. JUST YOU.</p>
+            <h2 id="closing-title">
+              My Golu.<br />My Biscof.<br /><em
+                >In every<br />tomorrow, you.</em
+              >
+            </h2>
+            <p>
+              Of all the things I could have made,<br />I’m glad we made us.
+            </p>
+            <button class="text-button" data-letter="forever">
+              One last thing, Golu
+              <svg class="icon" aria-hidden="true">
+                <use href="#arrow" />
+              </svg></button
+            ><span class="closing-signature">Yours, always.</span>
+          </div>
+        </div>
       </section>
     </main>
     <footer class="wrap">
@@ -500,14 +526,29 @@
       <span>Our story is still being written.</span>
     </footer>
     <dialog id="letter-dialog" aria-labelledby="letter-title">
-      <div class="letter-paper">
-        <button
-          class="close-dialog"
-          id="close-letter"
-          aria-label="Close letter"
-        >
-          ×</button
-        ><span class="eyebrow" id="letter-eyebrow">A LETTER, JUST FOR YOU</span
+      <button class="close-dialog" id="close-letter" aria-label="Close letter">
+        ×
+      </button>
+      <div class="sealed-letter" id="sealed-letter">
+        <p class="eyebrow">SOMETHING ONLY FOR YOU</p>
+        <h2 id="sealed-title">For my Golu,</h2>
+        <div class="envelope-stage">
+          <span class="envelope-flap" aria-hidden="true"></span
+          ><button
+            class="wax-seal"
+            id="break-seal"
+            aria-label="Break the seal and read your letter"
+          >
+            <span>G <small>&amp;</small> S</span>
+          </button>
+        </div>
+        <p class="seal-instruction">
+          A little piece of my heart, sealed with love.
+        </p>
+        <span class="seal-hint">TOUCH THE SEAL TO OPEN</span>
+      </div>
+      <div class="letter-paper" id="opened-letter" hidden>
+        <span class="eyebrow" id="letter-eyebrow">A LETTER, JUST FOR YOU</span
         ><svg class="letter-heart icon" aria-hidden="true">
           <use href="#heart" />
         </svg>
@@ -522,11 +563,17 @@
     </dialog>
     <dialog id="dream-dialog" aria-labelledby="dream-title">
       <div class="dream-dialog-inner">
-        <button class="close-dialog" id="close-dream" aria-label="Close dream">
+        <button
+          class="close-dialog"
+          id="close-dream"
+          aria-label="Close photograph"
+        >
           ×</button
         ><img id="dream-full-image" alt="" />
         <div class="dream-dialog-caption">
-          <span class="eyebrow">DREAMING OF US · AI IMAGINED</span>
+          <span class="eyebrow" id="image-label"
+            >DREAMING OF US · AI IMAGINED</span
+          >
           <h2 id="dream-title"></h2>
           <p id="dream-description"></p>
         </div>

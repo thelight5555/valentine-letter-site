@@ -111,11 +111,24 @@ function openLetter(key, trigger) {
       return paragraph;
     }),
   );
+  document.getElementById("sealed-letter").hidden = false;
+  document.getElementById("opened-letter").hidden = true;
+  dialog.classList.remove("unsealed");
+  dialog.setAttribute("aria-labelledby", "sealed-title");
   dialog.showModal();
   dialog.scrollTop = 0;
   document.body.classList.add("letter-open");
-  document.getElementById("close-letter").focus({ preventScroll: true });
+  document.getElementById("break-seal").focus({ preventScroll: true });
 }
+// Reveal the letter immediately; animation is decorative and never delays access.
+document.getElementById("break-seal").addEventListener("click", () => {
+  document.getElementById("sealed-letter").hidden = true;
+  document.getElementById("opened-letter").hidden = false;
+  dialog.setAttribute("aria-labelledby", "letter-title");
+  dialog.classList.add("unsealed");
+  dialog.scrollTop = 0;
+  document.getElementById("close-letter").focus({ preventScroll: true });
+});
 document.querySelectorAll("[data-letter]").forEach((button) => {
   button.addEventListener("click", () =>
     openLetter(button.dataset.letter, button),
@@ -138,25 +151,6 @@ dialog.addEventListener("click", (event) => {
 dialog.addEventListener("close", () => {
   document.body.classList.remove("letter-open");
   letterTrigger?.focus({ preventScroll: true });
-});
-
-// Each photo works by touch, mouse, Enter, or Space.
-document.querySelectorAll("[data-photo]").forEach((card, index) => {
-  const front = card.querySelector(".photo-front");
-  const back = card.querySelector(".photo-back");
-  const initialLabel = card.getAttribute("aria-label");
-  card.addEventListener("click", () => {
-    const flipped = card.getAttribute("aria-pressed") !== "true";
-    card.setAttribute("aria-pressed", String(flipped));
-    front.setAttribute("aria-hidden", String(flipped));
-    back.setAttribute("aria-hidden", String(!flipped));
-    card.setAttribute(
-      "aria-label",
-      flipped
-        ? `Photo ${index + 1}: ${back.querySelector(".photo-note").textContent} Turn back to the photo.`
-        : initialLabel,
-    );
-  });
 });
 
 const notes = [
@@ -384,16 +378,25 @@ document.addEventListener("keydown", (event) => {
 
 const dreamDialog = document.getElementById("dream-dialog");
 let dreamTrigger = null;
-document.querySelectorAll("[data-dream]").forEach((button) => {
+// Use one native image dialog for memories and clearly labelled AI daydreams.
+document.querySelectorAll("[data-dream], [data-memory]").forEach((button) => {
   button.addEventListener("click", () => {
+    const isDream = button.hasAttribute("data-dream");
+    const card = button.closest(isDream ? ".dream-chapter" : ".memory");
     const source = button.querySelector("img");
     const fullImage = document.getElementById("dream-full-image");
     fullImage.src = source.getAttribute("src");
     fullImage.alt = source.alt;
-    document.getElementById("dream-title").textContent =
-      button.querySelector(".dream-title").textContent;
-    document.getElementById("dream-description").textContent =
-      button.querySelector(".dream-caption").textContent;
+    // innerText preserves the spaces around line breaks in editorial headings.
+    document.getElementById("dream-title").textContent = card
+      .querySelector(isDream ? ".dream-title" : ".memory-title")
+      .innerText.replace(/\s+/g, " ");
+    document.getElementById("dream-description").textContent = card
+      .querySelector(isDream ? ".dream-caption" : ".memory-note")
+      .innerText.replace(/\s+/g, " ");
+    document.getElementById("image-label").textContent = isDream
+      ? "OUR SOMEDAY · AI IMAGINED"
+      : "A PAGE FROM OUR STORY";
     dreamTrigger = button;
     dreamDialog.showModal();
     dreamDialog.scrollTop = 0;
