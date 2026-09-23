@@ -26,7 +26,7 @@ Truth or Dare, Same Wavelength and Date Roulette each have Sweet and After dark 
 
 Prompts live in `game-data.mjs`; the interface is handled by `games.mjs`. Switching moods starts a fresh round. Answers stay in memory for the current visit and are never saved or sent anywhere. Each game supports skipping without a penalty.
 
-After dark reveals three fully clothed AI couple portraits: a candlelit slow dance, a rooftop whisper and an affectionate balcony kiss. Each has a matching dare and opens in the existing image viewer. Switching back to Sweet hides the gallery. Content is romantic and suggestive without nudity or explicit sexual activity.
+After dark reveals four fully clothed AI couple portraits: a candlelit slow dance, a rooftop whisper, an affectionate balcony kiss and a short-dress terrace date. Each has a matching dare and opens in the existing image viewer. Switching back to Sweet hides the gallery. Content is romantic and suggestive without nudity or explicit sexual activity.
 
 Run `node --test tests/games.test.mjs` to check deck cycling, turn-taking, scoring and roulette selection.
 
