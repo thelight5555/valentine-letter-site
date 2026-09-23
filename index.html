@@ -24,7 +24,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
+    <script src="script.js?v=films-1" defer></script>
     <script type="module" src="games.mjs"></script>
   </head>
   <body>
@@ -966,6 +966,57 @@
             Imagined with AI using our photographs. Lovely possibilities, still
             waiting to become memories.
           </p>
+          <section class="couple-films" aria-labelledby="films-title">
+            <div class="films-heading">
+              <p class="eyebrow">A MOMENT, HELD A LITTLE LONGER</p>
+              <h3 id="films-title">Our little <em>films.</em></h3>
+              <p>For you, Golu. Press play on a little piece of someday.</p>
+            </div>
+            <div class="films-grid">
+              <figure class="film-card">
+                <video
+                  controls
+                  playsinline
+                  preload="none"
+                  width="720"
+                  height="960"
+                  poster="images/wedding-smiling.png"
+                  aria-label="Play our imagined wedding film"
+                  aria-describedby="wedding-film-caption"
+                >
+                  <source src="videos/wedding.mp4" type="video/mp4" />
+                  <a href="videos/wedding.mp4">Open our wedding film</a>
+                </video>
+                <figcaption id="wedding-film-caption">
+                  <h4>The start of always.</h4>
+                  <p>Us, a tiny smile, and a lifetime beside the lake.</p>
+                  <span>AI ANIMATED DAYDREAM · 5 SECONDS · SILENT</span>
+                  <a href="videos/wedding.mp4" download>Keep this little film</a>
+                </figcaption>
+              </figure>
+              <figure class="film-card">
+                <video
+                  controls
+                  playsinline
+                  preload="none"
+                  width="720"
+                  height="960"
+                  poster="images/camping-smiling.png"
+                  aria-label="Play our imagined camping film"
+                  aria-describedby="camping-film-caption"
+                >
+                  <source src="videos/camping.mp4" type="video/mp4" />
+                  <a href="videos/camping.mp4">Open our camping film</a>
+                </video>
+                <figcaption id="camping-film-caption">
+                  <h4>Nowhere else to be.</h4>
+                  <p>A quiet evening, a little breeze, and my favourite company.</p>
+                  <span>AI ANIMATED DAYDREAM · 5 SECONDS · SILENT</span>
+                  <a href="videos/camping.mp4" download>Keep this little film</a>
+                </figcaption>
+              </figure>
+            </div>
+          </section>
         </div>
       </section>
       <section class="closing" aria-labelledby="closing-title">

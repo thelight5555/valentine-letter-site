@@ -792,6 +792,79 @@ h3 {
   margin: 65px auto 0;
   max-width: 570px;
 }
+.couple-films {
+  margin-top: 85px;
+  padding-top: 65px;
+  border-top: 1px solid #6a5940;
+}
+.films-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+.films-heading .eyebrow {
+  color: #c9b495;
+}
+.films-heading h3 {
+  font-size: clamp(42px, 5vw, 62px);
+}
+.films-heading h3 em {
+  color: #d6b787;
+}
+.films-heading > p:last-child {
+  color: #c3b7a6;
+  margin-top: 12px;
+}
+.films-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 35px;
+  max-width: 850px;
+  margin-inline: auto;
+}
+.film-card video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  background: #1b1815;
+  object-fit: contain;
+}
+.film-card video:focus-visible {
+  outline: 3px solid #d6b787;
+  outline-offset: 5px;
+}
+.film-card figcaption {
+  padding-top: 18px;
+}
+.film-card h4 {
+  font: 32px/1.2 var(--serif);
+  margin: 0 0 8px;
+}
+.film-card p {
+  color: #c3b7a6;
+  font-size: 12px;
+}
+.film-card span {
+  display: block;
+  margin-top: 16px;
+  color: #bca989;
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+.film-card a {
+  display: inline-block;
+  padding-block: 12px;
+  color: #deccb0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-size: 12px;
+}
+@media (max-width: 600px) {
+  .films-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
 .closing {
   background: #eee5d7;
   padding-block: 115px;
