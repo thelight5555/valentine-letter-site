@@ -22,7 +22,7 @@ Run `python3 -m http.server 4173 --bind 127.0.0.1` from this folder, then open h
 
 ## Films
 
-Two silent, five-second AI animations use the corrected wedding and camping portraits. The files are self-hosted in `videos/`, with still posters, native play controls and download links in Our little films. Nothing autoplays, only one film plays at a time, and switching browser tabs pauses playback. Videos use `preload="none"` so a visit does not fetch both films immediately. Generating the assets used Higgsfield; visitors need no account or API connection.
+Three silent AI animations use the corrected couple portraits: a six-second kiss beside Lake Como, a five-second wedding moment and a five-second camping scene. The files are self-hosted in `videos/`, with still posters, native play controls and download links in Our little films. Nothing autoplays, only one film plays at a time, and switching browser tabs pauses playback. Videos use `preload="none"` so a visit does not fetch the films immediately. Generating the assets used Higgsfield; visitors need no account or API connection.
 
 ## Games
 
