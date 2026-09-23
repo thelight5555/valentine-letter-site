@@ -474,31 +474,50 @@ document.addEventListener("keydown", (event) => {
 const dreamDialog = document.getElementById("dream-dialog");
 let dreamTrigger = null;
 // Use one native image dialog for memories and clearly labelled AI daydreams.
-document.querySelectorAll("[data-dream], [data-memory]").forEach((button) => {
-  button.addEventListener("click", () => {
-    const isDream = button.hasAttribute("data-dream");
-    const card = button.closest(isDream ? ".dream-chapter" : ".memory");
-    const source = button.querySelector("img");
-    const fullImage = document.getElementById("dream-full-image");
-    fullImage.src = source.getAttribute("src");
-    fullImage.alt = source.alt;
-    // innerText preserves the spaces around line breaks in editorial headings.
-    document.getElementById("dream-title").textContent = card
-      .querySelector(isDream ? ".dream-title" : ".memory-title")
-      .innerText.replace(/\s+/g, " ");
-    document.getElementById("dream-description").textContent = card
-      .querySelector(isDream ? ".dream-caption" : ".memory-note")
-      .innerText.replace(/\s+/g, " ");
-    document.getElementById("image-label").textContent = isDream
-      ? "OUR SOMEDAY · AI IMAGINED"
-      : "A PAGE FROM OUR STORY";
-    dreamTrigger = button;
-    dreamDialog.showModal();
-    dreamDialog.scrollTop = 0;
-    document.body.classList.add("letter-open");
-    document.getElementById("close-dream").focus({ preventScroll: true });
+document
+  .querySelectorAll("[data-dream], [data-memory], [data-flirty]")
+  .forEach((button) => {
+    button.addEventListener("click", () => {
+      const isDream = button.hasAttribute("data-dream");
+      const isFlirty = button.hasAttribute("data-flirty");
+      const card = button.closest(
+        isFlirty ? ".flirty-scene" : isDream ? ".dream-chapter" : ".memory",
+      );
+      const source = button.querySelector("img");
+      const fullImage = document.getElementById("dream-full-image");
+      fullImage.src = source.getAttribute("src");
+      fullImage.alt = source.alt;
+      // innerText preserves the spaces around line breaks in editorial headings.
+      document.getElementById("dream-title").textContent = card
+        .querySelector(
+          isFlirty
+            ? ".flirty-title"
+            : isDream
+              ? ".dream-title"
+              : ".memory-title",
+        )
+        .innerText.replace(/\s+/g, " ");
+      document.getElementById("dream-description").textContent = card
+        .querySelector(
+          isFlirty
+            ? ".flirty-caption"
+            : isDream
+              ? ".dream-caption"
+              : ".memory-note",
+        )
+        .innerText.replace(/\s+/g, " ");
+      document.getElementById("image-label").textContent = isFlirty
+        ? "A LITTLE CHEMISTRY · AI IMAGINED"
+        : isDream
+          ? "OUR SOMEDAY · AI IMAGINED"
+          : "A PAGE FROM OUR STORY";
+      dreamTrigger = button;
+      dreamDialog.showModal();
+      dreamDialog.scrollTop = 0;
+      document.body.classList.add("letter-open");
+      document.getElementById("close-dream").focus({ preventScroll: true });
+    });
   });
-});
 document
   .getElementById("close-dream")
   .addEventListener("click", () => dreamDialog.close());

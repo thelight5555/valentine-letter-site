@@ -195,6 +195,7 @@ function resetRoulette() {
 document.querySelectorAll('input[name="game-mood"]').forEach((input) =>
   input.addEventListener("change", () => {
     mood = input.value;
+    byId("flirty-gallery").hidden = mood !== "flirty";
     lastKind = null;
     drawn = 0;
     byId("truth-kind").textContent =
