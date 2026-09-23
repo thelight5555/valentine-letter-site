@@ -491,7 +491,7 @@
               get closer.
             </p>
           </div>
-          <div class="games-shell">
+          <div class="games-shell" id="games-shell" data-mood="sweet">
             <div class="game-toolbar">
               <span class="game-monogram" aria-hidden="true"
                 >G <i>&amp;</i> S</span
@@ -507,7 +507,7 @@
                   /><span>Sweet</span></label
                 ><label
                   ><input type="radio" name="game-mood" value="flirty" /><span
-                    >A little naughty</span
+                    >After dark · 18+</span
                   ></label
                 >
               </fieldset>
@@ -519,6 +519,18 @@
             >
               Soft questions, little gestures, and a bit of butterflies.
             </p>
+            <div class="after-dark-banner" id="after-dark-banner" hidden>
+              <span class="adult-badge">18+</span>
+              <div>
+                <h3>After dark. Just us.</h3>
+                <p>
+                  Bolder questions, a little anticipation, and our own pace.
+                </p>
+              </div>
+              <button class="text-button" id="leave-after-dark">
+                Back to Sweet
+              </button>
+            </div>
             <fieldset class="game-picker">
               <legend class="sr-only">Choose a game</legend>
               <label
@@ -535,6 +547,11 @@
               ><label
                 ><input type="radio" name="couple-game" value="roulette" /><span
                   ><small>03</small>Date roulette</span
+                ></label
+              >
+              <label id="minute-game-choice" hidden
+                ><input type="radio" name="couple-game" value="minute" /><span
+                  ><small>04</small>60 seconds, just us</span
                 ></label
               >
             </fieldset>
@@ -688,11 +705,49 @@
                 </div>
               </div>
             </div>
+            <div
+              class="game-panel"
+              id="minute-panel"
+              aria-labelledby="minute-heading"
+              hidden
+            >
+              <div class="game-intro">
+                <h3 id="minute-heading">
+                  One minute.<br /><em>All your attention.</em>
+                </h3>
+                <p>Pick a card together. Start only when you both fancy it.</p>
+              </div>
+              <div class="prompt-card minute-card">
+                <span class="eyebrow" id="minute-title">THE SLOW DANCE</span>
+                <p id="minute-prompt" aria-live="polite" aria-atomic="true"></p>
+                <span
+                  class="minute-clock"
+                  id="minute-clock"
+                  role="timer"
+                  aria-label="Time remaining"
+                  aria-live="off"
+                  >1:00</span
+                >
+              </div>
+              <div class="game-actions">
+                <button class="button primary" id="minute-start">
+                  Start our minute</button
+                ><button class="button secondary" id="minute-reset">
+                  Reset timer
+                </button>
+              </div>
+              <button class="text-button" id="minute-skip">
+                Skip to another card
+              </button>
+              <p id="minute-status" class="game-smallprint" role="status">
+                No points. No pressure. Just a little time for us.
+              </p>
+            </div>
             <div class="flirty-gallery" id="flirty-gallery" hidden>
               <p class="eyebrow">A LITTLE CHEMISTRY</p>
               <h3>Picture us a little closer.</h3>
               <p class="flirty-intro">
-                Two AI daydreams. Pick a scene, then try its little dare
+                Three AI daydreams. Pick a scene, then try its little dare
                 together.
               </p>
               <div class="flirty-scenes">
@@ -736,6 +791,26 @@
                   <p class="flirty-caption">
                     Lean a little closer and whisper the compliment you were too
                     shy to say earlier.
+                  </p>
+                </article>
+                <article class="flirty-scene">
+                  <button
+                    class="flirty-photo"
+                    data-flirty="kiss"
+                    aria-label="View our imagined balcony kiss and its dare"
+                  >
+                    <img
+                      src="images/after-dark-kiss.png"
+                      width="1086"
+                      height="1448"
+                      loading="lazy"
+                      alt="AI imagined scene: an affectionate kiss on her temple on a candlelit balcony"
+                    /><span aria-hidden="true">↗</span>
+                  </button>
+                  <h4 class="flirty-title">A kiss, if you fancy.</h4>
+                  <p class="flirty-caption">
+                    Ask where your partner would like a kiss: forehead, cheek,
+                    or lips. A pass is a perfectly good answer too.
                   </p>
                 </article>
               </div>
@@ -908,6 +983,32 @@
       <p>Made with love, for my Golu.</p>
       <span>Our story is still being written.</span>
     </footer>
+    <dialog
+      id="adult-dialog"
+      aria-labelledby="adult-title"
+      aria-describedby="adult-description"
+    >
+      <form id="adult-entry">
+        <span class="adult-badge">18+</span>
+        <h2 id="adult-title">A little after dark?</h2>
+        <p id="adult-description">
+          Flirty questions, romantic photos and closer moments, for adults
+          playing together. Choose only what you both enjoy; every card can be
+          skipped.
+        </p>
+        <label class="adult-confirm"
+          ><input type="checkbox" id="adult-confirm" required /><span
+            >We’re both 18 or over and want to enter.</span
+          ></label
+        >
+        <div class="adult-actions">
+          <button type="submit" class="button primary">Enter After dark</button
+          ><button type="button" class="button secondary" id="adult-cancel">
+            Stay Sweet
+          </button>
+        </div>
+      </form>
+    </dialog>
     <dialog id="letter-dialog" aria-labelledby="letter-title">
       <button class="close-dialog" id="close-letter" aria-label="Close letter">
         ×

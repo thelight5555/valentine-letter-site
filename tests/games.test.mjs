@@ -1,5 +1,38 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { MinuteTimer, minuteCards } from "../game-data.mjs";
+
+test("the minute timer pauses, resumes and completes using elapsed time", () => {
+  const timer = new MinuteTimer();
+  assert.equal(timer.remaining(500), 60000);
+  assert.equal(timer.start(1000), true);
+  assert.equal(timer.start(2000), false);
+  assert.equal(timer.remaining(11000), 50000);
+  timer.pause(16000);
+  assert.equal(timer.remaining(99000), 45000);
+  timer.start(100000);
+  assert.equal(timer.remaining(144999), 1);
+  assert.equal(timer.remaining(150000), 0);
+  timer.pause(150000);
+  assert.equal(timer.start(150001), false);
+  timer.reset();
+  assert.equal(timer.running, false);
+  assert.equal(timer.remaining(180000), 60000);
+});
+
+test("skipping or leaving resets the timer and all minute cards are complete", () => {
+  const timer = new MinuteTimer();
+  timer.start(0);
+  timer.reset();
+  assert.equal(timer.remaining(90000), 60000);
+  assert.equal(timer.running, false);
+  assert.ok(minuteCards.length >= 8);
+  assert.equal(
+    new Set(minuteCards.map((card) => card.title)).size,
+    minuteCards.length,
+  );
+  assert.ok(minuteCards.every((card) => card.text.length > 20));
+});
 import {
   createDeck,
   MatchGame,

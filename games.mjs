@@ -6,6 +6,8 @@ import {
   createDeck,
   MatchGame,
   wheelTarget,
+  minuteCards,
+  MinuteTimer,
 } from "./game-data.mjs";
 
 const byId = (id) => document.getElementById(id);
@@ -22,7 +24,7 @@ function drawTruth(kind) {
   lastKind = kind;
   drawn++;
   byId("truth-kind").textContent =
-    `${mood === "sweet" ? "SWEET" : "A LITTLE NAUGHTY"} / ${kind.toUpperCase()}`;
+    `${mood === "sweet" ? "SWEET" : "AFTER DARK · 18+"} / ${kind.toUpperCase()}`;
   byId("truth-prompt").textContent = decks[`${mood}-${kind}`]();
   byId("skip-truth").hidden = false;
   byId("truth-count").textContent =
@@ -192,33 +194,143 @@ function resetRoulette() {
   byId("spin-wheel").firstChild.textContent = "Spin for us ";
 }
 
+const minuteDeck = createDeck(minuteCards);
+const minuteTimer = new MinuteTimer();
+let minuteInterval = null;
+function renderMinute() {
+  const seconds = Math.ceil(minuteTimer.remaining(performance.now()) / 1000);
+  byId("minute-clock").textContent =
+    `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
+  if (seconds === 0 && minuteTimer.running) {
+    minuteTimer.pause(performance.now());
+    clearInterval(minuteInterval);
+    minuteInterval = null;
+    byId("minute-status").textContent =
+      "Our minute is up. Stay close, or choose another card.";
+  }
+  byId("minute-start").textContent = minuteTimer.running
+    ? "Pause our minute"
+    : seconds === 0
+      ? "Start again"
+      : seconds < 60
+        ? "Continue our minute"
+        : "Start our minute";
+}
+function pauseMinute(message) {
+  const wasRunning = minuteTimer.running;
+  minuteTimer.pause(performance.now());
+  clearInterval(minuteInterval);
+  minuteInterval = null;
+  renderMinute();
+  if (wasRunning && message) byId("minute-status").textContent = message;
+}
+function resetMinute(newCard = false) {
+  clearInterval(minuteInterval);
+  minuteInterval = null;
+  minuteTimer.reset();
+  if (newCard) {
+    const card = minuteDeck();
+    byId("minute-title").textContent = card.title.toUpperCase();
+    byId("minute-prompt").textContent = card.text;
+  }
+  byId("minute-status").textContent =
+    "No points. No pressure. Just a little time for us.";
+  renderMinute();
+}
+byId("minute-start").addEventListener("click", () => {
+  if (mood !== "flirty" || currentGame !== "minute") return;
+  if (minuteTimer.running) {
+    pauseMinute("Paused. Continue whenever you both feel ready.");
+    return;
+  }
+  if (minuteTimer.remaining(performance.now()) === 0) minuteTimer.reset();
+  minuteTimer.start(performance.now());
+  byId("minute-status").textContent =
+    "Your minute starts now. You can pause or skip at any time.";
+  minuteInterval = setInterval(renderMinute, 200);
+  renderMinute();
+});
+byId("minute-reset").addEventListener("click", () => resetMinute());
+byId("minute-skip").addEventListener("click", () => resetMinute(true));
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden)
+    pauseMinute("Paused while you were away. Continue when you’re ready.");
+});
+resetMinute(true);
+
+function selectGame(name) {
+  if (name === "minute" && mood !== "flirty") name = "truth";
+  if (currentGame === "roulette" && pendingSpin !== null) resetRoulette();
+  if (currentGame === "minute")
+    pauseMinute("Paused while you choose another game.");
+  currentGame = name;
+  for (const game of ["truth", "match", "roulette", "minute"])
+    byId(`${game}-panel`).hidden = game !== name;
+  document.querySelector(`input[name="couple-game"][value="${name}"]`).checked =
+    true;
+}
+function applyMood(nextMood) {
+  mood = nextMood;
+  const adult = mood === "flirty";
+  document.querySelector(`input[name="game-mood"][value="${mood}"]`).checked =
+    true;
+  byId("games-shell").dataset.mood = mood;
+  byId("flirty-gallery").hidden = !adult;
+  byId("after-dark-banner").hidden = !adult;
+  byId("minute-game-choice").hidden = !adult;
+  if (!adult && currentGame === "minute") selectGame("truth");
+  resetMinute(true);
+  lastKind = null;
+  drawn = 0;
+  byId("truth-kind").textContent = adult
+    ? "AFTER DARK · 18+"
+    : "JUST BETWEEN US";
+  byId("truth-prompt").textContent = adult
+    ? "A little bolder. A little closer. Truth or dare?"
+    : "A truth to tell, or a dare to try?";
+  byId("skip-truth").hidden = true;
+  byId("truth-count").textContent = "No scores. Just us.";
+  byId("game-mood-description").textContent = adult
+    ? "For adults: bolder flirting, shared moments and romantic daydreams."
+    : "Soft questions, little gestures, and a bit of butterflies.";
+  resetMatch();
+  resetRoulette();
+}
+const adultDialog = byId("adult-dialog");
 document.querySelectorAll('input[name="game-mood"]').forEach((input) =>
   input.addEventListener("change", () => {
-    mood = input.value;
-    byId("flirty-gallery").hidden = mood !== "flirty";
-    lastKind = null;
-    drawn = 0;
-    byId("truth-kind").textContent =
-      mood === "sweet" ? "JUST BETWEEN US" : "A LITTLE NAUGHTY";
-    byId("truth-prompt").textContent =
-      mood === "sweet"
-        ? "A truth to tell, or a dare to try?"
-        : "A little bolder. A little closer. Truth or dare?";
-    byId("skip-truth").hidden = true;
-    byId("truth-count").textContent = "No scores. Just us.";
-    byId("game-mood-description").textContent =
-      mood === "sweet"
-        ? "Soft questions, little gestures, and a bit of butterflies."
-        : "Cheeky questions, whispered compliments, and first-date butterflies.";
-    resetMatch();
-    resetRoulette();
+    if (input.value === "flirty") {
+      document.querySelector('input[name="game-mood"][value="sweet"]').checked =
+        true;
+      byId("adult-entry").reset();
+      adultDialog.showModal();
+      document.body.classList.add("adult-open");
+      byId("adult-confirm").focus();
+    } else applyMood("sweet");
   }),
 );
-document.querySelectorAll('input[name="couple-game"]').forEach((input) =>
-  input.addEventListener("change", () => {
-    if (currentGame === "roulette" && pendingSpin !== null) resetRoulette();
-    currentGame = input.value;
-    for (const name of ["truth", "match", "roulette"])
-      byId(`${name}-panel`).hidden = name !== currentGame;
-  }),
-);
+byId("adult-entry").addEventListener("submit", (event) => {
+  event.preventDefault();
+  if (!byId("adult-confirm").checked) return;
+  applyMood("flirty");
+  adultDialog.close();
+});
+byId("adult-cancel").addEventListener("click", () => adultDialog.close());
+adultDialog.addEventListener("close", () => {
+  document.body.classList.remove("adult-open");
+  document
+    .querySelector(`input[name="game-mood"][value="${mood}"]`)
+    .focus({ preventScroll: true });
+});
+byId("leave-after-dark").addEventListener("click", () => {
+  applyMood("sweet");
+  document.querySelector('input[name="game-mood"][value="sweet"]').focus();
+});
+document
+  .querySelectorAll('input[name="couple-game"]')
+  .forEach((input) =>
+    input.addEventListener("change", () => selectGame(input.value)),
+  );
+// Match the initial UI even when a browser restores radio values after reload.
+applyMood("sweet");
+selectGame("truth");
