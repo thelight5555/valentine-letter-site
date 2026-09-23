@@ -1682,6 +1682,66 @@ body.letter-open {
   font-size: 11px;
   margin-top: 12px;
 }
+.flirty-gallery {
+  border-top: 1px solid var(--line);
+  margin-top: 35px;
+  padding-top: 32px;
+  text-align: center;
+}
+.flirty-gallery h3 {
+  font-size: 34px;
+  line-height: 1.2;
+  margin: 9px 0;
+}
+.flirty-intro {
+  font-size: 12px;
+  color: var(--muted);
+}
+.flirty-scenes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 24px;
+  text-align: left;
+}
+.flirty-photo {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  position: relative;
+  background: #342a26;
+}
+.flirty-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+.flirty-photo > span {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #fff8e780;
+  background: #302a2670;
+  color: #fff8e7;
+  font-size: 21px;
+}
+.flirty-title {
+  font: italic 27px/1.1 var(--serif);
+  color: var(--wine);
+  margin: 17px 0 9px;
+}
+.flirty-caption {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
 .game-boundary {
   margin-top: 30px;
   padding-top: 19px;
@@ -1839,6 +1899,18 @@ body.letter-open {
   cursor: wait;
 }
 @media (max-width: 700px) {
+  .flirty-scenes {
+    gap: 14px;
+  }
+  .flirty-title {
+    font-size: 23px;
+  }
+  .flirty-caption {
+    font-size: 11px;
+  }
+  .flirty-gallery h3 {
+    font-size: 29px;
+  }
   .games-section {
     padding: 65px 0;
   }

@@ -11,7 +11,7 @@ Run `python3 -m http.server 4173 --bind 127.0.0.1` from this folder, then open h
 - The relationship start date remains 12 March 2025 at 00:00 UTC, as recorded in the previous site.
 - Letters, daily notes and date ideas are in `script.js`. Visible headings and photo captions are in `index.html`.
 - Daily notes and the anniversary calendar use Europe/London dates. There are 31 notes in a repeating daily rotation; the button can reveal more immediately.
-- Three AI-created imagined scenes are in `images/`: a Lake Como proposal, a wedding portrait and a camping trip. The page labels them as imagined and opens them in a keyboard-accessible image viewer.
+- Three AI-created imagined scenes are in `images/`: a Lake Como proposal, a wedding portrait and a camping trip. The page uses the revised `proposal-smiling.png`, `wedding-smiling.png` and `camping-smiling.png` portraits with warmer expressions. Earlier versions remain in the repository. The page labels the scenes as imagined and opens them in a keyboard-accessible image viewer.
 - The two supplied candlelit images are in `images/candlelit-wide.jpg` and `images/candlelit-portrait.jpg`. Originals are copied without editing.
 - The four original album pictures open at full size with their captions. The fifth original photograph remains in the repository. The standalone cat illustration remains in the repository but is unused.
 - All letters open as an envelope with a G & S wax seal. Activating the seal reveals the letter inside the same native dialog. Escape, the close button and an outside click close them. The previous focus is restored.
@@ -23,6 +23,8 @@ Run `python3 -m http.server 4173 --bind 127.0.0.1` from this folder, then open h
 ## Games
 
 Truth or Dare, Same Wavelength and Date Roulette each have Sweet and A little naughty modes. Prompts live in `game-data.mjs`; the interface is handled by `games.mjs`. Switching moods starts a fresh round. Answers stay in memory for the current visit and are never saved or sent anywhere. Each game supports skipping without a penalty.
+
+A little naughty mode also reveals two fully clothed AI couple portraits: a candlelit slow dance and a rooftop whisper. Each has a matching dare and opens in the existing image viewer. Switching back to Sweet hides that gallery; it is a display preference, not access control.
 
 Run `node --test tests/games.test.mjs` to check deck cycling, turn-taking, scoring and roulette selection.
 
