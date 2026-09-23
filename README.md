@@ -20,6 +20,10 @@ Run `python3 -m http.server 4173 --bind 127.0.0.1` from this folder, then open h
 - Reduced-motion preferences disable letter and hover animations. Interactive elements support keyboards and touch.
 - Search engines are asked not to index the page. That is not access control: the existing public repository and website remain public.
 
+## Films
+
+Two silent, five-second AI animations use the corrected wedding and camping portraits. The files are self-hosted in `videos/`, with still posters, native play controls and download links in Our little films. Nothing autoplays, only one film plays at a time, and switching browser tabs pauses playback. Videos use `preload="none"` so a visit does not fetch both films immediately. Generating the assets used Higgsfield; visitors need no account or API connection.
+
 ## Games
 
 Truth or Dare, Same Wavelength and Date Roulette each have Sweet and After dark (18+) modes. After dark asks both players to confirm they are adults each time they enter. It adds a fourth game, 60 seconds, just us, with eight cards and start, pause, resume, reset and skip controls. The timer pauses when the tab is hidden or another game is chosen, and resets when leaving After dark. The entry prompt is a self-declaration, not identity verification or access control. Every page load starts in Sweet.

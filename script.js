@@ -536,3 +536,16 @@ dreamDialog.addEventListener("close", () => {
   document.body.classList.remove("letter-open");
   dreamTrigger?.focus({ preventScroll: true });
 });
+
+// Films only move after an explicit play action. Keep one playing at a time.
+const coupleFilms = [...document.querySelectorAll(".film-card video")];
+coupleFilms.forEach((film) => {
+  film.addEventListener("play", () => {
+    coupleFilms.forEach((other) => {
+      if (other !== film) other.pause();
+    });
+  });
+});
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) coupleFilms.forEach((film) => film.pause());
+});
