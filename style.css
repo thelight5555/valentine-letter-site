@@ -1682,6 +1682,100 @@ body.letter-open {
   font-size: 11px;
   margin-top: 12px;
 }
+.adult-open {
+  overflow: hidden;
+}
+#adult-dialog {
+  width: min(530px, calc(100% - 32px));
+  padding: 38px 30px;
+}
+.adult-badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 44px;
+  height: 44px;
+  padding: 6px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font: 500 13px var(--sans);
+}
+#adult-title {
+  font-size: 44px;
+  margin: 20px 0;
+  color: var(--wine);
+}
+#adult-description {
+  font-size: 14px;
+  color: var(--muted);
+}
+.adult-confirm {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 23px 0;
+  min-height: 48px;
+  cursor: pointer;
+  font-size: 13px;
+}
+.adult-confirm input {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: var(--wine);
+}
+.adult-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.after-dark-banner {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px;
+  margin-bottom: 24px;
+  background: #48252d;
+  color: #fff0df;
+}
+.after-dark-banner h3 {
+  font-size: 29px;
+  line-height: 1.2;
+}
+.after-dark-banner p {
+  margin-top: 6px;
+  font-size: 11px;
+  color: #ead6cc;
+}
+#leave-after-dark {
+  margin-left: auto;
+  color: #fff0df;
+  white-space: nowrap;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #b98c89;
+  min-height: 44px;
+  font-size: 11px;
+}
+.games-shell[data-mood="flirty"] {
+  background: #f5e9e3;
+  border-color: #a47876;
+}
+.games-shell[data-mood="flirty"] .game-picker {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.minute-clock {
+  font: 54px/1 var(--serif);
+  color: var(--wine);
+  margin-top: 25px;
+  font-variant-numeric: tabular-nums;
+}
+#minute-prompt {
+  font: 28px/1.3 var(--serif);
+  margin-top: 16px;
+}
+#minute-skip {
+  margin-top: 12px;
+}
 .flirty-gallery {
   border-top: 1px solid var(--line);
   margin-top: 35px;
@@ -1699,7 +1793,7 @@ body.letter-open {
 }
 .flirty-scenes {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
   margin-top: 24px;
   text-align: left;
@@ -1899,6 +1993,38 @@ body.letter-open {
   cursor: wait;
 }
 @media (max-width: 700px) {
+  .games-shell[data-mood="flirty"] .game-picker {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .after-dark-banner {
+    flex-wrap: wrap;
+    padding: 18px;
+    gap: 12px;
+  }
+  .after-dark-banner > div {
+    flex: 1;
+  }
+  #leave-after-dark {
+    margin-left: 0;
+    flex-basis: 100%;
+    text-align: left;
+  }
+  .after-dark-banner h3 {
+    font-size: 25px;
+  }
+  #adult-dialog {
+    padding: 28px 22px;
+  }
+  .flirty-scenes {
+    grid-template-columns: 1fr;
+  }
+  .flirty-photo img {
+    max-height: 400px;
+    object-position: center 25%;
+  }
+  #minute-prompt {
+    font-size: 25px;
+  }
   .flirty-scenes {
     gap: 14px;
   }

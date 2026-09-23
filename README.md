@@ -22,9 +22,11 @@ Run `python3 -m http.server 4173 --bind 127.0.0.1` from this folder, then open h
 
 ## Games
 
-Truth or Dare, Same Wavelength and Date Roulette each have Sweet and A little naughty modes. Prompts live in `game-data.mjs`; the interface is handled by `games.mjs`. Switching moods starts a fresh round. Answers stay in memory for the current visit and are never saved or sent anywhere. Each game supports skipping without a penalty.
+Truth or Dare, Same Wavelength and Date Roulette each have Sweet and After dark (18+) modes. After dark asks both players to confirm they are adults each time they enter. It adds a fourth game, 60 seconds, just us, with eight cards and start, pause, resume, reset and skip controls. The timer pauses when the tab is hidden or another game is chosen, and resets when leaving After dark. The entry prompt is a self-declaration, not identity verification or access control. Every page load starts in Sweet.
 
-A little naughty mode also reveals two fully clothed AI couple portraits: a candlelit slow dance and a rooftop whisper. Each has a matching dare and opens in the existing image viewer. Switching back to Sweet hides that gallery; it is a display preference, not access control.
+Prompts live in `game-data.mjs`; the interface is handled by `games.mjs`. Switching moods starts a fresh round. Answers stay in memory for the current visit and are never saved or sent anywhere. Each game supports skipping without a penalty.
+
+After dark reveals three fully clothed AI couple portraits: a candlelit slow dance, a rooftop whisper and an affectionate balcony kiss. Each has a matching dare and opens in the existing image viewer. Switching back to Sweet hides the gallery. Content is romantic and suggestive without nudity or explicit sexual activity.
 
 Run `node --test tests/games.test.mjs` to check deck cycling, turn-taking, scoring and roulette selection.
 

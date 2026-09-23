@@ -38,6 +38,12 @@ export const truthCards = {
       "What is one thing I do without realising that you find irresistible?",
       "Would you rather I make the first move or leave you guessing with a smile?",
       "What is your idea of a perfect goodnight kiss?",
+      "What would you whisper to me if we had this whole evening to ourselves?",
+      "Which kiss of ours would you like to repeat?",
+      "What kind of flirting makes you blush even when you try to hide it?",
+      "What makes a romantic evening feel especially intimate to you?",
+      "Would you rather be pulled into a slow dance or asked for a lingering kiss?",
+      "What is something affectionate you would like me to ask for more often?",
     ],
     dare: [
       "Lean a little closer and whisper your boldest compliment.",
@@ -50,6 +56,12 @@ export const truthCards = {
       "Pretend we have just met. You have thirty seconds to charm me.",
       "Whisper one romantic thing you would usually be too shy to say.",
       "Give me a look that says “come here” without saying a word.",
+      "Ask if I would like a gentle shoulder massage. If yes, take a quiet moment together.",
+      "Describe our ideal evening alone, from the first knock at the door to the goodnight kiss.",
+      "Ask where I would like a kiss: forehead, cheek, or lips. Follow my choice, including a pass.",
+      "Take my hand if I offer it, draw me into a slow dance, and whisper what you like about being close.",
+      "Sit beside me and finish: ‘The thing about you that still gives me butterflies is…’",
+      "Make a date-night invitation so tempting that I put my phone down. Use only your words.",
     ],
   },
 };
@@ -182,6 +194,66 @@ export const rouletteCards = {
     },
   ],
 };
+
+export const minuteCards = [
+  {
+    title: "The slow dance",
+    text: "One minute, one song, a little closer. Let the rest of the room disappear for a moment.",
+  },
+  {
+    title: "Look at me",
+    text: "Hold each other’s gaze. Take turns saying one thing you find irresistible about the other. Smiling is allowed.",
+  },
+  {
+    title: "Just a whisper",
+    text: "Trade three whispered compliments. Start with sweet and finish with the one you usually keep to yourself.",
+  },
+  {
+    title: "First-date butterflies",
+    text: "Pretend this is the end of our first date. Tell me why you want a second, then ask if you can kiss me.",
+  },
+  {
+    title: "A little closer",
+    text: "Ask whether your partner would like a gentle shoulder massage. If yes, spend a quiet minute helping them unwind.",
+  },
+  {
+    title: "The goodnight kiss",
+    text: "If you both want to, share a goodnight kiss and stay close for a moment. The timer is an invitation, never a target.",
+  },
+  {
+    title: "Make me blush",
+    text: "Take turns finishing this sentence: ‘You have no idea how much I like it when you…’ Keep it personal and playful.",
+  },
+  {
+    title: "Meet me again",
+    text: "You’re strangers at a candlelit bar. You have one minute to charm each other into a date. Terrible lines absolutely count.",
+  },
+];
+
+export class MinuteTimer {
+  constructor(duration = 60000) {
+    this.duration = duration;
+    this.reset();
+  }
+  remaining(now) {
+    return this.running ? Math.max(0, this.deadline - now) : this.remainingMs;
+  }
+  start(now) {
+    if (this.running || this.remainingMs <= 0) return false;
+    this.deadline = now + this.remainingMs;
+    this.running = true;
+    return true;
+  }
+  pause(now) {
+    this.remainingMs = this.remaining(now);
+    this.running = false;
+  }
+  reset() {
+    this.remainingMs = this.duration;
+    this.deadline = 0;
+    this.running = false;
+  }
+}
 
 export function shuffle(items, random = Math.random) {
   const copy = [...items];
